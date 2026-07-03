@@ -1,0 +1,9 @@
+g474ret6_control_tsc_llc\arm_sin_q15.o: ..\Drivers\CMSIS\DSP\Source\FastMathFunctions\arm_sin_q15.c
+g474ret6_control_tsc_llc\arm_sin_q15.o: ../Drivers/CMSIS/DSP/Include/arm_math.h
+g474ret6_control_tsc_llc\arm_sin_q15.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+g474ret6_control_tsc_llc\arm_sin_q15.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+g474ret6_control_tsc_llc\arm_sin_q15.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+g474ret6_control_tsc_llc\arm_sin_q15.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+g474ret6_control_tsc_llc\arm_sin_q15.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+g474ret6_control_tsc_llc\arm_sin_q15.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
+g474ret6_control_tsc_llc\arm_sin_q15.o: ../Drivers/CMSIS/DSP/Include/arm_common_tables.h

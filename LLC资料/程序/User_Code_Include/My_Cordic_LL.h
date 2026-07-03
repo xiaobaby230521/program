@@ -1,0 +1,50 @@
+#ifndef __My_Cordic_LL_H
+#define __My_Cordic_LL_H
+#endif
+
+#include "cordic.h"
+//CORDIC运算函数的宏定义
+#define CORDIC_FUNCTION_COSINE 			0x00000000U
+#define CORDIC_FUNCTION_SINE 				0x00000001U
+#define CORDIC_FUNCTION_PHASE 			0x00000002U
+#define CORDIC_FUNCTION_MODULUS 			0x00000003U
+#define CORDIC_FUNCTION_ARCTANGENT 		0x00000004U
+#define CORDIC_FUNCTION_HCOSINE 			0x00000005U
+#define CORDIC_FUNCTION_HSINE 			0x00000006U
+#define CORDIC_FUNCTION_HARCTANGENT 		0x00000007U
+#define CORDIC_FUNCTION_NATURALLOG 		0x00000008U
+#define CORDIC_FUNCTION_SQUAREROOT 		0x00000009U
+//CORDIC迭代周期的宏定义
+#define CORDIC_PRECISION_1CYCLE			0x00000010U
+#define CORDIC_PRECISION_2CYCLES			0x00000020U
+#define CORDIC_PRECISION_3CYCLES			0x00000030U
+#define CORDIC_PRECISION_4CYCLES			0x00000040U
+#define CORDIC_PRECISION_5CYCLES			0x00000050U
+#define CORDIC_PRECISION_6CYCLES			0x00000060U
+//CORDIC输入寄存器大小的宏定义	
+#define CORDIC_INSIZE_16BITS				0x00400000U
+#define CORDIC_INSIZE_32BITS				0x00000000U
+//CORDIC输出寄存器大小的宏定义	
+#define CORDIC_OUTSIZE_16BITS				0x00200000U
+#define CORDIC_OUTSIZE_32BITS				0x00000000U
+//CORDIC输入参数个数的宏定义
+#define CORDIC_NBWRITE_1					0x00000000U
+#define CORDIC_NBWRITE_2					0x00100000U
+//CORDIC输出结构个数的宏定义
+#define CORDIC_NBREAD_1					0x00000000U
+#define CORDIC_NBREAD_2					0x00080000U
+//CORDIC缩放系数的宏定义
+#define CORDIC_SCALE_0					0x00000000U
+#define CORDIC_SCALE_1					0x00000100U
+#define CORDIC_SCALE_2					0x00000200U
+#define CORDIC_SCALE_3					0x00000300U
+#define CORDIC_SCALE_4					0x00000400U
+#define CORDIC_SCALE_5					0x00000500U
+#define CORDIC_SCALE_6					0x00000600U
+#define CORDIC_SCALE_7					0x00000700U
+
+
+void value_to_cordic31(float *value, int32_t *cordic31, uint8_t Length);
+void cordic31_to_value(int32_t *cordic31, float *res, uint8_t Length);
+void cordic_get_result(float *res1, float *res2);
+void My_Cordic_Calculate(int32_t *Input_Data, int32_t *Output_Data, uint8_t Length);

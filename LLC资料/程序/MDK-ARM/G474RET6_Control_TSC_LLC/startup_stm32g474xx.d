@@ -1,0 +1,1 @@
+g474ret6_control_tsc_llc\startup_stm32g474xx.o: startup_stm32g474xx.s

@@ -1,0 +1,172 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   22 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "x3_1"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:157-161"\
+    }\
+    ChartData {\
+      Name         "x3_2"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:162-166"\
+    }\
+    ChartData {\
+      Name         "x5_1"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:167-171"\
+    }\
+    ChartData {\
+      Name         "x5_2"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:172-176"\
+    }\
+    ChartData {\
+      Name         "x7_1"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:177-181"\
+    }\
+    ChartData {\
+      Name         "x7_2"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:182-186"\
+    }\
+    ChartData {\
+      Name         "first_run_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:187-196"\
+    }\
+    ChartData {\
+      Name         "b3_0"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:212-216"\
+    }\
+    ChartData {\
+      Name         "b3_1"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:217-221"\
+    }\
+    ChartData {\
+      Name         "b3_2"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:222-226"\
+    }\
+    ChartData {\
+      Name         "a3_1"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:227-231"\
+    }\
+    ChartData {\
+      Name         "a3_2"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:232-236"\
+    }\
+    ChartData {\
+      Name         "b5_0"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:252-256"\
+    }\
+    ChartData {\
+      Name         "b5_1"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:257-261"\
+    }\
+    ChartData {\
+      Name         "b5_2"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:262-266"\
+    }\
+    ChartData {\
+      Name         "a5_1"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:267-271"\
+    }\
+    ChartData {\
+      Name         "a5_2"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:272-276"\
+    }\
+    ChartData {\
+      Name         "b7_0"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:292-296"\
+    }\
+    ChartData {\
+      Name         "b7_1"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:297-301"\
+    }\
+    ChartData {\
+      Name         "b7_2"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:302-306"\
+    }\
+    ChartData {\
+      Name         "a7_1"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:307-311"\
+    }\
+    ChartData {\
+      Name         "a7_2"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1770:312-316"\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

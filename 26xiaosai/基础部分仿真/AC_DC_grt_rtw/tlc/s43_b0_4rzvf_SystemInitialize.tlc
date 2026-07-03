@@ -1,0 +1,684 @@
+%implements s43_b0_4rzvf_SystemInitialize "C"
+
+%function SystemInitialize(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcInitializeConditionsFcnOfS43B1 = OpaqueTLCBlockFcn("InitializeConditions", 43, 1, 0, 3, 0)
+%assign tlcInitializeConditionsFcnOfS43B64 = OpaqueTLCBlockFcn("InitializeConditions", 43, 64, 0, 3, 1)
+%assign tlcInitializeConditionsFcnOfS43B65 = OpaqueTLCBlockFcn("InitializeConditions", 43, 65, 0, 3, 2)
+%assign tlcInitializeConditionsFcnOfS43B66 = OpaqueTLCBlockFcn("InitializeConditions", 43, 66, 0, 3, 3)
+%assign tlcInitializeConditionsFcnOfS43B67 = OpaqueTLCBlockFcn("InitializeConditions", 43, 67, 0, 3, 4)
+%assign tlcInitializeConditionsFcnOfS43B69 = OpaqueTLCBlockFcn("InitializeConditions", 43, 69, 0, 3, 5)
+%assign tlcInitializeConditionsFcnOfS43B70 = OpaqueTLCBlockFcn("InitializeConditions", 43, 70, 0, 3, 6)
+%assign tlcSetupRuntimeResourcesFcnOfS24B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 24, 0, 0, 3, 7)
+%assign tlcSetupRuntimeResourcesFcnOfS24B1 = OpaqueTLCBlockFcn("SetupRuntimeResources", 24, 1, 0, 3, 8)
+%assign tlcStartFcnOfS24B0 = OpaqueTLCBlockFcn("Start", 24, 0, 0, 3, 9)
+%assign tlcStartFcnOfS24B1 = OpaqueTLCBlockFcn("Start", 24, 1, 0, 3, 10)
+%assign tlcInitializeConditionsFcnOfS24B0 = OpaqueTLCBlockFcn("InitializeConditions", 24, 0, 0, 3, 11)
+%assign tlcInitializeConditionsFcnOfS24B1 = OpaqueTLCBlockFcn("InitializeConditions", 24, 1, 0, 3, 12)
+%assign tlcSetupRuntimeResourcesFcnOfS25B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 25, 0, 0, 3, 13)
+%assign tlcStartFcnOfS25B0 = OpaqueTLCBlockFcn("Start", 25, 0, 0, 3, 14)
+%assign tlcInitializeConditionsFcnOfS25B0 = OpaqueTLCBlockFcn("InitializeConditions", 25, 0, 0, 3, 15)
+%assign tlcSetupRuntimeResourcesFcnOfS30B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 30, 0, 0, 3, 16)
+%assign tlcSetupRuntimeResourcesFcnOfS30B1 = OpaqueTLCBlockFcn("SetupRuntimeResources", 30, 1, 0, 3, 17)
+%assign tlcStartFcnOfS30B0 = OpaqueTLCBlockFcn("Start", 30, 0, 0, 3, 18)
+%assign tlcStartFcnOfS30B1 = OpaqueTLCBlockFcn("Start", 30, 1, 0, 3, 19)
+%assign tlcInitializeConditionsFcnOfS30B0 = OpaqueTLCBlockFcn("InitializeConditions", 30, 0, 0, 3, 20)
+%assign tlcInitializeConditionsFcnOfS30B1 = OpaqueTLCBlockFcn("InitializeConditions", 30, 1, 0, 3, 21)
+%assign tlcSetupRuntimeResourcesFcnOfS31B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 31, 0, 0, 3, 22)
+%assign tlcStartFcnOfS31B0 = OpaqueTLCBlockFcn("Start", 31, 0, 0, 3, 23)
+%assign tlcInitializeConditionsFcnOfS31B0 = OpaqueTLCBlockFcn("InitializeConditions", 31, 0, 0, 3, 24)
+%assign tlcSetupRuntimeResourcesFcnOfS32B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 32, 0, 0, 3, 25)
+%assign tlcSetupRuntimeResourcesFcnOfS32B1 = OpaqueTLCBlockFcn("SetupRuntimeResources", 32, 1, 0, 3, 26)
+%assign tlcStartFcnOfS32B0 = OpaqueTLCBlockFcn("Start", 32, 0, 0, 3, 27)
+%assign tlcStartFcnOfS32B1 = OpaqueTLCBlockFcn("Start", 32, 1, 0, 3, 28)
+%assign tlcInitializeConditionsFcnOfS32B0 = OpaqueTLCBlockFcn("InitializeConditions", 32, 0, 0, 3, 29)
+%assign tlcInitializeConditionsFcnOfS32B1 = OpaqueTLCBlockFcn("InitializeConditions", 32, 1, 0, 3, 30)
+%assign tlcSetupRuntimeResourcesFcnOfS33B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 33, 0, 0, 3, 31)
+%assign tlcStartFcnOfS33B0 = OpaqueTLCBlockFcn("Start", 33, 0, 0, 3, 32)
+%assign tlcInitializeConditionsFcnOfS33B0 = OpaqueTLCBlockFcn("InitializeConditions", 33, 0, 0, 3, 33)
+%assign tlcSetupRuntimeResourcesFcnOfS34B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 34, 0, 0, 3, 34)
+%assign tlcSetupRuntimeResourcesFcnOfS34B1 = OpaqueTLCBlockFcn("SetupRuntimeResources", 34, 1, 0, 3, 35)
+%assign tlcStartFcnOfS34B0 = OpaqueTLCBlockFcn("Start", 34, 0, 0, 3, 36)
+%assign tlcStartFcnOfS34B1 = OpaqueTLCBlockFcn("Start", 34, 1, 0, 3, 37)
+%assign tlcInitializeConditionsFcnOfS34B0 = OpaqueTLCBlockFcn("InitializeConditions", 34, 0, 0, 3, 38)
+%assign tlcInitializeConditionsFcnOfS34B1 = OpaqueTLCBlockFcn("InitializeConditions", 34, 1, 0, 3, 39)
+%assign tlcSetupRuntimeResourcesFcnOfS35B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 35, 0, 0, 3, 40)
+%assign tlcStartFcnOfS35B0 = OpaqueTLCBlockFcn("Start", 35, 0, 0, 3, 41)
+%assign tlcInitializeConditionsFcnOfS35B0 = OpaqueTLCBlockFcn("InitializeConditions", 35, 0, 0, 3, 42)
+%assign tlcSetupRuntimeResourcesFcnOfS36B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 36, 0, 0, 3, 43)
+%assign tlcSetupRuntimeResourcesFcnOfS36B1 = OpaqueTLCBlockFcn("SetupRuntimeResources", 36, 1, 0, 3, 44)
+%assign tlcStartFcnOfS36B0 = OpaqueTLCBlockFcn("Start", 36, 0, 0, 3, 45)
+%assign tlcStartFcnOfS36B1 = OpaqueTLCBlockFcn("Start", 36, 1, 0, 3, 46)
+%assign tlcInitializeConditionsFcnOfS36B0 = OpaqueTLCBlockFcn("InitializeConditions", 36, 0, 0, 3, 47)
+%assign tlcInitializeConditionsFcnOfS36B1 = OpaqueTLCBlockFcn("InitializeConditions", 36, 1, 0, 3, 48)
+%assign tlcSetupRuntimeResourcesFcnOfS37B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 37, 0, 0, 3, 49)
+%assign tlcStartFcnOfS37B0 = OpaqueTLCBlockFcn("Start", 37, 0, 0, 3, 50)
+%assign tlcInitializeConditionsFcnOfS37B0 = OpaqueTLCBlockFcn("InitializeConditions", 37, 0, 0, 3, 51)
+%assign tlcSetupRuntimeResourcesFcnOfS26B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 26, 0, 0, 3, 52)
+%assign tlcSetupRuntimeResourcesFcnOfS26B1 = OpaqueTLCBlockFcn("SetupRuntimeResources", 26, 1, 0, 3, 53)
+%assign tlcStartFcnOfS26B0 = OpaqueTLCBlockFcn("Start", 26, 0, 0, 3, 54)
+%assign tlcStartFcnOfS26B1 = OpaqueTLCBlockFcn("Start", 26, 1, 0, 3, 55)
+%assign tlcInitializeConditionsFcnOfS26B0 = OpaqueTLCBlockFcn("InitializeConditions", 26, 0, 0, 3, 56)
+%assign tlcInitializeConditionsFcnOfS26B1 = OpaqueTLCBlockFcn("InitializeConditions", 26, 1, 0, 3, 57)
+%assign tlcSetupRuntimeResourcesFcnOfS27B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 27, 0, 0, 3, 58)
+%assign tlcStartFcnOfS27B0 = OpaqueTLCBlockFcn("Start", 27, 0, 0, 3, 59)
+%assign tlcInitializeConditionsFcnOfS27B0 = OpaqueTLCBlockFcn("InitializeConditions", 27, 0, 0, 3, 60)
+%assign tlcSetupRuntimeResourcesFcnOfS40B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 40, 0, 0, 3, 61)
+%assign tlcSetupRuntimeResourcesFcnOfS40B1 = OpaqueTLCBlockFcn("SetupRuntimeResources", 40, 1, 0, 3, 62)
+%assign tlcStartFcnOfS40B0 = OpaqueTLCBlockFcn("Start", 40, 0, 0, 3, 63)
+%assign tlcStartFcnOfS40B1 = OpaqueTLCBlockFcn("Start", 40, 1, 0, 3, 64)
+%assign tlcInitializeConditionsFcnOfS40B0 = OpaqueTLCBlockFcn("InitializeConditions", 40, 0, 0, 3, 65)
+%assign tlcInitializeConditionsFcnOfS40B1 = OpaqueTLCBlockFcn("InitializeConditions", 40, 1, 0, 3, 66)
+%assign tlcSetupRuntimeResourcesFcnOfS41B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 41, 0, 0, 3, 67)
+%assign tlcStartFcnOfS41B0 = OpaqueTLCBlockFcn("Start", 41, 0, 0, 3, 68)
+%assign tlcInitializeConditionsFcnOfS41B0 = OpaqueTLCBlockFcn("InitializeConditions", 41, 0, 0, 3, 69)
+%assign tlcSetupRuntimeResourcesFcnOfS28B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 28, 0, 0, 3, 70)
+%assign tlcSetupRuntimeResourcesFcnOfS28B1 = OpaqueTLCBlockFcn("SetupRuntimeResources", 28, 1, 0, 3, 71)
+%assign tlcStartFcnOfS28B0 = OpaqueTLCBlockFcn("Start", 28, 0, 0, 3, 72)
+%assign tlcStartFcnOfS28B1 = OpaqueTLCBlockFcn("Start", 28, 1, 0, 3, 73)
+%assign tlcInitializeConditionsFcnOfS28B0 = OpaqueTLCBlockFcn("InitializeConditions", 28, 0, 0, 3, 74)
+%assign tlcInitializeConditionsFcnOfS28B1 = OpaqueTLCBlockFcn("InitializeConditions", 28, 1, 0, 3, 75)
+%assign tlcSetupRuntimeResourcesFcnOfS29B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 29, 0, 0, 3, 76)
+%assign tlcStartFcnOfS29B0 = OpaqueTLCBlockFcn("Start", 29, 0, 0, 3, 77)
+%assign tlcInitializeConditionsFcnOfS29B0 = OpaqueTLCBlockFcn("InitializeConditions", 29, 0, 0, 3, 78)
+%assign tlcSetupRuntimeResourcesFcnOfS38B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 38, 0, 0, 3, 79)
+%assign tlcSetupRuntimeResourcesFcnOfS38B1 = OpaqueTLCBlockFcn("SetupRuntimeResources", 38, 1, 0, 3, 80)
+%assign tlcStartFcnOfS38B0 = OpaqueTLCBlockFcn("Start", 38, 0, 0, 3, 81)
+%assign tlcStartFcnOfS38B1 = OpaqueTLCBlockFcn("Start", 38, 1, 0, 3, 82)
+%assign tlcInitializeConditionsFcnOfS38B0 = OpaqueTLCBlockFcn("InitializeConditions", 38, 0, 0, 3, 83)
+%assign tlcInitializeConditionsFcnOfS38B1 = OpaqueTLCBlockFcn("InitializeConditions", 38, 1, 0, 3, 84)
+%assign tlcSetupRuntimeResourcesFcnOfS39B0 = OpaqueTLCBlockFcn("SetupRuntimeResources", 39, 0, 0, 3, 85)
+%assign tlcStartFcnOfS39B0 = OpaqueTLCBlockFcn("Start", 39, 0, 0, 3, 86)
+%assign tlcInitializeConditionsFcnOfS39B0 = OpaqueTLCBlockFcn("InitializeConditions", 39, 0, 0, 3, 87)
+%<SLibInsertAsyncTaskInitializeCode(system)>
+%<SLibWriteMachineInitialize()>
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS43B1)
+/* InitializeConditions for S-Function (sfun_spssw_discc): '<S316>/State-Space' incorporates:
+ *  Constant: '<S319>/SwitchCurrents'
+ */
+%<tlcInitializeConditionsFcnOfS43B1>\
+%endif
+/* InitializeConditions for UnitDelay: '<Root>/Unit Delay4' */
+AC_DC_DW.UnitDelay4_DSTATE = AC_DC_P.UnitDelay4_InitialCondition;
+/* InitializeConditions for DiscreteIntegrator: '<S187>/Integrator' */
+AC_DC_DW.Integrator_DSTATE = AC_DC_P.PIDController4_InitialCondition;
+/* InitializeConditions for DiscreteIntegrator: '<S52>/Integ4' */
+AC_DC_DW.Integ4_DSTATE = AC_DC_P.Integ4_IC_gv;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS43B64)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S53>/S-Function' */
+%<tlcInitializeConditionsFcnOfS43B64>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S54>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_h = AC_DC_P.Integ4_IC_f3;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS43B65)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S55>/S-Function' */
+%<tlcInitializeConditionsFcnOfS43B65>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S58>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_j = AC_DC_P.Integ4_IC_ad;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS43B66)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S59>/S-Function' */
+%<tlcInitializeConditionsFcnOfS43B66>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S60>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_g = AC_DC_P.Integ4_IC_iv;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS43B67)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S61>/S-Function' */
+%<tlcInitializeConditionsFcnOfS43B67>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S62>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_m = AC_DC_P.Integ4_IC_gk;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS43B69)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S63>/S-Function' */
+%<tlcInitializeConditionsFcnOfS43B69>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S64>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_o = AC_DC_P.Integ4_IC_l;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS43B70)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S65>/S-Function' */
+%<tlcInitializeConditionsFcnOfS43B70>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S139>/Integrator' */
+AC_DC_DW.Integrator_DSTATE_a = AC_DC_P.PIDController2_InitialCondition;
+/* InitializeConditions for UnitDelay: '<Root>/Unit Delay2' */
+AC_DC_DW.UnitDelay2_DSTATE = AC_DC_P.UnitDelay2_InitialCondition;
+/* SystemInitialize for MATLAB Function: '<Root>/级联谐波抑制1' */
+AC_DC_DW.first_run_not_empty = false;
+AC_DC_DW.x3_1 = 0.0;
+AC_DC_DW.x3_2 = 0.0;
+AC_DC_DW.x5_1 = 0.0;
+AC_DC_DW.x5_2 = 0.0;
+AC_DC_DW.x7_1 = 0.0;
+AC_DC_DW.x7_2 = 0.0;
+/* SystemInitialize for MATLAB Function: '<Root>/MATLAB Function4' */
+AC_DC_DW.first_run_not_empty_c = false;
+AC_DC_DW.x1_prev = 0.0;
+AC_DC_DW.x2_prev = 0.0;
+AC_DC_DW.x3_prev = 0.0;
+AC_DC_DW.omega0_prev = 314.15926535897933;
+AC_DC_DW.integral_f = 0.0;
+/* SystemInitialize for MATLAB Function: '<Root>/MATLAB Function5' */
+AC_DC_DW.theta_prev = 0.0;
+AC_DC_DW.integral_pll = 0.0;
+/* SystemInitialize for MATLAB Function: '<Root>/MATLAB Function3' */
+AC_DC_DW.x_prev1 = 0.0;
+AC_DC_DW.x_prev2 = 0.0;
+AC_DC_DW.y_prev1 = 0.0;
+AC_DC_DW.y_prev2 = 0.0;
+/* SystemInitialize for MATLAB Function: '<Root>/MATLAB Function6' */
+AC_DC_DW.e1_1 = 0.0;
+AC_DC_DW.e1_2 = 0.0;
+AC_DC_DW.m1_1 = 0.0;
+AC_DC_DW.m1_2 = 0.0;
+AC_DC_DW.e3_1 = 0.0;
+AC_DC_DW.e3_2 = 0.0;
+AC_DC_DW.m3_1 = 0.0;
+AC_DC_DW.m3_2 = 0.0;
+AC_DC_DW.e5_1 = 0.0;
+AC_DC_DW.e5_2 = 0.0;
+AC_DC_DW.m5_1 = 0.0;
+AC_DC_DW.m5_2 = 0.0;
+AC_DC_DW.e7_1 = 0.0;
+AC_DC_DW.e7_2 = 0.0;
+AC_DC_DW.m7_1 = 0.0;
+AC_DC_DW.m7_2 = 0.0;
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS24B0)
+/* SystemInitialize for Enabled SubSystem: '<S26>/RMS ' */
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S210>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS24B0>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS24B1)
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S212>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS24B1>\
+%endif
+/* Start for Constant: '<S209>/K1' */
+AC_DC_B.K1_h4 = AC_DC_P.K1_Value;
+%if !WHITE_SPACE(tlcStartFcnOfS24B0)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S210>/S-Function' */
+%<tlcStartFcnOfS24B0>\
+%endif
+/* Start for Constant: '<S211>/K1' */
+AC_DC_B.K1_hs = AC_DC_P.K1_Value_j;
+%if !WHITE_SPACE(tlcStartFcnOfS24B1)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S212>/S-Function' */
+%<tlcStartFcnOfS24B1>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S209>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_ey = AC_DC_P.Integ4_IC;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS24B0)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S210>/S-Function' */
+%<tlcInitializeConditionsFcnOfS24B0>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S211>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_dr = AC_DC_P.Integ4_IC_p;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS24B1)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S212>/S-Function' */
+%<tlcInitializeConditionsFcnOfS24B1>\
+/* End of SystemInitialize for SubSystem: '<S26>/RMS ' */
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS25B0)
+
+/* SystemInitialize for Enabled SubSystem: '<S26>/TrueRMS ' */
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S215>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS25B0>\
+%endif
+/* Start for Constant: '<S214>/K1' */
+AC_DC_B.K1_gy = AC_DC_P.K1_Value_f;
+%if !WHITE_SPACE(tlcStartFcnOfS25B0)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S215>/S-Function' */
+%<tlcStartFcnOfS25B0>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S214>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_lp = AC_DC_P.Integ4_IC_i;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS25B0)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S215>/S-Function' */
+%<tlcInitializeConditionsFcnOfS25B0>\
+/* End of SystemInitialize for SubSystem: '<S26>/TrueRMS ' */
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS30B0)
+
+/* SystemInitialize for Enabled SubSystem: '<S29>/RMS ' */
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S246>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS30B0>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS30B1)
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S248>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS30B1>\
+%endif
+/* Start for Constant: '<S245>/K1' */
+AC_DC_B.K1_an = AC_DC_P.K1_Value_nb;
+%if !WHITE_SPACE(tlcStartFcnOfS30B0)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S246>/S-Function' */
+%<tlcStartFcnOfS30B0>\
+%endif
+/* Start for Constant: '<S247>/K1' */
+AC_DC_B.K1_p = AC_DC_P.K1_Value_k;
+%if !WHITE_SPACE(tlcStartFcnOfS30B1)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S248>/S-Function' */
+%<tlcStartFcnOfS30B1>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S245>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_lk = AC_DC_P.Integ4_IC_k;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS30B0)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S246>/S-Function' */
+%<tlcInitializeConditionsFcnOfS30B0>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S247>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_ea = AC_DC_P.Integ4_IC_kb;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS30B1)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S248>/S-Function' */
+%<tlcInitializeConditionsFcnOfS30B1>\
+/* End of SystemInitialize for SubSystem: '<S29>/RMS ' */
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS31B0)
+
+/* SystemInitialize for Enabled SubSystem: '<S29>/TrueRMS ' */
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S251>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS31B0>\
+%endif
+/* Start for Constant: '<S250>/K1' */
+AC_DC_B.K1_ku = AC_DC_P.K1_Value_h;
+%if !WHITE_SPACE(tlcStartFcnOfS31B0)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S251>/S-Function' */
+%<tlcStartFcnOfS31B0>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S250>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_nz = AC_DC_P.Integ4_IC_jo;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS31B0)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S251>/S-Function' */
+%<tlcInitializeConditionsFcnOfS31B0>\
+/* End of SystemInitialize for SubSystem: '<S29>/TrueRMS ' */
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS32B0)
+
+/* SystemInitialize for Enabled SubSystem: '<S30>/RMS ' */
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S258>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS32B0>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS32B1)
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S260>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS32B1>\
+%endif
+/* Start for Constant: '<S257>/K1' */
+AC_DC_B.K1_er = AC_DC_P.K1_Value_fb;
+%if !WHITE_SPACE(tlcStartFcnOfS32B0)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S258>/S-Function' */
+%<tlcStartFcnOfS32B0>\
+%endif
+/* Start for Constant: '<S259>/K1' */
+AC_DC_B.K1_k = AC_DC_P.K1_Value_hf;
+%if !WHITE_SPACE(tlcStartFcnOfS32B1)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S260>/S-Function' */
+%<tlcStartFcnOfS32B1>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S257>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_bk = AC_DC_P.Integ4_IC_o;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS32B0)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S258>/S-Function' */
+%<tlcInitializeConditionsFcnOfS32B0>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S259>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_mo = AC_DC_P.Integ4_IC_g;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS32B1)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S260>/S-Function' */
+%<tlcInitializeConditionsFcnOfS32B1>\
+/* End of SystemInitialize for SubSystem: '<S30>/RMS ' */
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS33B0)
+
+/* SystemInitialize for Enabled SubSystem: '<S30>/TrueRMS ' */
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S263>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS33B0>\
+%endif
+/* Start for Constant: '<S262>/K1' */
+AC_DC_B.K1_ao = AC_DC_P.K1_Value_nn;
+%if !WHITE_SPACE(tlcStartFcnOfS33B0)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S263>/S-Function' */
+%<tlcStartFcnOfS33B0>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S262>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_c = AC_DC_P.Integ4_IC_a;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS33B0)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S263>/S-Function' */
+%<tlcInitializeConditionsFcnOfS33B0>\
+/* End of SystemInitialize for SubSystem: '<S30>/TrueRMS ' */
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS34B0)
+
+/* SystemInitialize for Enabled SubSystem: '<S31>/RMS ' */
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S270>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS34B0>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS34B1)
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S272>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS34B1>\
+%endif
+/* Start for Constant: '<S269>/K1' */
+AC_DC_B.K1_d0 = AC_DC_P.K1_Value_nc;
+%if !WHITE_SPACE(tlcStartFcnOfS34B0)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S270>/S-Function' */
+%<tlcStartFcnOfS34B0>\
+%endif
+/* Start for Constant: '<S271>/K1' */
+AC_DC_B.K1_h = AC_DC_P.K1_Value_h5;
+%if !WHITE_SPACE(tlcStartFcnOfS34B1)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S272>/S-Function' */
+%<tlcStartFcnOfS34B1>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S269>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_l = AC_DC_P.Integ4_IC_f;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS34B0)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S270>/S-Function' */
+%<tlcInitializeConditionsFcnOfS34B0>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S271>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_b = AC_DC_P.Integ4_IC_dp;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS34B1)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S272>/S-Function' */
+%<tlcInitializeConditionsFcnOfS34B1>\
+/* End of SystemInitialize for SubSystem: '<S31>/RMS ' */
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS35B0)
+
+/* SystemInitialize for Enabled SubSystem: '<S31>/TrueRMS ' */
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S275>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS35B0>\
+%endif
+/* Start for Constant: '<S274>/K1' */
+AC_DC_B.K1_mr = AC_DC_P.K1_Value_bv;
+%if !WHITE_SPACE(tlcStartFcnOfS35B0)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S275>/S-Function' */
+%<tlcStartFcnOfS35B0>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S274>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_em = AC_DC_P.Integ4_IC_oo;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS35B0)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S275>/S-Function' */
+%<tlcInitializeConditionsFcnOfS35B0>\
+/* End of SystemInitialize for SubSystem: '<S31>/TrueRMS ' */
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS36B0)
+
+/* SystemInitialize for Enabled SubSystem: '<S32>/RMS ' */
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S282>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS36B0>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS36B1)
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S284>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS36B1>\
+%endif
+/* Start for Constant: '<S281>/K1' */
+AC_DC_B.K1_l = AC_DC_P.K1_Value_a;
+%if !WHITE_SPACE(tlcStartFcnOfS36B0)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S282>/S-Function' */
+%<tlcStartFcnOfS36B0>\
+%endif
+/* Start for Constant: '<S283>/K1' */
+AC_DC_B.K1_e = AC_DC_P.K1_Value_g;
+%if !WHITE_SPACE(tlcStartFcnOfS36B1)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S284>/S-Function' */
+%<tlcStartFcnOfS36B1>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S281>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_mg = AC_DC_P.Integ4_IC_h1;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS36B0)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S282>/S-Function' */
+%<tlcInitializeConditionsFcnOfS36B0>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S283>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_n = AC_DC_P.Integ4_IC_od;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS36B1)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S284>/S-Function' */
+%<tlcInitializeConditionsFcnOfS36B1>\
+/* End of SystemInitialize for SubSystem: '<S32>/RMS ' */
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS37B0)
+
+/* SystemInitialize for Enabled SubSystem: '<S32>/TrueRMS ' */
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S287>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS37B0>\
+%endif
+/* Start for Constant: '<S286>/K1' */
+AC_DC_B.K1_ig = AC_DC_P.K1_Value_i5;
+%if !WHITE_SPACE(tlcStartFcnOfS37B0)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S287>/S-Function' */
+%<tlcStartFcnOfS37B0>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S286>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_jd = AC_DC_P.Integ4_IC_pv;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS37B0)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S287>/S-Function' */
+%<tlcInitializeConditionsFcnOfS37B0>\
+/* End of SystemInitialize for SubSystem: '<S32>/TrueRMS ' */
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS26B0)
+
+/* SystemInitialize for Enabled SubSystem: '<S27>/RMS ' */
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S222>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS26B0>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS26B1)
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S224>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS26B1>\
+%endif
+/* Start for Constant: '<S221>/K1' */
+AC_DC_B.K1_oe = AC_DC_P.K1_Value_i;
+%if !WHITE_SPACE(tlcStartFcnOfS26B0)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S222>/S-Function' */
+%<tlcStartFcnOfS26B0>\
+%endif
+/* Start for Constant: '<S223>/K1' */
+AC_DC_B.K1_on = AC_DC_P.K1_Value_n;
+%if !WHITE_SPACE(tlcStartFcnOfS26B1)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S224>/S-Function' */
+%<tlcStartFcnOfS26B1>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S221>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_co = AC_DC_P.Integ4_IC_d;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS26B0)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S222>/S-Function' */
+%<tlcInitializeConditionsFcnOfS26B0>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S223>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_a2 = AC_DC_P.Integ4_IC_h;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS26B1)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S224>/S-Function' */
+%<tlcInitializeConditionsFcnOfS26B1>\
+/* End of SystemInitialize for SubSystem: '<S27>/RMS ' */
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS27B0)
+
+/* SystemInitialize for Enabled SubSystem: '<S27>/TrueRMS ' */
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S227>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS27B0>\
+%endif
+/* Start for Constant: '<S226>/K1' */
+AC_DC_B.K1_o = AC_DC_P.K1_Value_b;
+%if !WHITE_SPACE(tlcStartFcnOfS27B0)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S227>/S-Function' */
+%<tlcStartFcnOfS27B0>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S226>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_no = AC_DC_P.Integ4_IC_m;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS27B0)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S227>/S-Function' */
+%<tlcInitializeConditionsFcnOfS27B0>\
+/* End of SystemInitialize for SubSystem: '<S27>/TrueRMS ' */
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS40B0)
+
+/* SystemInitialize for Enabled SubSystem: '<S34>/RMS ' */
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S306>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS40B0>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS40B1)
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S308>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS40B1>\
+%endif
+/* Start for Constant: '<S305>/K1' */
+AC_DC_B.K1_d4 = AC_DC_P.K1_Value_lx;
+%if !WHITE_SPACE(tlcStartFcnOfS40B0)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S306>/S-Function' */
+%<tlcStartFcnOfS40B0>\
+%endif
+/* Start for Constant: '<S307>/K1' */
+AC_DC_B.K1_j = AC_DC_P.K1_Value_g3;
+%if !WHITE_SPACE(tlcStartFcnOfS40B1)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S308>/S-Function' */
+%<tlcStartFcnOfS40B1>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S305>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_d = AC_DC_P.Integ4_IC_dr;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS40B0)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S306>/S-Function' */
+%<tlcInitializeConditionsFcnOfS40B0>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S307>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_e = AC_DC_P.Integ4_IC_jz;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS40B1)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S308>/S-Function' */
+%<tlcInitializeConditionsFcnOfS40B1>\
+/* End of SystemInitialize for SubSystem: '<S34>/RMS ' */
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS41B0)
+
+/* SystemInitialize for Enabled SubSystem: '<S34>/TrueRMS ' */
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S311>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS41B0>\
+%endif
+/* Start for Constant: '<S310>/K1' */
+AC_DC_B.K1_a = AC_DC_P.K1_Value_p0;
+%if !WHITE_SPACE(tlcStartFcnOfS41B0)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S311>/S-Function' */
+%<tlcStartFcnOfS41B0>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S310>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_i = AC_DC_P.Integ4_IC_oi;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS41B0)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S311>/S-Function' */
+%<tlcInitializeConditionsFcnOfS41B0>\
+/* End of SystemInitialize for SubSystem: '<S34>/TrueRMS ' */
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS28B0)
+
+/* SystemInitialize for Enabled SubSystem: '<S28>/RMS ' */
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S234>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS28B0>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS28B1)
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S236>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS28B1>\
+%endif
+/* Start for Constant: '<S233>/K1' */
+AC_DC_B.K1_i0 = AC_DC_P.K1_Value_l;
+%if !WHITE_SPACE(tlcStartFcnOfS28B0)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S234>/S-Function' */
+%<tlcStartFcnOfS28B0>\
+%endif
+/* Start for Constant: '<S235>/K1' */
+AC_DC_B.K1_pb = AC_DC_P.K1_Value_o;
+%if !WHITE_SPACE(tlcStartFcnOfS28B1)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S236>/S-Function' */
+%<tlcStartFcnOfS28B1>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S233>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_ht = AC_DC_P.Integ4_IC_n;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS28B0)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S234>/S-Function' */
+%<tlcInitializeConditionsFcnOfS28B0>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S235>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_a = AC_DC_P.Integ4_IC_c;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS28B1)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S236>/S-Function' */
+%<tlcInitializeConditionsFcnOfS28B1>\
+/* End of SystemInitialize for SubSystem: '<S28>/RMS ' */
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS29B0)
+
+/* SystemInitialize for Enabled SubSystem: '<S28>/TrueRMS ' */
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S239>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS29B0>\
+%endif
+/* Start for Constant: '<S238>/K1' */
+AC_DC_B.K1_g = AC_DC_P.K1_Value_p;
+%if !WHITE_SPACE(tlcStartFcnOfS29B0)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S239>/S-Function' */
+%<tlcStartFcnOfS29B0>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S238>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_gg = AC_DC_P.Integ4_IC_j;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS29B0)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S239>/S-Function' */
+%<tlcInitializeConditionsFcnOfS29B0>\
+/* End of SystemInitialize for SubSystem: '<S28>/TrueRMS ' */
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS38B0)
+
+/* SystemInitialize for Enabled SubSystem: '<S33>/RMS ' */
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S294>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS38B0>\
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS38B1)
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S296>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS38B1>\
+%endif
+/* Start for Constant: '<S293>/K1' */
+AC_DC_B.K1_n = AC_DC_P.K1_Value_be;
+%if !WHITE_SPACE(tlcStartFcnOfS38B0)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S294>/S-Function' */
+%<tlcStartFcnOfS38B0>\
+%endif
+/* Start for Constant: '<S295>/K1' */
+AC_DC_B.K1_b2 = AC_DC_P.K1_Value_fh;
+%if !WHITE_SPACE(tlcStartFcnOfS38B1)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S296>/S-Function' */
+%<tlcStartFcnOfS38B1>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S293>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_jq = AC_DC_P.Integ4_IC_e;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS38B0)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S294>/S-Function' */
+%<tlcInitializeConditionsFcnOfS38B0>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S295>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_iv = AC_DC_P.Integ4_IC_hd;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS38B1)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S296>/S-Function' */
+%<tlcInitializeConditionsFcnOfS38B1>\
+/* End of SystemInitialize for SubSystem: '<S33>/RMS ' */
+%endif
+%if !WHITE_SPACE(tlcSetupRuntimeResourcesFcnOfS39B0)
+
+/* SystemInitialize for Enabled SubSystem: '<S33>/TrueRMS ' */
+/* SetupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S299>/S-Function' */
+%<tlcSetupRuntimeResourcesFcnOfS39B0>\
+%endif
+/* Start for Constant: '<S298>/K1' */
+AC_DC_B.K1_i = AC_DC_P.K1_Value_bd;
+%if !WHITE_SPACE(tlcStartFcnOfS39B0)
+/* Start for S-Function (sfun_discreteVariableDelay): '<S299>/S-Function' */
+%<tlcStartFcnOfS39B0>\
+%endif
+/* InitializeConditions for DiscreteIntegrator: '<S298>/Integ4' */
+AC_DC_DW.Integ4_DSTATE_f = AC_DC_P.Integ4_IC_nk;
+%if !WHITE_SPACE(tlcInitializeConditionsFcnOfS39B0)
+/* InitializeConditions for S-Function (sfun_discreteVariableDelay): '<S299>/S-Function' */
+%<tlcInitializeConditionsFcnOfS39B0>\
+/* End of SystemInitialize for SubSystem: '<S33>/TrueRMS ' */
+%endif
+%<SLibInsertInitPeriodicCStatesFcn(system)>
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedSystemInitializeLocalVars", localVarDecl)>
+%endfunction
+%function SystemInitializeFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void SystemInitialize(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 3, fcnProtoType)>
+%endfunction

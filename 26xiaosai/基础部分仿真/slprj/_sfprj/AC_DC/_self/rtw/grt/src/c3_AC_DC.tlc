@@ -1,0 +1,67 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   7 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "x1_prev"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1721:286-293"\
+    }\
+    ChartData {\
+      Name         "x2_prev"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1721:294-301"\
+    }\
+    ChartData {\
+      Name         "x3_prev"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1721:302-309"\
+    }\
+    ChartData {\
+      Name         "omega0_prev"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1721:310-321"\
+    }\
+    ChartData {\
+      Name         "U_prev"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1721:322-328"\
+    }\
+    ChartData {\
+      Name         "integral_f"\
+      Description  "EmlPersistent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1721:329-339"\
+    }\
+    ChartData {\
+      Name         "first_run_not_empty"\
+      Description  "EmlPersistentSentinel"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  "AC_DC:1721:340-349"\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

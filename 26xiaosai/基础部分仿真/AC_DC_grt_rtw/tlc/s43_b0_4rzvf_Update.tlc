@@ -1,0 +1,111 @@
+%implements s43_b0_4rzvf_Update "C"
+
+%function Update(block, system) Output
+%<SLibCGIRAccessLocalVar(11, 0, "")> %% rtb_IntegralGain
+%<SLibCGIRAccessLocalVar(7, 0, "")> %% rtb_Product1
+%<SLibCGIRAccessLocalVar(8, 0, "")> %% rtb_Product
+%<SLibCGIRAccessLocalVar(9, 0, "")> %% rtb_Product1_i
+%<SLibCGIRAccessLocalVar(10, 0, "")> %% rtb_Product_j
+%<SLibCGIRAccessLocalVar(13, 0, "")> %% rtb_IntegralGain_p
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+
+real_T HoldSine;
+%closefile localVarDecl
+%assign tlcUpdateFcnOfS43B1 = OpaqueTLCBlockFcn("Update", 43, 1, 0, 5, 0)
+%assign tlcUpdateFcnOfS43B64 = OpaqueTLCBlockFcn("Update", 43, 64, 0, 5, 1)
+%assign tlcUpdateFcnOfS43B65 = OpaqueTLCBlockFcn("Update", 43, 65, 0, 5, 2)
+%assign tlcUpdateFcnOfS43B66 = OpaqueTLCBlockFcn("Update", 43, 66, 0, 5, 3)
+%assign tlcUpdateFcnOfS43B67 = OpaqueTLCBlockFcn("Update", 43, 67, 0, 5, 4)
+%assign tlcUpdateFcnOfS43B69 = OpaqueTLCBlockFcn("Update", 43, 69, 0, 5, 5)
+%assign tlcUpdateFcnOfS43B70 = OpaqueTLCBlockFcn("Update", 43, 70, 0, 5, 6)
+%if !WHITE_SPACE(tlcUpdateFcnOfS43B1)
+/* {S!d1472}Update for S-Function (sfun_spssw_discc): '<S316>/State-Space' incorporates:
+ *  Constant: '<S319>/SwitchCurrents'
+ */
+%<tlcUpdateFcnOfS43B1>\
+%endif
+if (%<(SLibCGIRIsSampleHit(2, 43))>) {
+    /* {S!d1474}Update for UnitDelay: '<Root>/Unit Delay4' */
+    AC_DC_DW.UnitDelay4_DSTATE = AC_DC_B.y_m;
+    /* {S!d1476}Update for DiscreteIntegrator: '<S187>/Integrator' */
+    AC_DC_DW.Integrator_DSTATE += AC_DC_P.Integrator_gainval * rtb_IntegralGain;
+}
+/* {S!d1478}Update for Sin: '<S6>/cos(wt)' */
+HoldSine = AC_DC_DW.lastSin;
+AC_DC_DW.lastSin = AC_DC_DW.lastSin * AC_DC_P.coswt_HCos_lj + AC_DC_DW.lastCos * AC_DC_P.coswt_Hsin_h;
+AC_DC_DW.lastCos = AC_DC_DW.lastCos * AC_DC_P.coswt_HCos_lj - HoldSine * AC_DC_P.coswt_Hsin_h;
+/* {S!d1480}Update for DiscreteIntegrator: '<S52>/Integ4' */
+AC_DC_DW.Integ4_SYSTEM_ENABLE = 0U;
+AC_DC_DW.Integ4_DSTATE = AC_DC_P.Integ4_gainval_ff * rtb_Product1 + AC_DC_B.Integ4;
+%if !WHITE_SPACE(tlcUpdateFcnOfS43B64)
+/* {S!d1482}Update for S-Function (sfun_discreteVariableDelay): '<S53>/S-Function' */
+%<tlcUpdateFcnOfS43B64>\
+%endif
+/* {S!d1484}Update for Sin: '<S6>/sin(wt)' */
+HoldSine = AC_DC_DW.lastSin_a;
+AC_DC_DW.lastSin_a = AC_DC_DW.lastSin_a * AC_DC_P.sinwt_HCos_p + AC_DC_DW.lastCos_i * AC_DC_P.sinwt_Hsin_bi;
+AC_DC_DW.lastCos_i = AC_DC_DW.lastCos_i * AC_DC_P.sinwt_HCos_p - HoldSine * AC_DC_P.sinwt_Hsin_bi;
+/* {S!d1486}Update for DiscreteIntegrator: '<S54>/Integ4' */
+AC_DC_DW.Integ4_SYSTEM_ENABLE_m = 0U;
+AC_DC_DW.Integ4_DSTATE_h = AC_DC_P.Integ4_gainval_ib * rtb_Product + AC_DC_B.Integ4_o;
+%if !WHITE_SPACE(tlcUpdateFcnOfS43B65)
+/* {S!d1488}Update for S-Function (sfun_discreteVariableDelay): '<S55>/S-Function' */
+%<tlcUpdateFcnOfS43B65>\
+%endif
+/* {S!d1490}Update for Sin: '<S7>/cos(wt)' */
+HoldSine = AC_DC_DW.lastSin_j;
+AC_DC_DW.lastSin_j = AC_DC_DW.lastSin_j * AC_DC_P.coswt_HCos_d + AC_DC_DW.lastCos_p * AC_DC_P.coswt_Hsin_j;
+AC_DC_DW.lastCos_p = AC_DC_DW.lastCos_p * AC_DC_P.coswt_HCos_d - HoldSine * AC_DC_P.coswt_Hsin_j;
+/* {S!d1492}Update for DiscreteIntegrator: '<S58>/Integ4' */
+AC_DC_DW.Integ4_SYSTEM_ENABLE_p = 0U;
+AC_DC_DW.Integ4_DSTATE_j = AC_DC_P.Integ4_gainval_ax * rtb_Product1_i + AC_DC_B.Integ4_j;
+%if !WHITE_SPACE(tlcUpdateFcnOfS43B66)
+/* {S!d1494}Update for S-Function (sfun_discreteVariableDelay): '<S59>/S-Function' */
+%<tlcUpdateFcnOfS43B66>\
+%endif
+/* {S!d1496}Update for Sin: '<S7>/sin(wt)' */
+HoldSine = AC_DC_DW.lastSin_d;
+AC_DC_DW.lastSin_d = AC_DC_DW.lastSin_d * AC_DC_P.sinwt_HCos_lb + AC_DC_DW.lastCos_f * AC_DC_P.sinwt_Hsin_l;
+AC_DC_DW.lastCos_f = AC_DC_DW.lastCos_f * AC_DC_P.sinwt_HCos_lb - HoldSine * AC_DC_P.sinwt_Hsin_l;
+/* {S!d1498}Update for DiscreteIntegrator: '<S60>/Integ4' */
+AC_DC_DW.Integ4_SYSTEM_ENABLE_m5 = 0U;
+AC_DC_DW.Integ4_DSTATE_g = AC_DC_P.Integ4_gainval_oq * rtb_Product_j + AC_DC_B.Integ4_e;
+%if !WHITE_SPACE(tlcUpdateFcnOfS43B67)
+/* {S!d1500}Update for S-Function (sfun_discreteVariableDelay): '<S61>/S-Function' */
+%<tlcUpdateFcnOfS43B67>\
+%endif
+if (%<(SLibCGIRIsSampleHit(2, 43))>) {
+    /* {S!d1502}Update for DiscreteIntegrator: '<S62>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_l = 0U;
+    AC_DC_DW.Integ4_DSTATE_m = AC_DC_P.Integ4_gainval_ax3 * AC_DC_B.Product + AC_DC_B.Integ4_l;
+%if !WHITE_SPACE(tlcUpdateFcnOfS43B69)
+    /* {S!d1504}Update for S-Function (sfun_discreteVariableDelay): '<S63>/S-Function' */
+%<tlcUpdateFcnOfS43B69>\
+%endif
+    /* {S!d1506}Update for DiscreteIntegrator: '<S64>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_pj = 0U;
+    AC_DC_DW.Integ4_DSTATE_o = AC_DC_P.Integ4_gainval_f0 * AC_DC_B.Product2 + AC_DC_B.Integ4_ed;
+%if !WHITE_SPACE(tlcUpdateFcnOfS43B70)
+    /* {S!d1508}Update for S-Function (sfun_discreteVariableDelay): '<S65>/S-Function' */
+%<tlcUpdateFcnOfS43B70>\
+%endif
+    /* {S!d1510}Update for DiscreteIntegrator: '<S139>/Integrator' */
+    AC_DC_DW.Integrator_DSTATE_a += AC_DC_P.Integrator_gainval_n * rtb_IntegralGain_p;
+    /* {S!d1512}Update for UnitDelay: '<Root>/Unit Delay2' */
+    AC_DC_DW.UnitDelay2_DSTATE = AC_DC_B.Sum;
+}
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedUpdateLocalVars", localVarDecl)>
+%endfunction
+%function UpdateFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Update(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 5, fcnProtoType)>
+%endfunction

@@ -1,0 +1,37 @@
+%implements s43_b0_4rzvf_Enable "C"
+
+%function Enable(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+/* Enable for Sin: '<S6>/cos(wt)' */
+AC_DC_DW.systemEnable = 1;
+/* Enable for DiscreteIntegrator: '<S52>/Integ4' */
+AC_DC_DW.Integ4_SYSTEM_ENABLE = 1U;
+/* Enable for Sin: '<S6>/sin(wt)' */
+AC_DC_DW.systemEnable_b = 1;
+/* Enable for DiscreteIntegrator: '<S54>/Integ4' */
+AC_DC_DW.Integ4_SYSTEM_ENABLE_m = 1U;
+/* Enable for Sin: '<S7>/cos(wt)' */
+AC_DC_DW.systemEnable_m = 1;
+/* Enable for DiscreteIntegrator: '<S58>/Integ4' */
+AC_DC_DW.Integ4_SYSTEM_ENABLE_p = 1U;
+/* Enable for Sin: '<S7>/sin(wt)' */
+AC_DC_DW.systemEnable_g = 1;
+/* Enable for DiscreteIntegrator: '<S60>/Integ4' */
+AC_DC_DW.Integ4_SYSTEM_ENABLE_m5 = 1U;
+/* Enable for DiscreteIntegrator: '<S62>/Integ4' */
+AC_DC_DW.Integ4_SYSTEM_ENABLE_l = 1U;
+/* Enable for DiscreteIntegrator: '<S64>/Integ4' */
+AC_DC_DW.Integ4_SYSTEM_ENABLE_pj = 1U;
+%closefile cfgTxt
+%<cfgTxt>
+%endfunction
+%function EnableFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Enable(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 6, fcnProtoType)>
+%endfunction

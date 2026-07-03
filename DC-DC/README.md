@@ -1,0 +1,21 @@
+# DC-DC — 双向DC-DC变换器项目
+
+## 项目简介
+G1 双向 DC-DC 变换器
+- 主控：STM32G4 系列
+- 驱动：IR2104
+- PCB：立创EDA（含 Gerber 输出）
+
+## 目录结构
+| 目录/文件 | 说明 |
+|-----------|------|
+| `code/` | STM32 Keil MDK 工程 |
+| `G1_双向DC.eprj` | 立创EDA 工程文件 |
+| `G1_双向DC_backup/` | 立创EDA 工程备份 |
+| `Gerber_PCB_双向DC-DC_大电感_*.zip` | PCB Gerber 文件 |
+| `ir2104_mos管驱动芯片.pdf` | IR2104 驱动芯片 datasheet |
+| `仿真文件/` | 仿真模型 |
+| `相关论文/` | 参考资料 |
+
+## 备注
+- 本文件夹通过 git 备份至 `xiaobaby230521/program` 仓库

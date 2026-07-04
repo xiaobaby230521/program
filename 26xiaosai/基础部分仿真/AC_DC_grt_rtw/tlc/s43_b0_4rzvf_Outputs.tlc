@@ -1,0 +1,2376 @@
+%implements s43_b0_4rzvf_Outputs "C"
+
+%function Outputs(block, system) Output
+%<SLibCGIRAccessLocalVar(7, 0, "")> %% rtb_Product1
+%<SLibCGIRAccessLocalVar(8, 0, "")> %% rtb_Product
+%<SLibCGIRAccessLocalVar(9, 0, "")> %% rtb_Product1_i
+%<SLibCGIRAccessLocalVar(10, 0, "")> %% rtb_Product_j
+%<SLibCGIRAccessLocalVar(11, 0, "")> %% rtb_IntegralGain
+%<SLibCGIRAccessLocalVar(13, 0, "")> %% rtb_IntegralGain_p
+%<SLibCGIRAccessLocalVar(40, 0, "")> %% rtb_Product1_m
+%<SLibCGIRAccessLocalVar(41, 0, "")> %% rtb_Product_ci
+%<SLibCGIRAccessLocalVar(39, 0, "")> %% rtb_Product_b
+%<SLibCGIRAccessLocalVar(31, 0, "")> %% rtb_Product1_l
+%<SLibCGIRAccessLocalVar(32, 0, "")> %% rtb_Product_c
+%<SLibCGIRAccessLocalVar(30, 0, "")> %% rtb_Product_n
+%<SLibCGIRAccessLocalVar(28, 0, "")> %% rtb_Product1_eu
+%<SLibCGIRAccessLocalVar(29, 0, "")> %% rtb_Product_ao
+%<SLibCGIRAccessLocalVar(27, 0, "")> %% rtb_Product_a
+%<SLibCGIRAccessLocalVar(25, 0, "")> %% rtb_Product1_h
+%<SLibCGIRAccessLocalVar(26, 0, "")> %% rtb_Product_g
+%<SLibCGIRAccessLocalVar(24, 0, "")> %% rtb_Product_f
+%<SLibCGIRAccessLocalVar(22, 0, "")> %% rtb_Product1_e
+%<SLibCGIRAccessLocalVar(23, 0, "")> %% rtb_Product_o4
+%<SLibCGIRAccessLocalVar(21, 0, "")> %% rtb_Product_e
+%<SLibCGIRAccessLocalVar(37, 0, "")> %% rtb_Product1_lg
+%<SLibCGIRAccessLocalVar(38, 0, "")> %% rtb_Product_l
+%<SLibCGIRAccessLocalVar(36, 0, "")> %% rtb_Product_ea
+%<SLibCGIRAccessLocalVar(16, 0, "")> %% rtb_Product1_k
+%<SLibCGIRAccessLocalVar(17, 0, "")> %% rtb_Product_d
+%<SLibCGIRAccessLocalVar(15, 0, "")> %% rtb_Product_jv
+%<SLibCGIRAccessLocalVar(34, 0, "")> %% rtb_Product1_p
+%<SLibCGIRAccessLocalVar(35, 0, "")> %% rtb_Product_ds
+%<SLibCGIRAccessLocalVar(33, 0, "")> %% rtb_Product_ac
+%<SLibCGIRAccessLocalVar(19, 0, "")> %% rtb_Product1_a
+%<SLibCGIRAccessLocalVar(20, 0, "")> %% rtb_Product_o
+%<SLibCGIRAccessLocalVar(18, 0, "")> %% rtb_Product_h
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+
+real_T A[9];
+real_T A_mat[9];
+real_T A_tmp[9];
+real_T B[3];
+real_T tmp[3];
+real_T Sum1_tmp;
+real_T m3;
+real_T rtb_Add;
+real_T rtb_Add4;
+real_T rtb_Add_h;
+real_T rtb_Add_i;
+real_T rtb_Add_nh;
+real_T rtb_Igm_clean;
+real_T rtb_Integrator;
+real_T rtb_Integrator_f;
+real_T rtb_Sum;
+real_T rtb_WL1;
+real_T rtb_out1;
+real_T rtb_out2;
+real_T rtb_out3;
+real_T rtb_out4;
+real_T rtb_out5;
+real_T x_curr_vec_idx_0;
+real_T x_curr_vec_idx_2;
+real_T y3;
+real_T y5;
+int32_T r1;
+static const int8_T d[9] = %<(TLC_STR_CTX(0))>;
+%closefile localVarDecl
+%assign tlcOutputsFcnOfS43B1 = OpaqueTLCBlockFcn("Outputs", 43, 1, 0, 4, 0)
+%assign tlcOutputsFcnOfS43B18 = OpaqueTLCBlockFcn("Outputs", 43, 18, 0, 4, 1)
+%assign tlcOutputsFcnOfS43B19 = OpaqueTLCBlockFcn("Outputs", 43, 19, 0, 4, 2)
+%assign tlcOutputsFcnOfS43B25 = OpaqueTLCBlockFcn("Outputs", 43, 25, 0, 4, 3)
+%assign tlcOutputsFcnOfS43B26 = OpaqueTLCBlockFcn("Outputs", 43, 26, 0, 4, 4)
+%assign tlcOutputsFcnOfS43B27 = OpaqueTLCBlockFcn("Outputs", 43, 27, 0, 4, 5)
+%assign tlcOutputsFcnOfS43B28 = OpaqueTLCBlockFcn("Outputs", 43, 28, 0, 4, 6)
+%assign tlcOutputsFcnOfS43B29 = OpaqueTLCBlockFcn("Outputs", 43, 29, 0, 4, 7)
+%assign tlcOutputsFcnOfS43B30 = OpaqueTLCBlockFcn("Outputs", 43, 30, 0, 4, 8)
+%assign tlcOutputsFcnOfS43B31 = OpaqueTLCBlockFcn("Outputs", 43, 31, 0, 4, 9)
+%assign tlcOutputsFcnOfS43B32 = OpaqueTLCBlockFcn("Outputs", 43, 32, 0, 4, 10)
+%assign tlcOutputsFcnOfS43B35 = OpaqueTLCBlockFcn("Outputs", 43, 35, 0, 4, 11)
+%assign tlcOutputsFcnOfS43B36 = OpaqueTLCBlockFcn("Outputs", 43, 36, 0, 4, 12)
+%assign tlcOutputsFcnOfS43B37 = OpaqueTLCBlockFcn("Outputs", 43, 37, 0, 4, 13)
+%assign tlcOutputsFcnOfS43B39 = OpaqueTLCBlockFcn("Outputs", 43, 39, 0, 4, 14)
+%assign tlcOutputsFcnOfS43B41 = OpaqueTLCBlockFcn("Outputs", 43, 41, 0, 4, 15)
+%assign tlcOutputsFcnOfS43B42 = OpaqueTLCBlockFcn("Outputs", 43, 42, 0, 4, 16)
+%assign tlcOutputsFcnOfS43B44 = OpaqueTLCBlockFcn("Outputs", 43, 44, 0, 4, 17)
+%assign tlcOutputsFcnOfS43B45 = OpaqueTLCBlockFcn("Outputs", 43, 45, 0, 4, 18)
+%assign tlcOutputsFcnOfS43B46 = OpaqueTLCBlockFcn("Outputs", 43, 46, 0, 4, 19)
+%assign tlcOutputsFcnOfS43B47 = OpaqueTLCBlockFcn("Outputs", 43, 47, 0, 4, 20)
+%assign tlcOutputsFcnOfS43B48 = OpaqueTLCBlockFcn("Outputs", 43, 48, 0, 4, 21)
+%assign tlcOutputsFcnOfS43B49 = OpaqueTLCBlockFcn("Outputs", 43, 49, 0, 4, 22)
+%assign tlcOutputsFcnOfS43B50 = OpaqueTLCBlockFcn("Outputs", 43, 50, 0, 4, 23)
+%assign tlcOutputsFcnOfS43B51 = OpaqueTLCBlockFcn("Outputs", 43, 51, 0, 4, 24)
+%assign tlcOutputsFcnOfS43B52 = OpaqueTLCBlockFcn("Outputs", 43, 52, 0, 4, 25)
+%assign tlcOutputsFcnOfS43B53 = OpaqueTLCBlockFcn("Outputs", 43, 53, 0, 4, 26)
+%assign tlcOutputsFcnOfS43B54 = OpaqueTLCBlockFcn("Outputs", 43, 54, 0, 4, 27)
+%assign tlcOutputsFcnOfS43B55 = OpaqueTLCBlockFcn("Outputs", 43, 55, 0, 4, 28)
+%assign tlcOutputsFcnOfS43B57 = OpaqueTLCBlockFcn("Outputs", 43, 57, 0, 4, 29)
+%assign tlcOutputsFcnOfS43B64 = OpaqueTLCBlockFcn("Outputs", 43, 64, 0, 4, 30)
+%assign tlcOutputsFcnOfS43B65 = OpaqueTLCBlockFcn("Outputs", 43, 65, 0, 4, 31)
+%assign tlcOutputsFcnOfS43B66 = OpaqueTLCBlockFcn("Outputs", 43, 66, 0, 4, 32)
+%assign tlcOutputsFcnOfS43B67 = OpaqueTLCBlockFcn("Outputs", 43, 67, 0, 4, 33)
+%assign tlcOutputsFcnOfS43B69 = OpaqueTLCBlockFcn("Outputs", 43, 69, 0, 4, 34)
+%assign tlcOutputsFcnOfS43B70 = OpaqueTLCBlockFcn("Outputs", 43, 70, 0, 4, 35)
+%assign tlcOutputsFcnOfS24B0 = OpaqueTLCBlockFcn("Outputs", 24, 0, 0, 4, 36)
+%assign tlcOutputsFcnOfS24B1 = OpaqueTLCBlockFcn("Outputs", 24, 1, 0, 4, 37)
+%assign tlcUpdateFcnOfS24B0 = OpaqueTLCBlockFcn("Update", 24, 0, 0, 4, 38)
+%assign tlcUpdateFcnOfS24B1 = OpaqueTLCBlockFcn("Update", 24, 1, 0, 4, 39)
+%assign tlcOutputsFcnOfS25B0 = OpaqueTLCBlockFcn("Outputs", 25, 0, 0, 4, 40)
+%assign tlcUpdateFcnOfS25B0 = OpaqueTLCBlockFcn("Update", 25, 0, 0, 4, 41)
+%assign tlcOutputsFcnOfS30B0 = OpaqueTLCBlockFcn("Outputs", 30, 0, 0, 4, 42)
+%assign tlcOutputsFcnOfS30B1 = OpaqueTLCBlockFcn("Outputs", 30, 1, 0, 4, 43)
+%assign tlcUpdateFcnOfS30B0 = OpaqueTLCBlockFcn("Update", 30, 0, 0, 4, 44)
+%assign tlcUpdateFcnOfS30B1 = OpaqueTLCBlockFcn("Update", 30, 1, 0, 4, 45)
+%assign tlcOutputsFcnOfS31B0 = OpaqueTLCBlockFcn("Outputs", 31, 0, 0, 4, 46)
+%assign tlcUpdateFcnOfS31B0 = OpaqueTLCBlockFcn("Update", 31, 0, 0, 4, 47)
+%assign tlcOutputsFcnOfS32B0 = OpaqueTLCBlockFcn("Outputs", 32, 0, 0, 4, 48)
+%assign tlcOutputsFcnOfS32B1 = OpaqueTLCBlockFcn("Outputs", 32, 1, 0, 4, 49)
+%assign tlcUpdateFcnOfS32B0 = OpaqueTLCBlockFcn("Update", 32, 0, 0, 4, 50)
+%assign tlcUpdateFcnOfS32B1 = OpaqueTLCBlockFcn("Update", 32, 1, 0, 4, 51)
+%assign tlcOutputsFcnOfS33B0 = OpaqueTLCBlockFcn("Outputs", 33, 0, 0, 4, 52)
+%assign tlcUpdateFcnOfS33B0 = OpaqueTLCBlockFcn("Update", 33, 0, 0, 4, 53)
+%assign tlcOutputsFcnOfS34B0 = OpaqueTLCBlockFcn("Outputs", 34, 0, 0, 4, 54)
+%assign tlcOutputsFcnOfS34B1 = OpaqueTLCBlockFcn("Outputs", 34, 1, 0, 4, 55)
+%assign tlcUpdateFcnOfS34B0 = OpaqueTLCBlockFcn("Update", 34, 0, 0, 4, 56)
+%assign tlcUpdateFcnOfS34B1 = OpaqueTLCBlockFcn("Update", 34, 1, 0, 4, 57)
+%assign tlcOutputsFcnOfS35B0 = OpaqueTLCBlockFcn("Outputs", 35, 0, 0, 4, 58)
+%assign tlcUpdateFcnOfS35B0 = OpaqueTLCBlockFcn("Update", 35, 0, 0, 4, 59)
+%assign tlcOutputsFcnOfS36B0 = OpaqueTLCBlockFcn("Outputs", 36, 0, 0, 4, 60)
+%assign tlcOutputsFcnOfS36B1 = OpaqueTLCBlockFcn("Outputs", 36, 1, 0, 4, 61)
+%assign tlcUpdateFcnOfS36B0 = OpaqueTLCBlockFcn("Update", 36, 0, 0, 4, 62)
+%assign tlcUpdateFcnOfS36B1 = OpaqueTLCBlockFcn("Update", 36, 1, 0, 4, 63)
+%assign tlcOutputsFcnOfS37B0 = OpaqueTLCBlockFcn("Outputs", 37, 0, 0, 4, 64)
+%assign tlcUpdateFcnOfS37B0 = OpaqueTLCBlockFcn("Update", 37, 0, 0, 4, 65)
+%assign tlcOutputsFcnOfS43B131 = OpaqueTLCBlockFcn("Outputs", 43, 131, 0, 4, 66)
+%assign tlcOutputsFcnOfS43B133 = OpaqueTLCBlockFcn("Outputs", 43, 133, 0, 4, 67)
+%assign tlcOutputsFcnOfS43B134 = OpaqueTLCBlockFcn("Outputs", 43, 134, 0, 4, 68)
+%assign tlcOutputsFcnOfS43B137 = OpaqueTLCBlockFcn("Outputs", 43, 137, 0, 4, 69)
+%assign tlcOutputsFcnOfS26B0 = OpaqueTLCBlockFcn("Outputs", 26, 0, 0, 4, 70)
+%assign tlcOutputsFcnOfS26B1 = OpaqueTLCBlockFcn("Outputs", 26, 1, 0, 4, 71)
+%assign tlcUpdateFcnOfS26B0 = OpaqueTLCBlockFcn("Update", 26, 0, 0, 4, 72)
+%assign tlcUpdateFcnOfS26B1 = OpaqueTLCBlockFcn("Update", 26, 1, 0, 4, 73)
+%assign tlcOutputsFcnOfS27B0 = OpaqueTLCBlockFcn("Outputs", 27, 0, 0, 4, 74)
+%assign tlcUpdateFcnOfS27B0 = OpaqueTLCBlockFcn("Update", 27, 0, 0, 4, 75)
+%assign tlcOutputsFcnOfS40B0 = OpaqueTLCBlockFcn("Outputs", 40, 0, 0, 4, 76)
+%assign tlcOutputsFcnOfS40B1 = OpaqueTLCBlockFcn("Outputs", 40, 1, 0, 4, 77)
+%assign tlcUpdateFcnOfS40B0 = OpaqueTLCBlockFcn("Update", 40, 0, 0, 4, 78)
+%assign tlcUpdateFcnOfS40B1 = OpaqueTLCBlockFcn("Update", 40, 1, 0, 4, 79)
+%assign tlcOutputsFcnOfS41B0 = OpaqueTLCBlockFcn("Outputs", 41, 0, 0, 4, 80)
+%assign tlcUpdateFcnOfS41B0 = OpaqueTLCBlockFcn("Update", 41, 0, 0, 4, 81)
+%assign tlcOutputsFcnOfS43B165 = OpaqueTLCBlockFcn("Outputs", 43, 165, 0, 4, 82)
+%assign tlcOutputsFcnOfS43B169 = OpaqueTLCBlockFcn("Outputs", 43, 169, 0, 4, 83)
+%assign tlcOutputsFcnOfS43B173 = OpaqueTLCBlockFcn("Outputs", 43, 173, 0, 4, 84)
+%assign tlcOutputsFcnOfS28B0 = OpaqueTLCBlockFcn("Outputs", 28, 0, 0, 4, 85)
+%assign tlcOutputsFcnOfS28B1 = OpaqueTLCBlockFcn("Outputs", 28, 1, 0, 4, 86)
+%assign tlcUpdateFcnOfS28B0 = OpaqueTLCBlockFcn("Update", 28, 0, 0, 4, 87)
+%assign tlcUpdateFcnOfS28B1 = OpaqueTLCBlockFcn("Update", 28, 1, 0, 4, 88)
+%assign tlcOutputsFcnOfS29B0 = OpaqueTLCBlockFcn("Outputs", 29, 0, 0, 4, 89)
+%assign tlcUpdateFcnOfS29B0 = OpaqueTLCBlockFcn("Update", 29, 0, 0, 4, 90)
+%assign tlcOutputsFcnOfS38B0 = OpaqueTLCBlockFcn("Outputs", 38, 0, 0, 4, 91)
+%assign tlcOutputsFcnOfS38B1 = OpaqueTLCBlockFcn("Outputs", 38, 1, 0, 4, 92)
+%assign tlcUpdateFcnOfS38B0 = OpaqueTLCBlockFcn("Update", 38, 0, 0, 4, 93)
+%assign tlcUpdateFcnOfS38B1 = OpaqueTLCBlockFcn("Update", 38, 1, 0, 4, 94)
+%assign tlcOutputsFcnOfS39B0 = OpaqueTLCBlockFcn("Outputs", 39, 0, 0, 4, 95)
+%assign tlcUpdateFcnOfS39B0 = OpaqueTLCBlockFcn("Update", 39, 0, 0, 4, 96)
+%assign tlcOutputsFcnOfS43B183 = OpaqueTLCBlockFcn("Outputs", 43, 183, 0, 4, 97)
+/* {S!d502}Sin: '<S42>/Sine Wave' incorporates:
+ *  Sin: '<Root>/Sine Wave'
+ *  Sin: '<S42>/Sine Wave1'
+ *  Sin: '<S42>/Sine Wave2'
+ *  Sin: '<S42>/Sine Wave3'
+ */
+Sum1_tmp = %<(SLibCG_SE(LibGetTaskTime(0)))>;
+/* {S!d504}Sum: '<S42>/Sum1' incorporates:
+ *  Sin: '<S42>/Sine Wave'
+ *  Sin: '<S42>/Sine Wave1'
+ *  Sin: '<S42>/Sine Wave2'
+ *  Sin: '<S42>/Sine Wave3'
+ */
+AC_DC_B.Sum1 = (((sin(AC_DC_P.SineWave_Freq * Sum1_tmp + AC_DC_P.SineWave_Phase) * AC_DC_P.SineWave_Amp + AC_DC_P.SineWave_Bias) + (sin(AC_DC_P.SineWave1_Freq * Sum1_tmp + AC_DC_P.SineWave1_Phase) * AC_DC_P.SineWave1_Amp + AC_DC_P.SineWave1_Bias)) + (sin(AC_DC_P.SineWave2_Freq * Sum1_tmp + AC_DC_P.SineWave2_Phase) * AC_DC_P.SineWave2_Amp + AC_DC_P.SineWave2_Bias)) + (sin(AC_DC_P.SineWave3_Freq * Sum1_tmp + AC_DC_P.SineWave3_Phase) * AC_DC_P.SineWave3_Amp + AC_DC_P.SineWave3_Bias);
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B1)
+/* {S!d506}S-Function (sfun_spssw_discc): '<S316>/State-Space' incorporates:
+ *  Constant: '<S319>/SwitchCurrents'
+ */
+%<tlcOutputsFcnOfS43B1>\
+%endif
+/* {S!d508}Switch: '<S83>/Switch' incorporates:
+ *  Constant: '<S83>/0 1'
+ *  Gain: '<S83>/Gain'
+ */
+if (AC_DC_B.StateSpace_o2[8] >= AC_DC_P.Switch_Threshold_j) {
+    rtb_Add_nh = AC_DC_P.Gain_Gain * AC_DC_B.StateSpace_o1[8];
+} else {
+    rtb_Add_nh = AC_DC_P.u1_Value;
+}
+/* {E!d508}End of Switch: '<S83>/Switch' */
+
+/* {S!d510}Switch: '<S85>/Switch' incorporates:
+ *  Constant: '<S85>/0 1'
+ *  Gain: '<S85>/1//Rsw'
+ */
+if (AC_DC_B.StateSpace_o2[2] >= AC_DC_P.Switch_Threshold) {
+    x_curr_vec_idx_2 = AC_DC_P.uRsw_Gain * AC_DC_B.StateSpace_o1[2];
+} else {
+    x_curr_vec_idx_2 = AC_DC_P.u1_Value_b;
+}
+/* {S!d512}Saturate: '<S83>/Saturation' */
+if (rtb_Add_nh > AC_DC_P.Saturation_UpperSat) {
+    rtb_Add_nh = AC_DC_P.Saturation_UpperSat;
+} else if (rtb_Add_nh < AC_DC_P.Saturation_LowerSat) {
+    rtb_Add_nh = AC_DC_P.Saturation_LowerSat;
+}
+/* {S!d514}Sum: '<S20>/Add' incorporates:
+ *  Saturate: '<S83>/Saturation'
+ *  Switch: '<S85>/Switch'
+ */
+rtb_Add = x_curr_vec_idx_2 - rtb_Add_nh;
+/* {S!d516}Switch: '<S90>/Switch' incorporates:
+ *  Constant: '<S90>/0 1'
+ *  Gain: '<S90>/Gain'
+ */
+if (AC_DC_B.StateSpace_o2[9] >= AC_DC_P.Switch_Threshold_m) {
+    rtb_Add_h = AC_DC_P.Gain_Gain_c * AC_DC_B.StateSpace_o1[9];
+} else {
+    rtb_Add_h = AC_DC_P.u1_Value_e;
+}
+/* {E!d516}End of Switch: '<S90>/Switch' */
+
+/* {S!d518}Switch: '<S92>/Switch' incorporates:
+ *  Constant: '<S92>/0 1'
+ *  Gain: '<S92>/1//Rsw'
+ */
+if (AC_DC_B.StateSpace_o2[3] >= AC_DC_P.Switch_Threshold_p) {
+    x_curr_vec_idx_2 = AC_DC_P.uRsw_Gain_c * AC_DC_B.StateSpace_o1[3];
+} else {
+    x_curr_vec_idx_2 = AC_DC_P.u1_Value_c;
+}
+/* {S!d520}Saturate: '<S90>/Saturation' */
+if (rtb_Add_h > AC_DC_P.Saturation_UpperSat_e) {
+    rtb_Add_h = AC_DC_P.Saturation_UpperSat_e;
+} else if (rtb_Add_h < AC_DC_P.Saturation_LowerSat_m) {
+    rtb_Add_h = AC_DC_P.Saturation_LowerSat_m;
+}
+/* {S!d522}Sum: '<S21>/Add' incorporates:
+ *  Saturate: '<S90>/Saturation'
+ *  Switch: '<S92>/Switch'
+ */
+rtb_Add_nh = x_curr_vec_idx_2 - rtb_Add_h;
+/* {S!d524}Switch: '<S97>/Switch' incorporates:
+ *  Constant: '<S97>/0 1'
+ *  Gain: '<S97>/Gain'
+ */
+if (AC_DC_B.StateSpace_o2[10] >= AC_DC_P.Switch_Threshold_d) {
+    rtb_Add_i = AC_DC_P.Gain_Gain_j * AC_DC_B.StateSpace_o1[10];
+} else {
+    rtb_Add_i = AC_DC_P.u1_Value_e2;
+}
+/* {E!d524}End of Switch: '<S97>/Switch' */
+
+/* {S!d526}Switch: '<S99>/Switch' incorporates:
+ *  Constant: '<S99>/0 1'
+ *  Gain: '<S99>/1//Rsw'
+ */
+if (AC_DC_B.StateSpace_o2[4] >= AC_DC_P.Switch_Threshold_b) {
+    x_curr_vec_idx_2 = AC_DC_P.uRsw_Gain_d * AC_DC_B.StateSpace_o1[4];
+} else {
+    x_curr_vec_idx_2 = AC_DC_P.u1_Value_k;
+}
+/* {S!d528}Saturate: '<S97>/Saturation' */
+if (rtb_Add_i > AC_DC_P.Saturation_UpperSat_l) {
+    rtb_Add_i = AC_DC_P.Saturation_UpperSat_l;
+} else if (rtb_Add_i < AC_DC_P.Saturation_LowerSat_o) {
+    rtb_Add_i = AC_DC_P.Saturation_LowerSat_o;
+}
+/* {S!d530}Sum: '<S22>/Add' incorporates:
+ *  Saturate: '<S97>/Saturation'
+ *  Switch: '<S99>/Switch'
+ */
+rtb_Add_h = x_curr_vec_idx_2 - rtb_Add_i;
+/* {S!d532}Switch: '<S104>/Switch' incorporates:
+ *  Constant: '<S104>/0 1'
+ *  Gain: '<S104>/Gain'
+ */
+if (AC_DC_B.StateSpace_o2[11] >= AC_DC_P.Switch_Threshold_jb) {
+    rtb_Add_i = AC_DC_P.Gain_Gain_a * AC_DC_B.StateSpace_o1[11];
+} else {
+    rtb_Add_i = AC_DC_P.u1_Value_kj;
+}
+/* {E!d532}End of Switch: '<S104>/Switch' */
+
+/* {S!d534}Switch: '<S106>/Switch' incorporates:
+ *  Constant: '<S106>/0 1'
+ *  Gain: '<S106>/1//Rsw'
+ */
+if (AC_DC_B.StateSpace_o2[5] >= AC_DC_P.Switch_Threshold_o) {
+    x_curr_vec_idx_2 = AC_DC_P.uRsw_Gain_i * AC_DC_B.StateSpace_o1[5];
+} else {
+    x_curr_vec_idx_2 = AC_DC_P.u1_Value_o;
+}
+/* {S!d536}Saturate: '<S104>/Saturation' */
+if (rtb_Add_i > AC_DC_P.Saturation_UpperSat_h) {
+    rtb_Add_i = AC_DC_P.Saturation_UpperSat_h;
+} else if (rtb_Add_i < AC_DC_P.Saturation_LowerSat_b) {
+    rtb_Add_i = AC_DC_P.Saturation_LowerSat_b;
+}
+/* {S!d538}Sum: '<S23>/Add' incorporates:
+ *  Saturate: '<S104>/Saturation'
+ *  Switch: '<S106>/Switch'
+ */
+rtb_Add_i = x_curr_vec_idx_2 - rtb_Add_i;
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B18)
+/* {S!d540}Scope: '<Root>/Scope' */
+%<tlcOutputsFcnOfS43B18>\
+%endif
+/* {S!d542}Gain: '<S4>/do not delete this gain' */
+AC_DC_B.donotdeletethisgain = AC_DC_P.donotdeletethisgain_Gain * AC_DC_B.StateSpace_o1[19];
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B19)
+/* {S!d544}Scope: '<Root>/Scope12' */
+%<tlcOutputsFcnOfS43B19>\
+%endif
+/* {S!d546}Gain: '<S37>/do not delete this gain' */
+AC_DC_B.donotdeletethisgain_o = AC_DC_P.donotdeletethisgain_Gain_k * AC_DC_B.StateSpace_o1[12];
+/* {S!d548}Gain: '<S39>/do not delete this gain' */
+AC_DC_B.donotdeletethisgain_i = AC_DC_P.donotdeletethisgain_Gain_i * AC_DC_B.StateSpace_o1[14];
+/* {S!d566}ZeroOrderHold: '<Root>/Zero-Order Hold11' incorporates:
+ *  ZeroOrderHold: '<Root>/Zero-Order Hold14'
+ */
+if (%<(SLibCGIRIsSampleHit(2, 43))>) {
+    int32_T r2;
+    int32_T r3;
+    /* {S!d550}ZeroOrderHold: '<Root>/Zero-Order Hold11' */
+    AC_DC_B.ZeroOrderHold11 = AC_DC_B.donotdeletethisgain_o;
+    /* {S!d552}ZeroOrderHold: '<Root>/Zero-Order Hold13' */
+    AC_DC_B.ZeroOrderHold13 = AC_DC_B.donotdeletethisgain;
+    /* {S!d554}ZeroOrderHold: '<Root>/Zero-Order Hold14' */
+    AC_DC_B.ZeroOrderHold14 = AC_DC_B.donotdeletethisgain_i;
+    /* {S!d556}ZeroOrderHold: '<Root>/Zero-Order Hold3' */
+    AC_DC_B.ZeroOrderHold3 = AC_DC_B.donotdeletethisgain_i;
+    /* {S!d558}MATLAB Function: '<Root>/级联谐波抑制1' */
+    if (!AC_DC_DW.first_run_not_empty) {
+        %<(SLibCGCallSubFcn("AC_DC_calc_coeff", ["942.47779607693792", "10.0", "40000.0", "1.6E+9", "&AC_DC_DW.b3_0", "&AC_DC_DW.b3_1", "&AC_DC_DW.b3_2", "&AC_DC_DW.a3_1", "&AC_DC_DW.a3_2"], 0, 4, 1))>;
+        %<(SLibCGCallSubFcn("AC_DC_calc_coeff", ["1570.7963267948965", "10.0", "40000.0", "1.6E+9", "&AC_DC_DW.b5_0", "&AC_DC_DW.b5_1", "&AC_DC_DW.b5_2", "&AC_DC_DW.a5_1", "&AC_DC_DW.a5_2"], 0, 4, 2))>;
+        %<(SLibCGCallSubFcn("AC_DC_calc_coeff", ["2199.114857512855", "10.0", "40000.0", "1.6E+9", "&AC_DC_DW.b7_0", "&AC_DC_DW.b7_1", "&AC_DC_DW.b7_2", "&AC_DC_DW.a7_1", "&AC_DC_DW.a7_2"], 0, 4, 3))>;
+        AC_DC_DW.first_run_not_empty = true;
+    }
+    y3 = AC_DC_DW.b3_0 * AC_DC_B.ZeroOrderHold3 + AC_DC_DW.x3_1;
+    AC_DC_DW.x3_1 = (AC_DC_DW.b3_1 * AC_DC_B.ZeroOrderHold3 - AC_DC_DW.a3_1 * y3) + AC_DC_DW.x3_2;
+    AC_DC_DW.x3_2 = AC_DC_DW.b3_2 * AC_DC_B.ZeroOrderHold3 - AC_DC_DW.a3_2 * y3;
+    y5 = AC_DC_DW.b5_0 * y3 + AC_DC_DW.x5_1;
+    AC_DC_DW.x5_1 = (AC_DC_DW.b5_1 * y3 - AC_DC_DW.a5_1 * y5) + AC_DC_DW.x5_2;
+    AC_DC_DW.x5_2 = AC_DC_DW.b5_2 * y3 - AC_DC_DW.a5_2 * y5;
+    y3 = AC_DC_DW.b7_0 * y5 + AC_DC_DW.x7_1;
+    AC_DC_DW.x7_1 = (AC_DC_DW.b7_1 * y5 - AC_DC_DW.a7_1 * y3) + AC_DC_DW.x7_2;
+    AC_DC_DW.x7_2 = AC_DC_DW.b7_2 * y5 - AC_DC_DW.a7_2 * y3;
+    AC_DC_B.y = y3;
+    /* {E!d558}End of MATLAB Function: '<Root>/级联谐波抑制1' */
+
+    /* {S!d560}MATLAB Function: '<Root>/MATLAB Function4' */
+    if (!AC_DC_DW.first_run_not_empty_c) {
+        AC_DC_DW.U_prev = AC_DC_B.y;
+        AC_DC_DW.first_run_not_empty_c = true;
+    }
+    y5 = tan(AC_DC_DW.omega0_prev * 5.0E-5 / 2.0) * 40000.0;
+    A_mat[0] = -0.25 * y5;
+    A_mat[3] = -0.25 * y5;
+    A_mat[6] = 0.0;
+    A_mat[1] = -1.414 * y5;
+    A_mat[4] = -1.414 * y5;
+    A_mat[7] = -(y5 * y5);
+    A_mat[2] = 0.0;
+    A_mat[5] = 1.0;
+    A_mat[8] = 0.0;
+    y3 = AC_DC_B.y + AC_DC_DW.U_prev;
+    for (r1 = 0; r1 < 9; r1++) {
+        rtb_Add_nh = A_mat[r1];
+        r2 = d[r1];
+        A[r1] = (real_T)r2 - 2.5E-5 * rtb_Add_nh;
+        A_tmp[r1] = 2.5E-5 * rtb_Add_nh + (real_T)r2;
+    }
+    tmp[0] = 0.25 * y5 * 2.5E-5 * y3;
+    tmp[1] = 1.414 * y5 * 2.5E-5 * y3;
+    tmp[2] = 0.0 * y3;
+    for (r1 = 0; r1 <= 0; r1 += 2) {
+        __m128d tmp_0;
+        __m128d tmp_1;
+        __m128d tmp_2;
+        __m128d tmp_3;
+        tmp_0 = _mm_loadu_pd(&A_tmp[r1]);
+        tmp_1 = _mm_loadu_pd(&A_tmp[r1 + 3]);
+        tmp_2 = _mm_loadu_pd(&A_tmp[r1 + 6]);
+        tmp_3 = _mm_loadu_pd(&tmp[r1]);
+        _mm_storeu_pd(&B[r1], _mm_add_pd(_mm_add_pd(_mm_mul_pd(tmp_2, _mm_set1_pd(AC_DC_DW.x3_prev)), _mm_add_pd(_mm_mul_pd(tmp_1, _mm_set1_pd(AC_DC_DW.x2_prev)), _mm_add_pd(_mm_mul_pd(tmp_0, _mm_set1_pd(AC_DC_DW.x1_prev)), _mm_set1_pd(0.0)))), tmp_3));
+    }
+    /* {S!d562}MATLAB Function: '<Root>/MATLAB Function4' */
+    for (r1 = 2; r1 < 3; r1++) {
+        B[r1] = ((A_tmp[r1 + 3] * AC_DC_DW.x2_prev + A_tmp[r1] * AC_DC_DW.x1_prev) + A_tmp[r1 + 6] * AC_DC_DW.x3_prev) + tmp[r1];
+    }
+    r1 = 0;
+    r2 = 1;
+    r3 = 2;
+    y5 = fabs(A[0]);
+    y3 = fabs(A[1]);
+    if (y3 > y5) {
+        y5 = y3;
+        r1 = 1;
+        r2 = 0;
+    }
+    if (fabs(A[2]) > y5) {
+        r1 = 2;
+        r2 = 1;
+        r3 = 0;
+    }
+    A[r2] /= A[r1];
+    A[r3] /= A[r1];
+    A[r2 + 3] -= A[r1 + 3] * A[r2];
+    A[r3 + 3] -= A[r1 + 3] * A[r3];
+    A[r2 + 6] -= A[r1 + 6] * A[r2];
+    A[r3 + 6] -= A[r1 + 6] * A[r3];
+    if (fabs(A[r3 + 3]) > fabs(A[r2 + 3])) {
+        int32_T rtemp;
+        rtemp = r2;
+        r2 = r3;
+        r3 = rtemp;
+    }
+    A[r3 + 3] /= A[r2 + 3];
+    A[r3 + 6] -= A[r3 + 3] * A[r2 + 6];
+    rtb_Add_nh = B[r2] - B[r1] * A[r2];
+    x_curr_vec_idx_2 = ((B[r3] - B[r1] * A[r3]) - A[r3 + 3] * rtb_Add_nh) / A[r3 + 6];
+    rtb_Add_nh = (rtb_Add_nh - A[r2 + 6] * x_curr_vec_idx_2) / A[r2 + 3];
+    x_curr_vec_idx_0 = ((B[r1] - A[r1 + 6] * x_curr_vec_idx_2) - A[r1 + 3] * rtb_Add_nh) / A[r1];
+    y5 = ((AC_DC_B.y - x_curr_vec_idx_0) - rtb_Add_nh) * (AC_DC_DW.omega0_prev * x_curr_vec_idx_2);
+    AC_DC_DW.integral_f += y5 * 5.0E-5;
+    y3 = fmax(fmin((-30.0 * y5 - 500.0 * AC_DC_DW.integral_f) * 5.0E-5 + AC_DC_DW.omega0_prev, 376.99111843077515), 251.32741228718345);
+    y5 = rtb_Add_nh;
+    AC_DC_B.beta = y3 * x_curr_vec_idx_2;
+    AC_DC_DW.x1_prev = x_curr_vec_idx_0;
+    AC_DC_DW.x2_prev = rtb_Add_nh;
+    AC_DC_DW.x3_prev = x_curr_vec_idx_2;
+    AC_DC_DW.omega0_prev = y3;
+    AC_DC_DW.U_prev = AC_DC_B.y;
+    /* {S!d564}MATLAB Function: '<Root>/MATLAB Function5' */
+    x_curr_vec_idx_0 = -y5 * sin(AC_DC_DW.theta_prev) + AC_DC_B.beta * cos(AC_DC_DW.theta_prev);
+    AC_DC_DW.integral_pll += x_curr_vec_idx_0 * 5.0E-5;
+    y3 = (200.0 * x_curr_vec_idx_0 + 7000.0 * AC_DC_DW.integral_pll) * 5.0E-5 + AC_DC_DW.theta_prev;
+    if (y3 > 3.1415926535897931) {
+        y3 -= 6.2831853071795862;
+    } else if (y3 < -3.1415926535897931) {
+        y3 += 6.2831853071795862;
+    }
+    AC_DC_DW.theta_prev = y3;
+    /* {E!d564}End of MATLAB Function: '<Root>/MATLAB Function5' */
+}
+/* {E!d566}End of ZeroOrderHold: '<Root>/Zero-Order Hold11' */
+
+/* {S!d568}Clock: '<Root>/Clock1' incorporates:
+ *  Clock: '<Root>/Clock2'
+ *  Clock: '<Root>/Clock3'
+ *  Clock: '<S35>/Clock'
+ *  Clock: '<S36>/Clock'
+ */
+rtb_Add_nh = %<(SLibCG_SE(LibGetT()))>;
+/* {S!d570}Clock: '<Root>/Clock1' */
+AC_DC_B.Clock1 = rtb_Add_nh;
+/* {S!d584}ZeroOrderHold: '<Root>/Zero-Order Hold5' */
+if (%<(SLibCGIRIsSampleHit(2, 43))>) {
+    /* {S!d572}ZeroOrderHold: '<Root>/Zero-Order Hold5' */
+    AC_DC_B.ZeroOrderHold5 = AC_DC_B.Clock1;
+    /* {S!d574}MATLAB Function: '<Root>/MATLAB Function' incorporates:
+ *  Constant: '<Root>/Constant3'
+ */
+    if (AC_DC_B.ZeroOrderHold5 >= 0.4) {
+        rtb_out1 = AC_DC_B.ZeroOrderHold11;
+        rtb_out2 = AC_DC_P.Constant3_Value;
+        rtb_out3 = AC_DC_B.ZeroOrderHold13;
+        rtb_out4 = AC_DC_B.ZeroOrderHold14;
+        rtb_out5 = y3;
+    } else {
+        rtb_out1 = 0.0;
+        rtb_out2 = 0.0;
+        rtb_out3 = 0.0;
+        rtb_out4 = 0.0;
+        rtb_out5 = 0.0;
+    }
+    /* {E!d574}End of MATLAB Function: '<Root>/MATLAB Function' */
+
+    /* {S!d576}Gain: '<Root>/WL1' incorporates:
+ *  Trigonometry: '<Root>/Cos2'
+ */
+    rtb_WL1 = AC_DC_P.WL1_Gain * sin(rtb_out5);
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B25)
+    /* {S!d578}Scope: '<Root>/Scope13' */
+%<tlcOutputsFcnOfS43B25>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B26)
+    /* {S!d580}Scope: '<Root>/Scope14' */
+%<tlcOutputsFcnOfS43B26>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B27)
+    /* {S!d582}Scope: '<Root>/Scope15' */
+%<tlcOutputsFcnOfS43B27>\
+%endif
+}
+/* {E!d584}End of ZeroOrderHold: '<Root>/Zero-Order Hold5' */
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B28)
+
+/* {S!d586}Scope: '<Root>/Scope16' */
+%<tlcOutputsFcnOfS43B28>\
+%endif
+if (%<(SLibCGIRIsSampleHit(2, 43))>) {
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B29)
+    /* {S!d588}Scope: '<Root>/Scope17' */
+%<tlcOutputsFcnOfS43B29>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B30)
+    /* {S!d590}Scope: '<Root>/Scope18' */
+%<tlcOutputsFcnOfS43B30>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B31)
+    /* {S!d592}Scope: '<Root>/Scope19' */
+%<tlcOutputsFcnOfS43B31>\
+%endif
+    /* {S!d594}UnitDelay: '<Root>/Unit Delay4' */
+    rtb_Integrator = AC_DC_DW.UnitDelay4_DSTATE;
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B32)
+    /* {S!d596}Scope: '<Root>/Scope20' */
+%<tlcOutputsFcnOfS43B32>\
+%endif
+}
+/* {S!d598}Lookup_n-D: '<S36>/Look-Up Table1' incorporates:
+ *  Constant: '<S36>/Constant'
+ *  Math: '<S36>/Math Function'
+ */
+AC_DC_B.LookUpTable1 = look1_binlxpw(%<(SLibCGCallSubFcn("rt_remd_snf", ["rtb_Add_nh", "AC_DC_P.Constant_Value"], 0, 4, 4))>, AC_DC_P.LookUpTable1_bp01Data, AC_DC_P.RepeatingSequence6_rep_seq_y, 2U);
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B35)
+/* {S!d600}Scope: '<Root>/Scope21' */
+%<tlcOutputsFcnOfS43B35>\
+%endif
+if (%<(SLibCGIRIsSampleHit(2, 43))>) {
+    /* {S!d602}Gain: '<Root>/Gain1' */
+    rtb_Integrator_f = AC_DC_P.Gain1_Gain * rtb_Integrator;
+    /* {S!d610}Saturate: '<Root>/-ug1' */
+    if (rtb_Integrator_f > AC_DC_P.ug1_UpperSat) {
+        /* {S!d604}Saturate: '<Root>/-ug1' */
+        AC_DC_B.ug1 = AC_DC_P.ug1_UpperSat;
+    } else if (rtb_Integrator_f < AC_DC_P.ug1_LowerSat) {
+        /* {S!d606}Saturate: '<Root>/-ug1' */
+        AC_DC_B.ug1 = AC_DC_P.ug1_LowerSat;
+    } else {
+        /* {S!d608}Saturate: '<Root>/-ug1' */
+        AC_DC_B.ug1 = rtb_Integrator_f;
+    }
+    /* {E!d610}End of Saturate: '<Root>/-ug1' */
+}
+/* {S!d612}RelationalOperator: '<Root>/ub1' */
+AC_DC_B.ub1 = (AC_DC_B.ug1 > AC_DC_B.LookUpTable1);
+/* {S!d614}Logic: '<Root>/NOT3' */
+AC_DC_B.NOT3 = !AC_DC_B.ub1;
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B36)
+/* {S!d616}Scope: '<Root>/Scope22' */
+%<tlcOutputsFcnOfS43B36>\
+%endif
+if (%<(SLibCGIRIsSampleHit(2, 43))>) {
+    /* {S!d624}Saturate: '<Root>/ug1' */
+    if (rtb_Integrator > AC_DC_P.ug1_UpperSat_k) {
+        /* {S!d618}Saturate: '<Root>/ug1' */
+        AC_DC_B.ug1_f = AC_DC_P.ug1_UpperSat_k;
+    } else if (rtb_Integrator < AC_DC_P.ug1_LowerSat_e) {
+        /* {S!d620}Saturate: '<Root>/ug1' */
+        AC_DC_B.ug1_f = AC_DC_P.ug1_LowerSat_e;
+    } else {
+        /* {S!d622}Saturate: '<Root>/ug1' */
+        AC_DC_B.ug1_f = rtb_Integrator;
+    }
+    /* {E!d624}End of Saturate: '<Root>/ug1' */
+}
+/* {S!d626}RelationalOperator: '<Root>/ua1' */
+AC_DC_B.ua1 = (AC_DC_B.ug1_f > AC_DC_B.LookUpTable1);
+/* {S!d628}Logic: '<Root>/NOT4' */
+AC_DC_B.NOT4 = !AC_DC_B.ua1;
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B37)
+/* {S!d630}Scope: '<Root>/Scope23' */
+%<tlcOutputsFcnOfS43B37>\
+%endif
+/* {S!d632}Clock: '<Root>/Clock3' */
+AC_DC_B.Clock3 = rtb_Add_nh;
+/* {S!d664}ZeroOrderHold: '<Root>/Zero-Order Hold7' */
+if (%<(SLibCGIRIsSampleHit(2, 43))>) {
+    /* {S!d634}ZeroOrderHold: '<Root>/Zero-Order Hold7' */
+    AC_DC_B.ZeroOrderHold7 = AC_DC_B.Clock3;
+    /* {S!d636}MATLAB Function: '<Root>/MATLAB Function8' */
+    if (AC_DC_B.ZeroOrderHold7 < 0.4) {
+        x_curr_vec_idx_2 = 0.0;
+    } else if (AC_DC_B.ZeroOrderHold7 <= 0.7) {
+        x_curr_vec_idx_2 = (AC_DC_B.ZeroOrderHold7 - 0.4) * 166.66666666666669;
+    } else {
+        x_curr_vec_idx_2 = 50.0;
+    }
+    /* {S!d638}Sum: '<Root>/Add' incorporates:
+ *  MATLAB Function: '<Root>/MATLAB Function8'
+ */
+    rtb_Integrator_f = x_curr_vec_idx_2 - rtb_out1;
+    /* {S!d640}DiscreteIntegrator: '<S187>/Integrator' */
+    rtb_Integrator = AC_DC_DW.Integrator_DSTATE;
+    /* {S!d642}Sum: '<S196>/Sum' incorporates:
+ *  Gain: '<S192>/Proportional Gain'
+ */
+    rtb_Sum = AC_DC_P.PIDController4_P * rtb_Integrator_f + rtb_Integrator;
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B39)
+    /* {S!d644}Scope: '<Root>/Scope24' */
+%<tlcOutputsFcnOfS43B39>\
+%endif
+    /* {S!d646}MATLAB Function: '<Root>/MATLAB Function3' */
+    rtb_Igm_clean = (((0.99905864168408831 * rtb_Sum + -1.9971314952449557 * AC_DC_DW.x_prev1) + 0.99905864168408831 * AC_DC_DW.x_prev2) - -1.9971314952449557 * AC_DC_DW.y_prev1) - 0.99811728336817673 * AC_DC_DW.y_prev2;
+    AC_DC_DW.x_prev2 = AC_DC_DW.x_prev1;
+    AC_DC_DW.x_prev1 = rtb_Sum;
+    AC_DC_DW.y_prev2 = AC_DC_DW.y_prev1;
+    AC_DC_DW.y_prev1 = rtb_Igm_clean;
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B41)
+    /* {S!d648}Scope: '<Root>/Scope25' */
+%<tlcOutputsFcnOfS43B41>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B42)
+    /* {S!d650}Scope: '<Root>/Scope26' */
+%<tlcOutputsFcnOfS43B42>\
+%endif
+    /* {S!d652}Product: '<Root>/Product5' incorporates:
+ *  Trigonometry: '<Root>/Cos1'
+ */
+    rtb_Sum = rtb_Igm_clean * cos(rtb_out5);
+    /* {S!d654}Sum: '<Root>/Add3' */
+    rtb_Igm_clean = rtb_Sum - rtb_out3;
+    /* {S!d656}MATLAB Function: '<Root>/MATLAB Function6' */
+    rtb_out5 = ((((0.024 * rtb_Igm_clean + 0.0 * AC_DC_DW.e1_1) + -0.024 * AC_DC_DW.e1_2) - -7.9995065197799455 * AC_DC_DW.m1_1) - 3.9990467401100274 * AC_DC_DW.m1_2) / 4.0014467401100271;
+    AC_DC_DW.e1_2 = AC_DC_DW.e1_1;
+    AC_DC_DW.e1_1 = rtb_Igm_clean;
+    AC_DC_DW.m1_2 = AC_DC_DW.m1_1;
+    AC_DC_DW.m1_1 = rtb_out5;
+    m3 = ((((0.060000000000000005 * rtb_Igm_clean + 0.0 * AC_DC_DW.e3_1) + -0.060000000000000005 * AC_DC_DW.e3_2) - -7.99555867801951 * AC_DC_DW.m3_1) - 4.0010206609902452 * AC_DC_DW.m3_2) / 4.003420660990245;
+    AC_DC_DW.e3_2 = AC_DC_DW.e3_1;
+    AC_DC_DW.e3_1 = rtb_Igm_clean;
+    AC_DC_DW.m3_2 = AC_DC_DW.m3_1;
+    AC_DC_DW.m3_1 = m3;
+    rtb_Integrator = ((((0.048 * rtb_Igm_clean + 0.0 * AC_DC_DW.e5_1) + -0.048 * AC_DC_DW.e5_2) - -7.9876629944986384 * AC_DC_DW.m5_1) - 4.0049685027506809 * AC_DC_DW.m5_2) / 4.0073685027506807;
+    AC_DC_DW.e5_2 = AC_DC_DW.e5_1;
+    AC_DC_DW.e5_1 = rtb_Igm_clean;
+    AC_DC_DW.m5_2 = AC_DC_DW.m5_1;
+    AC_DC_DW.m5_1 = rtb_Integrator;
+    rtb_Add_i = ((((0.036000000000000004 * rtb_Igm_clean + 0.0 * AC_DC_DW.e7_1) + -0.036000000000000004 * AC_DC_DW.e7_2) - -7.9758194692173312 * AC_DC_DW.m7_1) - 4.0108902653913345 * AC_DC_DW.m7_2) / 4.0132902653913343;
+    AC_DC_DW.e7_2 = AC_DC_DW.e7_1;
+    AC_DC_DW.e7_1 = rtb_Igm_clean;
+    AC_DC_DW.m7_2 = AC_DC_DW.m7_1;
+    AC_DC_DW.m7_1 = rtb_Add_i;
+    m3 = (((0.3 * rtb_Igm_clean + rtb_out5) + m3) + rtb_Integrator) + rtb_Add_i;
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B44)
+    /* {S!d658}Scope: '<Root>/Scope27' */
+%<tlcOutputsFcnOfS43B44>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B45)
+    /* {S!d660}Scope: '<Root>/Scope28' */
+%<tlcOutputsFcnOfS43B45>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B46)
+    /* {S!d662}Scope: '<Root>/Scope29' */
+%<tlcOutputsFcnOfS43B46>\
+%endif
+}
+/* {E!d664}End of ZeroOrderHold: '<Root>/Zero-Order Hold7' */
+
+/* {S!d666}Gain: '<S3>/do not delete this gain' */
+rtb_out5 = AC_DC_P.donotdeletethisgain_Gain_g * AC_DC_B.StateSpace_o1[18];
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B47)
+/* {S!d668}Scope: '<Root>/Scope3' */
+%<tlcOutputsFcnOfS43B47>\
+%endif
+if (%<(SLibCGIRIsSampleHit(2, 43))>) {
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B48)
+    /* {S!d670}Scope: '<Root>/Scope30' */
+%<tlcOutputsFcnOfS43B48>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B49)
+    /* {S!d672}Scope: '<Root>/Scope31' */
+%<tlcOutputsFcnOfS43B49>\
+%endif
+    /* {S!d674}Sum: '<Root>/Add4' */
+    rtb_Add4 = (rtb_out4 - m3) + rtb_WL1;
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B50)
+    /* {S!d676}Scope: '<Root>/Scope38' */
+%<tlcOutputsFcnOfS43B50>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B51)
+    /* {S!d678}Scope: '<Root>/Scope39' */
+%<tlcOutputsFcnOfS43B51>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B52)
+    /* {S!d680}Scope: '<Root>/Scope40' */
+%<tlcOutputsFcnOfS43B52>\
+%endif
+}
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B53)
+/* {S!d682}Scope: '<Root>/Scope7' */
+%<tlcOutputsFcnOfS43B53>\
+%endif
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B54)
+/* {S!d684}Scope: '<Root>/Scope8' */
+%<tlcOutputsFcnOfS43B54>\
+%endif
+/* {S!d686}Gain: '<S40>/do not delete this gain' */
+rtb_Add_i = AC_DC_P.donotdeletethisgain_Gain_e * AC_DC_B.StateSpace_o1[15];
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B55)
+/* {S!d688}Scope: '<Root>/i1' */
+%<tlcOutputsFcnOfS43B55>\
+%endif
+if (%<(SLibCGIRIsSampleHit(2, 43))>) {
+    /* {S!d690}MATLAB Function: '<Root>/MATLAB Function1' */
+    rtb_out1 = cos(y3);
+    rtb_out3 = sin(y3);
+    rtb_out2 = y5 * rtb_out1 + AC_DC_B.beta * rtb_out3;
+    rtb_out1 = -y5 * rtb_out3 + AC_DC_B.beta * rtb_out1;
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B57)
+    /* {S!d692}Scope: '<Root>/iL1' */
+%<tlcOutputsFcnOfS43B57>\
+%endif
+}
+/* {S!d694}Clock: '<Root>/Clock2' */
+AC_DC_B.Clock2 = rtb_Add_nh;
+/* {S!d696}Sin: '<S6>/cos(wt)' */
+if (AC_DC_DW.systemEnable != 0) {
+    y3 = 6.2831853071795862 * AC_DC_P.Fourier7_Freq * %<(SLibCG_SE(LibGetTaskTime(1)))>;
+    AC_DC_DW.lastSin = sin(y3);
+    AC_DC_DW.lastCos = cos(y3);
+    AC_DC_DW.systemEnable = 0;
+}
+rtb_Add_i = ((AC_DC_DW.lastSin * AC_DC_P.coswt_PCos_o1 + AC_DC_DW.lastCos * AC_DC_P.coswt_PSin_a) * AC_DC_P.coswt_HCos_lj + (AC_DC_DW.lastCos * AC_DC_P.coswt_PCos_o1 - AC_DC_DW.lastSin * AC_DC_P.coswt_PSin_a) * AC_DC_P.coswt_Hsin_h) * AC_DC_P.coswt_Amp_ii + AC_DC_P.coswt_Bias_n0;
+/* {E!d696}End of Sin: '<S6>/cos(wt)' */
+
+/* {S!d698}Product: '<S6>/Product1' */
+rtb_Product1 = AC_DC_B.donotdeletethisgain_i * rtb_Add_i;
+/* {S!d704}DiscreteIntegrator: '<S52>/Integ4' */
+if (AC_DC_DW.Integ4_SYSTEM_ENABLE != 0) {
+    /* {S!d700}DiscreteIntegrator: '<S52>/Integ4' */
+    AC_DC_B.Integ4 = AC_DC_DW.Integ4_DSTATE;
+} else {
+    /* {S!d702}DiscreteIntegrator: '<S52>/Integ4' */
+    AC_DC_B.Integ4 = AC_DC_P.Integ4_gainval_ff * rtb_Product1 + AC_DC_DW.Integ4_DSTATE;
+}
+/* {E!d704}End of DiscreteIntegrator: '<S52>/Integ4' */
+
+/* {S!d706}Constant: '<S52>/K1' */
+AC_DC_B.K1 = AC_DC_P.K1_Value_iq;
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B64)
+/* {S!d708}S-Function (sfun_discreteVariableDelay): '<S53>/S-Function' */
+%<tlcOutputsFcnOfS43B64>\
+%endif
+/* {S!d710}Sin: '<S6>/sin(wt)' */
+if (AC_DC_DW.systemEnable_b != 0) {
+    AC_DC_DW.lastSin_a = sin(6.2831853071795862 * AC_DC_P.Fourier7_Freq * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+    AC_DC_DW.lastCos_i = cos(6.2831853071795862 * AC_DC_P.Fourier7_Freq * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+    AC_DC_DW.systemEnable_b = 0;
+}
+rtb_Add_i = ((AC_DC_DW.lastSin_a * AC_DC_P.sinwt_PCos_fu + AC_DC_DW.lastCos_i * AC_DC_P.sinwt_PSin_gs) * AC_DC_P.sinwt_HCos_p + (AC_DC_DW.lastCos_i * AC_DC_P.sinwt_PCos_fu - AC_DC_DW.lastSin_a * AC_DC_P.sinwt_PSin_gs) * AC_DC_P.sinwt_Hsin_bi) * AC_DC_P.sinwt_Amp_m + AC_DC_P.sinwt_Bias_h;
+/* {E!d710}End of Sin: '<S6>/sin(wt)' */
+
+/* {S!d712}Product: '<S6>/Product' */
+rtb_Product = AC_DC_B.donotdeletethisgain_i * rtb_Add_i;
+/* {S!d718}DiscreteIntegrator: '<S54>/Integ4' */
+if (AC_DC_DW.Integ4_SYSTEM_ENABLE_m != 0) {
+    /* {S!d714}DiscreteIntegrator: '<S54>/Integ4' */
+    AC_DC_B.Integ4_o = AC_DC_DW.Integ4_DSTATE_h;
+} else {
+    /* {S!d716}DiscreteIntegrator: '<S54>/Integ4' */
+    AC_DC_B.Integ4_o = AC_DC_P.Integ4_gainval_ib * rtb_Product + AC_DC_DW.Integ4_DSTATE_h;
+}
+/* {E!d718}End of DiscreteIntegrator: '<S54>/Integ4' */
+
+/* {S!d720}Constant: '<S54>/K1' */
+AC_DC_B.K1_d = AC_DC_P.K1_Value_pb;
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B65)
+/* {S!d722}S-Function (sfun_discreteVariableDelay): '<S55>/S-Function' */
+%<tlcOutputsFcnOfS43B65>\
+%endif
+/* {S!d724}Sin: '<S7>/cos(wt)' */
+if (AC_DC_DW.systemEnable_m != 0) {
+    y3 = 6.2831853071795862 * AC_DC_P.Fourier8_Freq * %<(SLibCG_SE(LibGetTaskTime(1)))>;
+    AC_DC_DW.lastSin_j = sin(y3);
+    AC_DC_DW.lastCos_p = cos(y3);
+    AC_DC_DW.systemEnable_m = 0;
+}
+rtb_Add_i = ((AC_DC_DW.lastSin_j * AC_DC_P.coswt_PCos_ev + AC_DC_DW.lastCos_p * AC_DC_P.coswt_PSin_c4) * AC_DC_P.coswt_HCos_d + (AC_DC_DW.lastCos_p * AC_DC_P.coswt_PCos_ev - AC_DC_DW.lastSin_j * AC_DC_P.coswt_PSin_c4) * AC_DC_P.coswt_Hsin_j) * AC_DC_P.coswt_Amp_j + AC_DC_P.coswt_Bias_j;
+/* {E!d724}End of Sin: '<S7>/cos(wt)' */
+
+/* {S!d726}Product: '<S7>/Product1' */
+rtb_Product1_i = AC_DC_B.donotdeletethisgain * rtb_Add_i;
+/* {S!d732}DiscreteIntegrator: '<S58>/Integ4' */
+if (AC_DC_DW.Integ4_SYSTEM_ENABLE_p != 0) {
+    /* {S!d728}DiscreteIntegrator: '<S58>/Integ4' */
+    AC_DC_B.Integ4_j = AC_DC_DW.Integ4_DSTATE_j;
+} else {
+    /* {S!d730}DiscreteIntegrator: '<S58>/Integ4' */
+    AC_DC_B.Integ4_j = AC_DC_P.Integ4_gainval_ax * rtb_Product1_i + AC_DC_DW.Integ4_DSTATE_j;
+}
+/* {E!d732}End of DiscreteIntegrator: '<S58>/Integ4' */
+
+/* {S!d734}Constant: '<S58>/K1' */
+AC_DC_B.K1_m = AC_DC_P.K1_Value_d;
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B66)
+/* {S!d736}S-Function (sfun_discreteVariableDelay): '<S59>/S-Function' */
+%<tlcOutputsFcnOfS43B66>\
+%endif
+/* {S!d738}Sin: '<S7>/sin(wt)' */
+if (AC_DC_DW.systemEnable_g != 0) {
+    AC_DC_DW.lastSin_d = sin(6.2831853071795862 * AC_DC_P.Fourier8_Freq * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+    AC_DC_DW.lastCos_f = cos(6.2831853071795862 * AC_DC_P.Fourier8_Freq * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+    AC_DC_DW.systemEnable_g = 0;
+}
+rtb_Add_i = ((AC_DC_DW.lastSin_d * AC_DC_P.sinwt_PCos_di + AC_DC_DW.lastCos_f * AC_DC_P.sinwt_PSin_f) * AC_DC_P.sinwt_HCos_lb + (AC_DC_DW.lastCos_f * AC_DC_P.sinwt_PCos_di - AC_DC_DW.lastSin_d * AC_DC_P.sinwt_PSin_f) * AC_DC_P.sinwt_Hsin_l) * AC_DC_P.sinwt_Amp_n5 + AC_DC_P.sinwt_Bias_i;
+/* {E!d738}End of Sin: '<S7>/sin(wt)' */
+
+/* {S!d740}Product: '<S7>/Product' */
+rtb_Product_j = AC_DC_B.donotdeletethisgain * rtb_Add_i;
+/* {S!d746}DiscreteIntegrator: '<S60>/Integ4' */
+if (AC_DC_DW.Integ4_SYSTEM_ENABLE_m5 != 0) {
+    /* {S!d742}DiscreteIntegrator: '<S60>/Integ4' */
+    AC_DC_B.Integ4_e = AC_DC_DW.Integ4_DSTATE_g;
+} else {
+    /* {S!d744}DiscreteIntegrator: '<S60>/Integ4' */
+    AC_DC_B.Integ4_e = AC_DC_P.Integ4_gainval_oq * rtb_Product_j + AC_DC_DW.Integ4_DSTATE_g;
+}
+/* {E!d746}End of DiscreteIntegrator: '<S60>/Integ4' */
+
+/* {S!d748}Constant: '<S60>/K1' */
+AC_DC_B.K1_dc = AC_DC_P.K1_Value_h4;
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B67)
+/* {S!d750}S-Function (sfun_discreteVariableDelay): '<S61>/S-Function' */
+%<tlcOutputsFcnOfS43B67>\
+%endif
+/* {S!d752}Sin: '<Root>/Sine Wave' */
+AC_DC_B.SineWave = sin(AC_DC_P.SineWave_Freq_b * Sum1_tmp + AC_DC_P.SineWave_Phase_p) * AC_DC_P.SineWave_Amp_a + AC_DC_P.SineWave_Bias_p;
+/* {S!d754}Product: '<Root>/Product' */
+AC_DC_B.Product = AC_DC_B.donotdeletethisgain_i * rtb_out5;
+/* {S!d770}ZeroOrderHold: '<Root>/Zero-Order Hold6' incorporates:
+ *  Constant: '<S62>/K1'
+ */
+if (%<(SLibCGIRIsSampleHit(2, 43))>) {
+    /* {S!d756}ZeroOrderHold: '<Root>/Zero-Order Hold6' */
+    AC_DC_B.ZeroOrderHold6 = AC_DC_B.SineWave;
+    /* {S!d758}ZeroOrderHold: '<Root>/Zero-Order Hold4' */
+    AC_DC_B.ZeroOrderHold4 = AC_DC_B.Clock2;
+    /* {S!d760}MATLAB Function: '<Root>/MATLAB Function7' */
+    if (AC_DC_B.ZeroOrderHold4 >= 0.4) {
+        AC_DC_B.y_m = rtb_Add4;
+    } else {
+        AC_DC_B.y_m = AC_DC_B.ZeroOrderHold6;
+    }
+    /* {E!d760}End of MATLAB Function: '<Root>/MATLAB Function7' */
+
+    /* {S!d766}DiscreteIntegrator: '<S62>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_l != 0) {
+        /* {S!d762}DiscreteIntegrator: '<S62>/Integ4' */
+        AC_DC_B.Integ4_l = AC_DC_DW.Integ4_DSTATE_m;
+    } else {
+        /* {S!d764}DiscreteIntegrator: '<S62>/Integ4' */
+        AC_DC_B.Integ4_l = AC_DC_P.Integ4_gainval_ax3 * AC_DC_B.Product + AC_DC_DW.Integ4_DSTATE_m;
+    }
+    /* {E!d766}End of DiscreteIntegrator: '<S62>/Integ4' */
+    AC_DC_B.K1_mo = AC_DC_P.K1_Value_bv3;
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B69)
+    /* {S!d768}S-Function (sfun_discreteVariableDelay): '<S63>/S-Function' incorporates:
+ *  Constant: '<S62>/K1'
+ */
+%<tlcOutputsFcnOfS43B69>\
+%endif
+}
+/* {E!d770}End of ZeroOrderHold: '<Root>/Zero-Order Hold6' */
+
+/* {S!d772}Product: '<Root>/Product2' */
+AC_DC_B.Product2 = AC_DC_B.donotdeletethisgain * AC_DC_B.beta;
+if (%<(SLibCGIRIsSampleHit(2, 43))>) {
+    /* {S!d778}DiscreteIntegrator: '<S64>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_pj != 0) {
+        /* {S!d774}DiscreteIntegrator: '<S64>/Integ4' */
+        AC_DC_B.Integ4_ed = AC_DC_DW.Integ4_DSTATE_o;
+    } else {
+        /* {S!d776}DiscreteIntegrator: '<S64>/Integ4' */
+        AC_DC_B.Integ4_ed = AC_DC_P.Integ4_gainval_f0 * AC_DC_B.Product2 + AC_DC_DW.Integ4_DSTATE_o;
+    }
+    /* {E!d778}End of DiscreteIntegrator: '<S64>/Integ4' */
+
+    /* {S!d780}Constant: '<S64>/K1' */
+    AC_DC_B.K1_b = AC_DC_P.K1_Value_c;
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B70)
+    /* {S!d782}S-Function (sfun_discreteVariableDelay): '<S65>/S-Function' */
+%<tlcOutputsFcnOfS43B70>\
+%endif
+    /* {S!d784}Gain: '<S184>/Integral Gain' */
+    rtb_IntegralGain = AC_DC_P.PIDController4_I * rtb_Integrator_f;
+}
+/* {S!d786}DataTypeConversion: '<S85>/Data Type Conversion' */
+AC_DC_B.DataTypeConversion = AC_DC_B.ua1;
+/* {S!d788}DataTypeConversion: '<S92>/Data Type Conversion' */
+AC_DC_B.DataTypeConversion_g = AC_DC_B.NOT4;
+/* {S!d790}DataTypeConversion: '<S99>/Data Type Conversion' */
+AC_DC_B.DataTypeConversion_h = AC_DC_B.ub1;
+/* {S!d792}DataTypeConversion: '<S106>/Data Type Conversion' */
+AC_DC_B.DataTypeConversion_j = AC_DC_B.NOT3;
+/* {S!d465}Outputs for Enabled SubSystem: '<S26>/RMS ' incorporates:
+ *  EnablePort: '<S204>/Enable'
+ */
+/* {S!d842}Logic: '<S26>/Logical Operator' incorporates:
+ *  Constant: '<S209>/K1'
+ *  Constant: '<S211>/K1'
+ *  Constant: '<S26>/Constant'
+ *  DataTypeConversion: '<S26>/Data Type Conversion'
+ */
+if (!(AC_DC_P.RMS_TrueRMS != 0.0)) {
+    if (!AC_DC_DW.RMS_MODE_l) {
+        /* {S!d794}Enable for Sin: '<S206>/cos(wt)' */
+        AC_DC_DW.systemEnable_hm = 1;
+        /* {S!d796}Enable for DiscreteIntegrator: '<S209>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_g = 1U;
+        /* {S!d798}Enable for Sin: '<S206>/sin(wt)' */
+        AC_DC_DW.systemEnable_i = 1;
+        /* {S!d800}Enable for DiscreteIntegrator: '<S211>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_cj = 1U;
+        AC_DC_DW.RMS_MODE_l = true;
+    }
+    /* {S!d802}Sin: '<S206>/cos(wt)' */
+    if (AC_DC_DW.systemEnable_hm != 0) {
+        rtb_Integrator_f = 6.2831853071795862 * AC_DC_P.Fourier1_Freq * %<(SLibCG_SE(LibGetTaskTime(1)))>;
+        AC_DC_DW.lastSin_ai = sin(rtb_Integrator_f);
+        AC_DC_DW.lastCos_o = cos(rtb_Integrator_f);
+        AC_DC_DW.systemEnable_hm = 0;
+    }
+    rtb_Add_i = ((AC_DC_DW.lastSin_ai * AC_DC_P.coswt_PCos + AC_DC_DW.lastCos_o * AC_DC_P.coswt_PSin) * AC_DC_P.coswt_HCos + (AC_DC_DW.lastCos_o * AC_DC_P.coswt_PCos - AC_DC_DW.lastSin_ai * AC_DC_P.coswt_PSin) * AC_DC_P.coswt_Hsin) * AC_DC_P.coswt_Amp + AC_DC_P.coswt_Bias;
+    /* {E!d802}End of Sin: '<S206>/cos(wt)' */
+
+    /* {S!d804}Product: '<S206>/Product1' */
+    rtb_Product1_m = rtb_out5 * rtb_Add_i;
+    /* {S!d810}DiscreteIntegrator: '<S209>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_g != 0) {
+        /* {S!d806}DiscreteIntegrator: '<S209>/Integ4' */
+        AC_DC_B.Integ4_pw = AC_DC_DW.Integ4_DSTATE_ey;
+    } else {
+        /* {S!d808}DiscreteIntegrator: '<S209>/Integ4' */
+        AC_DC_B.Integ4_pw = AC_DC_P.Integ4_gainval * rtb_Product1_m + AC_DC_DW.Integ4_DSTATE_ey;
+    }
+    /* {E!d810}End of DiscreteIntegrator: '<S209>/Integ4' */
+    AC_DC_B.K1_h4 = AC_DC_P.K1_Value;
+%if !WHITE_SPACE(tlcOutputsFcnOfS24B0)
+    /* {S!d812}S-Function (sfun_discreteVariableDelay): '<S210>/S-Function' incorporates:
+ *  Constant: '<S209>/K1'
+ */
+%<tlcOutputsFcnOfS24B0>\
+%endif
+    /* {S!d814}Sin: '<S206>/sin(wt)' */
+    if (AC_DC_DW.systemEnable_i != 0) {
+        AC_DC_DW.lastSin_av = sin(6.2831853071795862 * AC_DC_P.Fourier1_Freq * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+        AC_DC_DW.lastCos_iv = cos(6.2831853071795862 * AC_DC_P.Fourier1_Freq * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+        AC_DC_DW.systemEnable_i = 0;
+    }
+    rtb_Add_i = ((AC_DC_DW.lastSin_av * AC_DC_P.sinwt_PCos + AC_DC_DW.lastCos_iv * AC_DC_P.sinwt_PSin) * AC_DC_P.sinwt_HCos + (AC_DC_DW.lastCos_iv * AC_DC_P.sinwt_PCos - AC_DC_DW.lastSin_av * AC_DC_P.sinwt_PSin) * AC_DC_P.sinwt_Hsin) * AC_DC_P.sinwt_Amp + AC_DC_P.sinwt_Bias;
+    /* {E!d814}End of Sin: '<S206>/sin(wt)' */
+
+    /* {S!d816}Product: '<S206>/Product' */
+    rtb_Product_ci = rtb_out5 * rtb_Add_i;
+    /* {S!d822}DiscreteIntegrator: '<S211>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_cj != 0) {
+        /* {S!d818}DiscreteIntegrator: '<S211>/Integ4' */
+        AC_DC_B.Integ4_l3 = AC_DC_DW.Integ4_DSTATE_dr;
+    } else {
+        /* {S!d820}DiscreteIntegrator: '<S211>/Integ4' */
+        AC_DC_B.Integ4_l3 = AC_DC_P.Integ4_gainval_f * rtb_Product_ci + AC_DC_DW.Integ4_DSTATE_dr;
+    }
+    /* {E!d822}End of DiscreteIntegrator: '<S211>/Integ4' */
+    AC_DC_B.K1_hs = AC_DC_P.K1_Value_j;
+%if !WHITE_SPACE(tlcOutputsFcnOfS24B1)
+    /* {S!d824}S-Function (sfun_discreteVariableDelay): '<S212>/S-Function' incorporates:
+ *  Constant: '<S211>/K1'
+ */
+%<tlcOutputsFcnOfS24B1>\
+%endif
+    /* {S!d826}Update for Sin: '<S206>/cos(wt)' */
+    Sum1_tmp = AC_DC_DW.lastSin_ai;
+    AC_DC_DW.lastSin_ai = AC_DC_DW.lastSin_ai * AC_DC_P.coswt_HCos + AC_DC_DW.lastCos_o * AC_DC_P.coswt_Hsin;
+    AC_DC_DW.lastCos_o = AC_DC_DW.lastCos_o * AC_DC_P.coswt_HCos - Sum1_tmp * AC_DC_P.coswt_Hsin;
+    /* {S!d828}Update for DiscreteIntegrator: '<S209>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_g = 0U;
+    AC_DC_DW.Integ4_DSTATE_ey = AC_DC_P.Integ4_gainval * rtb_Product1_m + AC_DC_B.Integ4_pw;
+%if !WHITE_SPACE(tlcUpdateFcnOfS24B0)
+    /* {S!d830}Update for S-Function (sfun_discreteVariableDelay): '<S210>/S-Function' */
+%<tlcUpdateFcnOfS24B0>\
+%endif
+    /* {S!d832}Update for Sin: '<S206>/sin(wt)' */
+    Sum1_tmp = AC_DC_DW.lastSin_av;
+    AC_DC_DW.lastSin_av = AC_DC_DW.lastSin_av * AC_DC_P.sinwt_HCos + AC_DC_DW.lastCos_iv * AC_DC_P.sinwt_Hsin;
+    AC_DC_DW.lastCos_iv = AC_DC_DW.lastCos_iv * AC_DC_P.sinwt_HCos - Sum1_tmp * AC_DC_P.sinwt_Hsin;
+    /* {S!d834}Update for DiscreteIntegrator: '<S211>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_cj = 0U;
+    AC_DC_DW.Integ4_DSTATE_dr = AC_DC_P.Integ4_gainval_f * rtb_Product_ci + AC_DC_B.Integ4_l3;
+%if !WHITE_SPACE(tlcUpdateFcnOfS24B1)
+    /* {S!d836}Update for S-Function (sfun_discreteVariableDelay): '<S212>/S-Function' */
+%<tlcUpdateFcnOfS24B1>\
+%endif
+} else if (AC_DC_DW.RMS_MODE_l) {
+    /* {S!d838}Disable for DiscreteIntegrator: '<S209>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_ey = AC_DC_B.Integ4_pw;
+    /* {S!d840}Disable for DiscreteIntegrator: '<S211>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_dr = AC_DC_B.Integ4_l3;
+    AC_DC_DW.RMS_MODE_l = false;
+}
+/* {E!d842}End of Logic: '<S26>/Logical Operator' */
+/* {E!d465}End of Outputs for SubSystem: '<S26>/RMS ' */
+
+/* {S!d467}Outputs for Enabled SubSystem: '<S26>/TrueRMS ' incorporates:
+ *  EnablePort: '<S205>/Enable'
+ */
+/* {S!d862}DataTypeConversion: '<S26>/Data Type Conversion' incorporates:
+ *  Constant: '<S214>/K1'
+ *  Constant: '<S26>/Constant'
+ */
+if (AC_DC_P.RMS_TrueRMS != 0.0) {
+    if (!AC_DC_DW.TrueRMS_MODE_cg) {
+        /* {S!d844}Enable for DiscreteIntegrator: '<S214>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_mz = 1U;
+        AC_DC_DW.TrueRMS_MODE_cg = true;
+    }
+    /* {S!d846}Product: '<S205>/Product' */
+    rtb_Product_b = rtb_out5 * rtb_out5;
+    /* {S!d852}DiscreteIntegrator: '<S214>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_mz != 0) {
+        /* {S!d848}DiscreteIntegrator: '<S214>/Integ4' */
+        AC_DC_B.Integ4_hr = AC_DC_DW.Integ4_DSTATE_lp;
+    } else {
+        /* {S!d850}DiscreteIntegrator: '<S214>/Integ4' */
+        AC_DC_B.Integ4_hr = AC_DC_P.Integ4_gainval_e * rtb_Product_b + AC_DC_DW.Integ4_DSTATE_lp;
+    }
+    /* {E!d852}End of DiscreteIntegrator: '<S214>/Integ4' */
+    AC_DC_B.K1_gy = AC_DC_P.K1_Value_f;
+%if !WHITE_SPACE(tlcOutputsFcnOfS25B0)
+    /* {S!d854}S-Function (sfun_discreteVariableDelay): '<S215>/S-Function' incorporates:
+ *  Constant: '<S214>/K1'
+ */
+%<tlcOutputsFcnOfS25B0>\
+%endif
+    /* {S!d856}Update for DiscreteIntegrator: '<S214>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_mz = 0U;
+    AC_DC_DW.Integ4_DSTATE_lp = AC_DC_P.Integ4_gainval_e * rtb_Product_b + AC_DC_B.Integ4_hr;
+%if !WHITE_SPACE(tlcUpdateFcnOfS25B0)
+    /* {S!d858}Update for S-Function (sfun_discreteVariableDelay): '<S215>/S-Function' */
+%<tlcUpdateFcnOfS25B0>\
+%endif
+} else if (AC_DC_DW.TrueRMS_MODE_cg) {
+    /* {S!d860}Disable for DiscreteIntegrator: '<S214>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_lp = AC_DC_B.Integ4_hr;
+    AC_DC_DW.TrueRMS_MODE_cg = false;
+}
+/* {E!d467}End of Outputs for SubSystem: '<S26>/TrueRMS ' */
+
+/* {S!d469}Outputs for Enabled SubSystem: '<S29>/RMS ' incorporates:
+ *  EnablePort: '<S240>/Enable'
+ */
+/* {S!d912}Logic: '<S29>/Logical Operator' incorporates:
+ *  Constant: '<S245>/K1'
+ *  Constant: '<S247>/K1'
+ *  Constant: '<S29>/Constant'
+ *  DataTypeConversion: '<S29>/Data Type Conversion'
+ */
+if (!(AC_DC_P.RMS3_TrueRMS != 0.0)) {
+    if (!AC_DC_DW.RMS_MODE_o) {
+        /* {S!d864}Enable for Sin: '<S242>/cos(wt)' */
+        AC_DC_DW.systemEnable_d = 1;
+        /* {S!d866}Enable for DiscreteIntegrator: '<S245>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_n = 1U;
+        /* {S!d868}Enable for Sin: '<S242>/sin(wt)' */
+        AC_DC_DW.systemEnable_pw = 1;
+        /* {S!d870}Enable for DiscreteIntegrator: '<S247>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_io = 1U;
+        AC_DC_DW.RMS_MODE_o = true;
+    }
+    /* {S!d872}Sin: '<S242>/cos(wt)' */
+    if (AC_DC_DW.systemEnable_d != 0) {
+        rtb_Integrator_f = 6.2831853071795862 * AC_DC_P.Fourier1_Freq_o * %<(SLibCG_SE(LibGetTaskTime(1)))>;
+        AC_DC_DW.lastSin_ia = sin(rtb_Integrator_f);
+        AC_DC_DW.lastCos_m = cos(rtb_Integrator_f);
+        AC_DC_DW.systemEnable_d = 0;
+    }
+    rtb_Add_i = ((AC_DC_DW.lastSin_ia * AC_DC_P.coswt_PCos_e + AC_DC_DW.lastCos_m * AC_DC_P.coswt_PSin_c) * AC_DC_P.coswt_HCos_l + (AC_DC_DW.lastCos_m * AC_DC_P.coswt_PCos_e - AC_DC_DW.lastSin_ia * AC_DC_P.coswt_PSin_c) * AC_DC_P.coswt_Hsin_i) * AC_DC_P.coswt_Amp_o + AC_DC_P.coswt_Bias_i;
+    /* {E!d872}End of Sin: '<S242>/cos(wt)' */
+
+    /* {S!d874}Product: '<S242>/Product1' */
+    rtb_Product1_l = AC_DC_B.donotdeletethisgain_i * rtb_Add_i;
+    /* {S!d880}DiscreteIntegrator: '<S245>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_n != 0) {
+        /* {S!d876}DiscreteIntegrator: '<S245>/Integ4' */
+        AC_DC_B.Integ4_di = AC_DC_DW.Integ4_DSTATE_lk;
+    } else {
+        /* {S!d878}DiscreteIntegrator: '<S245>/Integ4' */
+        AC_DC_B.Integ4_di = AC_DC_P.Integ4_gainval_ew * rtb_Product1_l + AC_DC_DW.Integ4_DSTATE_lk;
+    }
+    /* {E!d880}End of DiscreteIntegrator: '<S245>/Integ4' */
+    AC_DC_B.K1_an = AC_DC_P.K1_Value_nb;
+%if !WHITE_SPACE(tlcOutputsFcnOfS30B0)
+    /* {S!d882}S-Function (sfun_discreteVariableDelay): '<S246>/S-Function' incorporates:
+ *  Constant: '<S245>/K1'
+ */
+%<tlcOutputsFcnOfS30B0>\
+%endif
+    /* {S!d884}Sin: '<S242>/sin(wt)' */
+    if (AC_DC_DW.systemEnable_pw != 0) {
+        AC_DC_DW.lastSin_e = sin(6.2831853071795862 * AC_DC_P.Fourier1_Freq_o * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+        AC_DC_DW.lastCos_fn = cos(6.2831853071795862 * AC_DC_P.Fourier1_Freq_o * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+        AC_DC_DW.systemEnable_pw = 0;
+    }
+    rtb_Add_i = ((AC_DC_DW.lastSin_e * AC_DC_P.sinwt_PCos_f + AC_DC_DW.lastCos_fn * AC_DC_P.sinwt_PSin_g) * AC_DC_P.sinwt_HCos_m1 + (AC_DC_DW.lastCos_fn * AC_DC_P.sinwt_PCos_f - AC_DC_DW.lastSin_e * AC_DC_P.sinwt_PSin_g) * AC_DC_P.sinwt_Hsin_e) * AC_DC_P.sinwt_Amp_p + AC_DC_P.sinwt_Bias_m;
+    /* {E!d884}End of Sin: '<S242>/sin(wt)' */
+
+    /* {S!d886}Product: '<S242>/Product' */
+    rtb_Product_c = AC_DC_B.donotdeletethisgain_i * rtb_Add_i;
+    /* {S!d892}DiscreteIntegrator: '<S247>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_io != 0) {
+        /* {S!d888}DiscreteIntegrator: '<S247>/Integ4' */
+        AC_DC_B.Integ4_bf = AC_DC_DW.Integ4_DSTATE_ea;
+    } else {
+        /* {S!d890}DiscreteIntegrator: '<S247>/Integ4' */
+        AC_DC_B.Integ4_bf = AC_DC_P.Integ4_gainval_c * rtb_Product_c + AC_DC_DW.Integ4_DSTATE_ea;
+    }
+    /* {E!d892}End of DiscreteIntegrator: '<S247>/Integ4' */
+    AC_DC_B.K1_p = AC_DC_P.K1_Value_k;
+%if !WHITE_SPACE(tlcOutputsFcnOfS30B1)
+    /* {S!d894}S-Function (sfun_discreteVariableDelay): '<S248>/S-Function' incorporates:
+ *  Constant: '<S247>/K1'
+ */
+%<tlcOutputsFcnOfS30B1>\
+%endif
+    /* {S!d896}Update for Sin: '<S242>/cos(wt)' */
+    Sum1_tmp = AC_DC_DW.lastSin_ia;
+    AC_DC_DW.lastSin_ia = AC_DC_DW.lastSin_ia * AC_DC_P.coswt_HCos_l + AC_DC_DW.lastCos_m * AC_DC_P.coswt_Hsin_i;
+    AC_DC_DW.lastCos_m = AC_DC_DW.lastCos_m * AC_DC_P.coswt_HCos_l - Sum1_tmp * AC_DC_P.coswt_Hsin_i;
+    /* {S!d898}Update for DiscreteIntegrator: '<S245>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_n = 0U;
+    AC_DC_DW.Integ4_DSTATE_lk = AC_DC_P.Integ4_gainval_ew * rtb_Product1_l + AC_DC_B.Integ4_di;
+%if !WHITE_SPACE(tlcUpdateFcnOfS30B0)
+    /* {S!d900}Update for S-Function (sfun_discreteVariableDelay): '<S246>/S-Function' */
+%<tlcUpdateFcnOfS30B0>\
+%endif
+    /* {S!d902}Update for Sin: '<S242>/sin(wt)' */
+    Sum1_tmp = AC_DC_DW.lastSin_e;
+    AC_DC_DW.lastSin_e = AC_DC_DW.lastSin_e * AC_DC_P.sinwt_HCos_m1 + AC_DC_DW.lastCos_fn * AC_DC_P.sinwt_Hsin_e;
+    AC_DC_DW.lastCos_fn = AC_DC_DW.lastCos_fn * AC_DC_P.sinwt_HCos_m1 - Sum1_tmp * AC_DC_P.sinwt_Hsin_e;
+    /* {S!d904}Update for DiscreteIntegrator: '<S247>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_io = 0U;
+    AC_DC_DW.Integ4_DSTATE_ea = AC_DC_P.Integ4_gainval_c * rtb_Product_c + AC_DC_B.Integ4_bf;
+%if !WHITE_SPACE(tlcUpdateFcnOfS30B1)
+    /* {S!d906}Update for S-Function (sfun_discreteVariableDelay): '<S248>/S-Function' */
+%<tlcUpdateFcnOfS30B1>\
+%endif
+} else if (AC_DC_DW.RMS_MODE_o) {
+    /* {S!d908}Disable for DiscreteIntegrator: '<S245>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_lk = AC_DC_B.Integ4_di;
+    /* {S!d910}Disable for DiscreteIntegrator: '<S247>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_ea = AC_DC_B.Integ4_bf;
+    AC_DC_DW.RMS_MODE_o = false;
+}
+/* {E!d912}End of Logic: '<S29>/Logical Operator' */
+/* {E!d469}End of Outputs for SubSystem: '<S29>/RMS ' */
+
+/* {S!d471}Outputs for Enabled SubSystem: '<S29>/TrueRMS ' incorporates:
+ *  EnablePort: '<S241>/Enable'
+ */
+/* {S!d932}DataTypeConversion: '<S29>/Data Type Conversion' incorporates:
+ *  Constant: '<S250>/K1'
+ *  Constant: '<S29>/Constant'
+ */
+if (AC_DC_P.RMS3_TrueRMS != 0.0) {
+    if (!AC_DC_DW.TrueRMS_MODE_e) {
+        /* {S!d914}Enable for DiscreteIntegrator: '<S250>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_e = 1U;
+        AC_DC_DW.TrueRMS_MODE_e = true;
+    }
+    /* {S!d916}Product: '<S241>/Product' */
+    rtb_Product_n = AC_DC_B.donotdeletethisgain_i * AC_DC_B.donotdeletethisgain_i;
+    /* {S!d922}DiscreteIntegrator: '<S250>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_e != 0) {
+        /* {S!d918}DiscreteIntegrator: '<S250>/Integ4' */
+        AC_DC_B.Integ4_d = AC_DC_DW.Integ4_DSTATE_nz;
+    } else {
+        /* {S!d920}DiscreteIntegrator: '<S250>/Integ4' */
+        AC_DC_B.Integ4_d = AC_DC_P.Integ4_gainval_p * rtb_Product_n + AC_DC_DW.Integ4_DSTATE_nz;
+    }
+    /* {E!d922}End of DiscreteIntegrator: '<S250>/Integ4' */
+    AC_DC_B.K1_ku = AC_DC_P.K1_Value_h;
+%if !WHITE_SPACE(tlcOutputsFcnOfS31B0)
+    /* {S!d924}S-Function (sfun_discreteVariableDelay): '<S251>/S-Function' incorporates:
+ *  Constant: '<S250>/K1'
+ */
+%<tlcOutputsFcnOfS31B0>\
+%endif
+    /* {S!d926}Update for DiscreteIntegrator: '<S250>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_e = 0U;
+    AC_DC_DW.Integ4_DSTATE_nz = AC_DC_P.Integ4_gainval_p * rtb_Product_n + AC_DC_B.Integ4_d;
+%if !WHITE_SPACE(tlcUpdateFcnOfS31B0)
+    /* {S!d928}Update for S-Function (sfun_discreteVariableDelay): '<S251>/S-Function' */
+%<tlcUpdateFcnOfS31B0>\
+%endif
+} else if (AC_DC_DW.TrueRMS_MODE_e) {
+    /* {S!d930}Disable for DiscreteIntegrator: '<S250>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_nz = AC_DC_B.Integ4_d;
+    AC_DC_DW.TrueRMS_MODE_e = false;
+}
+/* {E!d471}End of Outputs for SubSystem: '<S29>/TrueRMS ' */
+
+/* {S!d473}Outputs for Enabled SubSystem: '<S30>/RMS ' incorporates:
+ *  EnablePort: '<S252>/Enable'
+ */
+/* {S!d982}Logic: '<S30>/Logical Operator' incorporates:
+ *  Constant: '<S257>/K1'
+ *  Constant: '<S259>/K1'
+ *  Constant: '<S30>/Constant'
+ *  DataTypeConversion: '<S30>/Data Type Conversion'
+ */
+if (!(AC_DC_P.RMS4_TrueRMS != 0.0)) {
+    if (!AC_DC_DW.RMS_MODE_a) {
+        /* {S!d934}Enable for Sin: '<S254>/cos(wt)' */
+        AC_DC_DW.systemEnable_gc = 1;
+        /* {S!d936}Enable for DiscreteIntegrator: '<S257>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_k = 1U;
+        /* {S!d938}Enable for Sin: '<S254>/sin(wt)' */
+        AC_DC_DW.systemEnable_pt = 1;
+        /* {S!d940}Enable for DiscreteIntegrator: '<S259>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_cu = 1U;
+        AC_DC_DW.RMS_MODE_a = true;
+    }
+    /* {S!d942}Sin: '<S254>/cos(wt)' */
+    if (AC_DC_DW.systemEnable_gc != 0) {
+        rtb_Integrator_f = 6.2831853071795862 * AC_DC_P.Fourier1_Freq_g * %<(SLibCG_SE(LibGetTaskTime(1)))>;
+        AC_DC_DW.lastSin_ir = sin(rtb_Integrator_f);
+        AC_DC_DW.lastCos_ae = cos(rtb_Integrator_f);
+        AC_DC_DW.systemEnable_gc = 0;
+    }
+    rtb_Add_i = ((AC_DC_DW.lastSin_ir * AC_DC_P.coswt_PCos_a + AC_DC_DW.lastCos_ae * AC_DC_P.coswt_PSin_fj) * AC_DC_P.coswt_HCos_k + (AC_DC_DW.lastCos_ae * AC_DC_P.coswt_PCos_a - AC_DC_DW.lastSin_ir * AC_DC_P.coswt_PSin_fj) * AC_DC_P.coswt_Hsin_e) * AC_DC_P.coswt_Amp_dl + AC_DC_P.coswt_Bias_c;
+    /* {E!d942}End of Sin: '<S254>/cos(wt)' */
+
+    /* {S!d944}Product: '<S254>/Product1' */
+    rtb_Product1_eu = AC_DC_B.donotdeletethisgain_o * rtb_Add_i;
+    /* {S!d950}DiscreteIntegrator: '<S257>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_k != 0) {
+        /* {S!d946}DiscreteIntegrator: '<S257>/Integ4' */
+        AC_DC_B.Integ4_ne = AC_DC_DW.Integ4_DSTATE_bk;
+    } else {
+        /* {S!d948}DiscreteIntegrator: '<S257>/Integ4' */
+        AC_DC_B.Integ4_ne = AC_DC_P.Integ4_gainval_m * rtb_Product1_eu + AC_DC_DW.Integ4_DSTATE_bk;
+    }
+    /* {E!d950}End of DiscreteIntegrator: '<S257>/Integ4' */
+    AC_DC_B.K1_er = AC_DC_P.K1_Value_fb;
+%if !WHITE_SPACE(tlcOutputsFcnOfS32B0)
+    /* {S!d952}S-Function (sfun_discreteVariableDelay): '<S258>/S-Function' incorporates:
+ *  Constant: '<S257>/K1'
+ */
+%<tlcOutputsFcnOfS32B0>\
+%endif
+    /* {S!d954}Sin: '<S254>/sin(wt)' */
+    if (AC_DC_DW.systemEnable_pt != 0) {
+        AC_DC_DW.lastSin_k = sin(6.2831853071795862 * AC_DC_P.Fourier1_Freq_g * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+        AC_DC_DW.lastCos_f1 = cos(6.2831853071795862 * AC_DC_P.Fourier1_Freq_g * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+        AC_DC_DW.systemEnable_pt = 0;
+    }
+    rtb_Add_i = ((AC_DC_DW.lastSin_k * AC_DC_P.sinwt_PCos_e + AC_DC_DW.lastCos_f1 * AC_DC_P.sinwt_PSin_a) * AC_DC_P.sinwt_HCos_li + (AC_DC_DW.lastCos_f1 * AC_DC_P.sinwt_PCos_e - AC_DC_DW.lastSin_k * AC_DC_P.sinwt_PSin_a) * AC_DC_P.sinwt_Hsin_bh) * AC_DC_P.sinwt_Amp_d + AC_DC_P.sinwt_Bias_o;
+    /* {E!d954}End of Sin: '<S254>/sin(wt)' */
+
+    /* {S!d956}Product: '<S254>/Product' */
+    rtb_Product_ao = AC_DC_B.donotdeletethisgain_o * rtb_Add_i;
+    /* {S!d962}DiscreteIntegrator: '<S259>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_cu != 0) {
+        /* {S!d958}DiscreteIntegrator: '<S259>/Integ4' */
+        AC_DC_B.Integ4_j5 = AC_DC_DW.Integ4_DSTATE_mo;
+    } else {
+        /* {S!d960}DiscreteIntegrator: '<S259>/Integ4' */
+        AC_DC_B.Integ4_j5 = AC_DC_P.Integ4_gainval_eo * rtb_Product_ao + AC_DC_DW.Integ4_DSTATE_mo;
+    }
+    /* {E!d962}End of DiscreteIntegrator: '<S259>/Integ4' */
+    AC_DC_B.K1_k = AC_DC_P.K1_Value_hf;
+%if !WHITE_SPACE(tlcOutputsFcnOfS32B1)
+    /* {S!d964}S-Function (sfun_discreteVariableDelay): '<S260>/S-Function' incorporates:
+ *  Constant: '<S259>/K1'
+ */
+%<tlcOutputsFcnOfS32B1>\
+%endif
+    /* {S!d966}Update for Sin: '<S254>/cos(wt)' */
+    Sum1_tmp = AC_DC_DW.lastSin_ir;
+    AC_DC_DW.lastSin_ir = AC_DC_DW.lastSin_ir * AC_DC_P.coswt_HCos_k + AC_DC_DW.lastCos_ae * AC_DC_P.coswt_Hsin_e;
+    AC_DC_DW.lastCos_ae = AC_DC_DW.lastCos_ae * AC_DC_P.coswt_HCos_k - Sum1_tmp * AC_DC_P.coswt_Hsin_e;
+    /* {S!d968}Update for DiscreteIntegrator: '<S257>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_k = 0U;
+    AC_DC_DW.Integ4_DSTATE_bk = AC_DC_P.Integ4_gainval_m * rtb_Product1_eu + AC_DC_B.Integ4_ne;
+%if !WHITE_SPACE(tlcUpdateFcnOfS32B0)
+    /* {S!d970}Update for S-Function (sfun_discreteVariableDelay): '<S258>/S-Function' */
+%<tlcUpdateFcnOfS32B0>\
+%endif
+    /* {S!d972}Update for Sin: '<S254>/sin(wt)' */
+    Sum1_tmp = AC_DC_DW.lastSin_k;
+    AC_DC_DW.lastSin_k = AC_DC_DW.lastSin_k * AC_DC_P.sinwt_HCos_li + AC_DC_DW.lastCos_f1 * AC_DC_P.sinwt_Hsin_bh;
+    AC_DC_DW.lastCos_f1 = AC_DC_DW.lastCos_f1 * AC_DC_P.sinwt_HCos_li - Sum1_tmp * AC_DC_P.sinwt_Hsin_bh;
+    /* {S!d974}Update for DiscreteIntegrator: '<S259>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_cu = 0U;
+    AC_DC_DW.Integ4_DSTATE_mo = AC_DC_P.Integ4_gainval_eo * rtb_Product_ao + AC_DC_B.Integ4_j5;
+%if !WHITE_SPACE(tlcUpdateFcnOfS32B1)
+    /* {S!d976}Update for S-Function (sfun_discreteVariableDelay): '<S260>/S-Function' */
+%<tlcUpdateFcnOfS32B1>\
+%endif
+} else if (AC_DC_DW.RMS_MODE_a) {
+    /* {S!d978}Disable for DiscreteIntegrator: '<S257>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_bk = AC_DC_B.Integ4_ne;
+    /* {S!d980}Disable for DiscreteIntegrator: '<S259>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_mo = AC_DC_B.Integ4_j5;
+    AC_DC_DW.RMS_MODE_a = false;
+}
+/* {E!d982}End of Logic: '<S30>/Logical Operator' */
+/* {E!d473}End of Outputs for SubSystem: '<S30>/RMS ' */
+
+/* {S!d475}Outputs for Enabled SubSystem: '<S30>/TrueRMS ' incorporates:
+ *  EnablePort: '<S253>/Enable'
+ */
+/* {S!d1002}DataTypeConversion: '<S30>/Data Type Conversion' incorporates:
+ *  Constant: '<S262>/K1'
+ *  Constant: '<S30>/Constant'
+ */
+if (AC_DC_P.RMS4_TrueRMS != 0.0) {
+    if (!AC_DC_DW.TrueRMS_MODE_h) {
+        /* {S!d984}Enable for DiscreteIntegrator: '<S262>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_hg = 1U;
+        AC_DC_DW.TrueRMS_MODE_h = true;
+    }
+    /* {S!d986}Product: '<S253>/Product' */
+    rtb_Product_a = AC_DC_B.donotdeletethisgain_o * AC_DC_B.donotdeletethisgain_o;
+    /* {S!d992}DiscreteIntegrator: '<S262>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_hg != 0) {
+        /* {S!d988}DiscreteIntegrator: '<S262>/Integ4' */
+        AC_DC_B.Integ4_g = AC_DC_DW.Integ4_DSTATE_c;
+    } else {
+        /* {S!d990}DiscreteIntegrator: '<S262>/Integ4' */
+        AC_DC_B.Integ4_g = AC_DC_P.Integ4_gainval_fl * rtb_Product_a + AC_DC_DW.Integ4_DSTATE_c;
+    }
+    /* {E!d992}End of DiscreteIntegrator: '<S262>/Integ4' */
+    AC_DC_B.K1_ao = AC_DC_P.K1_Value_nn;
+%if !WHITE_SPACE(tlcOutputsFcnOfS33B0)
+    /* {S!d994}S-Function (sfun_discreteVariableDelay): '<S263>/S-Function' incorporates:
+ *  Constant: '<S262>/K1'
+ */
+%<tlcOutputsFcnOfS33B0>\
+%endif
+    /* {S!d996}Update for DiscreteIntegrator: '<S262>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_hg = 0U;
+    AC_DC_DW.Integ4_DSTATE_c = AC_DC_P.Integ4_gainval_fl * rtb_Product_a + AC_DC_B.Integ4_g;
+%if !WHITE_SPACE(tlcUpdateFcnOfS33B0)
+    /* {S!d998}Update for S-Function (sfun_discreteVariableDelay): '<S263>/S-Function' */
+%<tlcUpdateFcnOfS33B0>\
+%endif
+} else if (AC_DC_DW.TrueRMS_MODE_h) {
+    /* {S!d1000}Disable for DiscreteIntegrator: '<S262>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_c = AC_DC_B.Integ4_g;
+    AC_DC_DW.TrueRMS_MODE_h = false;
+}
+/* {E!d475}End of Outputs for SubSystem: '<S30>/TrueRMS ' */
+
+/* {S!d477}Outputs for Enabled SubSystem: '<S31>/RMS ' incorporates:
+ *  EnablePort: '<S264>/Enable'
+ */
+/* {S!d1052}Logic: '<S31>/Logical Operator' incorporates:
+ *  Constant: '<S269>/K1'
+ *  Constant: '<S271>/K1'
+ *  Constant: '<S31>/Constant'
+ *  DataTypeConversion: '<S31>/Data Type Conversion'
+ */
+if (!(AC_DC_P.RMS5_TrueRMS != 0.0)) {
+    if (!AC_DC_DW.RMS_MODE_n) {
+        /* {S!d1004}Enable for Sin: '<S266>/cos(wt)' */
+        AC_DC_DW.systemEnable_m1 = 1;
+        /* {S!d1006}Enable for DiscreteIntegrator: '<S269>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_lg = 1U;
+        /* {S!d1008}Enable for Sin: '<S266>/sin(wt)' */
+        AC_DC_DW.systemEnable_c = 1;
+        /* {S!d1010}Enable for DiscreteIntegrator: '<S271>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_ag = 1U;
+        AC_DC_DW.RMS_MODE_n = true;
+    }
+    /* {S!d1012}Sin: '<S266>/cos(wt)' */
+    if (AC_DC_DW.systemEnable_m1 != 0) {
+        rtb_Integrator_f = 6.2831853071795862 * AC_DC_P.Fourier1_Freq_ga * %<(SLibCG_SE(LibGetTaskTime(1)))>;
+        AC_DC_DW.lastSin_i = sin(rtb_Integrator_f);
+        AC_DC_DW.lastCos_d = cos(rtb_Integrator_f);
+        AC_DC_DW.systemEnable_m1 = 0;
+    }
+    rtb_Add_i = ((AC_DC_DW.lastSin_i * AC_DC_P.coswt_PCos_i + AC_DC_DW.lastCos_d * AC_DC_P.coswt_PSin_b) * AC_DC_P.coswt_HCos_mz + (AC_DC_DW.lastCos_d * AC_DC_P.coswt_PCos_i - AC_DC_DW.lastSin_i * AC_DC_P.coswt_PSin_b) * AC_DC_P.coswt_Hsin_f) * AC_DC_P.coswt_Amp_h + AC_DC_P.coswt_Bias_m;
+    /* {E!d1012}End of Sin: '<S266>/cos(wt)' */
+
+    /* {S!d1014}Product: '<S266>/Product1' */
+    rtb_Product1_h = rtb_out5 * rtb_Add_i;
+    /* {S!d1020}DiscreteIntegrator: '<S269>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_lg != 0) {
+        /* {S!d1016}DiscreteIntegrator: '<S269>/Integ4' */
+        AC_DC_B.Integ4_n = AC_DC_DW.Integ4_DSTATE_l;
+    } else {
+        /* {S!d1018}DiscreteIntegrator: '<S269>/Integ4' */
+        AC_DC_B.Integ4_n = AC_DC_P.Integ4_gainval_i5 * rtb_Product1_h + AC_DC_DW.Integ4_DSTATE_l;
+    }
+    /* {E!d1020}End of DiscreteIntegrator: '<S269>/Integ4' */
+    AC_DC_B.K1_d0 = AC_DC_P.K1_Value_nc;
+%if !WHITE_SPACE(tlcOutputsFcnOfS34B0)
+    /* {S!d1022}S-Function (sfun_discreteVariableDelay): '<S270>/S-Function' incorporates:
+ *  Constant: '<S269>/K1'
+ */
+%<tlcOutputsFcnOfS34B0>\
+%endif
+    /* {S!d1024}Sin: '<S266>/sin(wt)' */
+    if (AC_DC_DW.systemEnable_c != 0) {
+        AC_DC_DW.lastSin_g5 = sin(6.2831853071795862 * AC_DC_P.Fourier1_Freq_ga * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+        AC_DC_DW.lastCos_g = cos(6.2831853071795862 * AC_DC_P.Fourier1_Freq_ga * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+        AC_DC_DW.systemEnable_c = 0;
+    }
+    rtb_Add_i = ((AC_DC_DW.lastSin_g5 * AC_DC_P.sinwt_PCos_n + AC_DC_DW.lastCos_g * AC_DC_P.sinwt_PSin_gk) * AC_DC_P.sinwt_HCos_k + (AC_DC_DW.lastCos_g * AC_DC_P.sinwt_PCos_n - AC_DC_DW.lastSin_g5 * AC_DC_P.sinwt_PSin_gk) * AC_DC_P.sinwt_Hsin_f) * AC_DC_P.sinwt_Amp_g + AC_DC_P.sinwt_Bias_c;
+    /* {E!d1024}End of Sin: '<S266>/sin(wt)' */
+
+    /* {S!d1026}Product: '<S266>/Product' */
+    rtb_Product_g = rtb_out5 * rtb_Add_i;
+    /* {S!d1032}DiscreteIntegrator: '<S271>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_ag != 0) {
+        /* {S!d1028}DiscreteIntegrator: '<S271>/Integ4' */
+        AC_DC_B.Integ4_eg = AC_DC_DW.Integ4_DSTATE_b;
+    } else {
+        /* {S!d1030}DiscreteIntegrator: '<S271>/Integ4' */
+        AC_DC_B.Integ4_eg = AC_DC_P.Integ4_gainval_k * rtb_Product_g + AC_DC_DW.Integ4_DSTATE_b;
+    }
+    /* {E!d1032}End of DiscreteIntegrator: '<S271>/Integ4' */
+    AC_DC_B.K1_h = AC_DC_P.K1_Value_h5;
+%if !WHITE_SPACE(tlcOutputsFcnOfS34B1)
+    /* {S!d1034}S-Function (sfun_discreteVariableDelay): '<S272>/S-Function' incorporates:
+ *  Constant: '<S271>/K1'
+ */
+%<tlcOutputsFcnOfS34B1>\
+%endif
+    /* {S!d1036}Update for Sin: '<S266>/cos(wt)' */
+    Sum1_tmp = AC_DC_DW.lastSin_i;
+    AC_DC_DW.lastSin_i = AC_DC_DW.lastSin_i * AC_DC_P.coswt_HCos_mz + AC_DC_DW.lastCos_d * AC_DC_P.coswt_Hsin_f;
+    AC_DC_DW.lastCos_d = AC_DC_DW.lastCos_d * AC_DC_P.coswt_HCos_mz - Sum1_tmp * AC_DC_P.coswt_Hsin_f;
+    /* {S!d1038}Update for DiscreteIntegrator: '<S269>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_lg = 0U;
+    AC_DC_DW.Integ4_DSTATE_l = AC_DC_P.Integ4_gainval_i5 * rtb_Product1_h + AC_DC_B.Integ4_n;
+%if !WHITE_SPACE(tlcUpdateFcnOfS34B0)
+    /* {S!d1040}Update for S-Function (sfun_discreteVariableDelay): '<S270>/S-Function' */
+%<tlcUpdateFcnOfS34B0>\
+%endif
+    /* {S!d1042}Update for Sin: '<S266>/sin(wt)' */
+    Sum1_tmp = AC_DC_DW.lastSin_g5;
+    AC_DC_DW.lastSin_g5 = AC_DC_DW.lastSin_g5 * AC_DC_P.sinwt_HCos_k + AC_DC_DW.lastCos_g * AC_DC_P.sinwt_Hsin_f;
+    AC_DC_DW.lastCos_g = AC_DC_DW.lastCos_g * AC_DC_P.sinwt_HCos_k - Sum1_tmp * AC_DC_P.sinwt_Hsin_f;
+    /* {S!d1044}Update for DiscreteIntegrator: '<S271>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_ag = 0U;
+    AC_DC_DW.Integ4_DSTATE_b = AC_DC_P.Integ4_gainval_k * rtb_Product_g + AC_DC_B.Integ4_eg;
+%if !WHITE_SPACE(tlcUpdateFcnOfS34B1)
+    /* {S!d1046}Update for S-Function (sfun_discreteVariableDelay): '<S272>/S-Function' */
+%<tlcUpdateFcnOfS34B1>\
+%endif
+} else if (AC_DC_DW.RMS_MODE_n) {
+    /* {S!d1048}Disable for DiscreteIntegrator: '<S269>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_l = AC_DC_B.Integ4_n;
+    /* {S!d1050}Disable for DiscreteIntegrator: '<S271>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_b = AC_DC_B.Integ4_eg;
+    AC_DC_DW.RMS_MODE_n = false;
+}
+/* {E!d1052}End of Logic: '<S31>/Logical Operator' */
+/* {E!d477}End of Outputs for SubSystem: '<S31>/RMS ' */
+
+/* {S!d479}Outputs for Enabled SubSystem: '<S31>/TrueRMS ' incorporates:
+ *  EnablePort: '<S265>/Enable'
+ */
+/* {S!d1072}DataTypeConversion: '<S31>/Data Type Conversion' incorporates:
+ *  Constant: '<S274>/K1'
+ *  Constant: '<S31>/Constant'
+ */
+if (AC_DC_P.RMS5_TrueRMS != 0.0) {
+    if (!AC_DC_DW.TrueRMS_MODE_c) {
+        /* {S!d1054}Enable for DiscreteIntegrator: '<S274>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_lt = 1U;
+        AC_DC_DW.TrueRMS_MODE_c = true;
+    }
+    /* {S!d1056}Product: '<S265>/Product' */
+    rtb_Product_f = rtb_out5 * rtb_out5;
+    /* {S!d1062}DiscreteIntegrator: '<S274>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_lt != 0) {
+        /* {S!d1058}DiscreteIntegrator: '<S274>/Integ4' */
+        AC_DC_B.Integ4_mw = AC_DC_DW.Integ4_DSTATE_em;
+    } else {
+        /* {S!d1060}DiscreteIntegrator: '<S274>/Integ4' */
+        AC_DC_B.Integ4_mw = AC_DC_P.Integ4_gainval_i4 * rtb_Product_f + AC_DC_DW.Integ4_DSTATE_em;
+    }
+    /* {E!d1062}End of DiscreteIntegrator: '<S274>/Integ4' */
+    AC_DC_B.K1_mr = AC_DC_P.K1_Value_bv;
+%if !WHITE_SPACE(tlcOutputsFcnOfS35B0)
+    /* {S!d1064}S-Function (sfun_discreteVariableDelay): '<S275>/S-Function' incorporates:
+ *  Constant: '<S274>/K1'
+ */
+%<tlcOutputsFcnOfS35B0>\
+%endif
+    /* {S!d1066}Update for DiscreteIntegrator: '<S274>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_lt = 0U;
+    AC_DC_DW.Integ4_DSTATE_em = AC_DC_P.Integ4_gainval_i4 * rtb_Product_f + AC_DC_B.Integ4_mw;
+%if !WHITE_SPACE(tlcUpdateFcnOfS35B0)
+    /* {S!d1068}Update for S-Function (sfun_discreteVariableDelay): '<S275>/S-Function' */
+%<tlcUpdateFcnOfS35B0>\
+%endif
+} else if (AC_DC_DW.TrueRMS_MODE_c) {
+    /* {S!d1070}Disable for DiscreteIntegrator: '<S274>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_em = AC_DC_B.Integ4_mw;
+    AC_DC_DW.TrueRMS_MODE_c = false;
+}
+/* {E!d479}End of Outputs for SubSystem: '<S31>/TrueRMS ' */
+
+/* {S!d481}Outputs for Enabled SubSystem: '<S32>/RMS ' incorporates:
+ *  EnablePort: '<S276>/Enable'
+ */
+/* {S!d1122}Logic: '<S32>/Logical Operator' incorporates:
+ *  Constant: '<S281>/K1'
+ *  Constant: '<S283>/K1'
+ *  Constant: '<S32>/Constant'
+ *  DataTypeConversion: '<S32>/Data Type Conversion'
+ */
+if (!(AC_DC_P.RMS6_TrueRMS != 0.0)) {
+    if (!AC_DC_DW.RMS_MODE_j) {
+        /* {S!d1074}Enable for Sin: '<S278>/cos(wt)' */
+        AC_DC_DW.systemEnable_bo = 1;
+        /* {S!d1076}Enable for DiscreteIntegrator: '<S281>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_b5 = 1U;
+        /* {S!d1078}Enable for Sin: '<S278>/sin(wt)' */
+        AC_DC_DW.systemEnable_h = 1;
+        /* {S!d1080}Enable for DiscreteIntegrator: '<S283>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_a = 1U;
+        AC_DC_DW.RMS_MODE_j = true;
+    }
+    /* {S!d1082}Sin: '<S278>/cos(wt)' */
+    if (AC_DC_DW.systemEnable_bo != 0) {
+        rtb_out5 = 6.2831853071795862 * AC_DC_P.Fourier1_Freq_i * %<(SLibCG_SE(LibGetTaskTime(1)))>;
+        AC_DC_DW.lastSin_jw = sin(rtb_out5);
+        AC_DC_DW.lastCos_k = cos(rtb_out5);
+        AC_DC_DW.systemEnable_bo = 0;
+    }
+    rtb_Add_i = ((AC_DC_DW.lastSin_jw * AC_DC_P.coswt_PCos_jy + AC_DC_DW.lastCos_k * AC_DC_P.coswt_PSin_o) * AC_DC_P.coswt_HCos_n + (AC_DC_DW.lastCos_k * AC_DC_P.coswt_PCos_jy - AC_DC_DW.lastSin_jw * AC_DC_P.coswt_PSin_o) * AC_DC_P.coswt_Hsin_fz) * AC_DC_P.coswt_Amp_b + AC_DC_P.coswt_Bias_g;
+    /* {E!d1082}End of Sin: '<S278>/cos(wt)' */
+
+    /* {S!d1084}Product: '<S278>/Product1' */
+    rtb_Product1_e = AC_DC_B.donotdeletethisgain_i * rtb_Add_i;
+    /* {S!d1090}DiscreteIntegrator: '<S281>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_b5 != 0) {
+        /* {S!d1086}DiscreteIntegrator: '<S281>/Integ4' */
+        AC_DC_B.Integ4_bc = AC_DC_DW.Integ4_DSTATE_mg;
+    } else {
+        /* {S!d1088}DiscreteIntegrator: '<S281>/Integ4' */
+        AC_DC_B.Integ4_bc = AC_DC_P.Integ4_gainval_c5 * rtb_Product1_e + AC_DC_DW.Integ4_DSTATE_mg;
+    }
+    /* {E!d1090}End of DiscreteIntegrator: '<S281>/Integ4' */
+    AC_DC_B.K1_l = AC_DC_P.K1_Value_a;
+%if !WHITE_SPACE(tlcOutputsFcnOfS36B0)
+    /* {S!d1092}S-Function (sfun_discreteVariableDelay): '<S282>/S-Function' incorporates:
+ *  Constant: '<S281>/K1'
+ */
+%<tlcOutputsFcnOfS36B0>\
+%endif
+    /* {S!d1094}Sin: '<S278>/sin(wt)' */
+    if (AC_DC_DW.systemEnable_h != 0) {
+        AC_DC_DW.lastSin_g = sin(6.2831853071795862 * AC_DC_P.Fourier1_Freq_i * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+        AC_DC_DW.lastCos_n = cos(6.2831853071795862 * AC_DC_P.Fourier1_Freq_i * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+        AC_DC_DW.systemEnable_h = 0;
+    }
+    rtb_Add_i = ((AC_DC_DW.lastSin_g * AC_DC_P.sinwt_PCos_p + AC_DC_DW.lastCos_n * AC_DC_P.sinwt_PSin_gx) * AC_DC_P.sinwt_HCos_o + (AC_DC_DW.lastCos_n * AC_DC_P.sinwt_PCos_p - AC_DC_DW.lastSin_g * AC_DC_P.sinwt_PSin_gx) * AC_DC_P.sinwt_Hsin_m) * AC_DC_P.sinwt_Amp_pp + AC_DC_P.sinwt_Bias_n;
+    /* {E!d1094}End of Sin: '<S278>/sin(wt)' */
+
+    /* {S!d1096}Product: '<S278>/Product' */
+    rtb_Product_o4 = AC_DC_B.donotdeletethisgain_i * rtb_Add_i;
+    /* {S!d1102}DiscreteIntegrator: '<S283>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_a != 0) {
+        /* {S!d1098}DiscreteIntegrator: '<S283>/Integ4' */
+        AC_DC_B.Integ4_m = AC_DC_DW.Integ4_DSTATE_n;
+    } else {
+        /* {S!d1100}DiscreteIntegrator: '<S283>/Integ4' */
+        AC_DC_B.Integ4_m = AC_DC_P.Integ4_gainval_cn * rtb_Product_o4 + AC_DC_DW.Integ4_DSTATE_n;
+    }
+    /* {E!d1102}End of DiscreteIntegrator: '<S283>/Integ4' */
+    AC_DC_B.K1_e = AC_DC_P.K1_Value_g;
+%if !WHITE_SPACE(tlcOutputsFcnOfS36B1)
+    /* {S!d1104}S-Function (sfun_discreteVariableDelay): '<S284>/S-Function' incorporates:
+ *  Constant: '<S283>/K1'
+ */
+%<tlcOutputsFcnOfS36B1>\
+%endif
+    /* {S!d1106}Update for Sin: '<S278>/cos(wt)' */
+    Sum1_tmp = AC_DC_DW.lastSin_jw;
+    AC_DC_DW.lastSin_jw = AC_DC_DW.lastSin_jw * AC_DC_P.coswt_HCos_n + AC_DC_DW.lastCos_k * AC_DC_P.coswt_Hsin_fz;
+    AC_DC_DW.lastCos_k = AC_DC_DW.lastCos_k * AC_DC_P.coswt_HCos_n - Sum1_tmp * AC_DC_P.coswt_Hsin_fz;
+    /* {S!d1108}Update for DiscreteIntegrator: '<S281>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_b5 = 0U;
+    AC_DC_DW.Integ4_DSTATE_mg = AC_DC_P.Integ4_gainval_c5 * rtb_Product1_e + AC_DC_B.Integ4_bc;
+%if !WHITE_SPACE(tlcUpdateFcnOfS36B0)
+    /* {S!d1110}Update for S-Function (sfun_discreteVariableDelay): '<S282>/S-Function' */
+%<tlcUpdateFcnOfS36B0>\
+%endif
+    /* {S!d1112}Update for Sin: '<S278>/sin(wt)' */
+    Sum1_tmp = AC_DC_DW.lastSin_g;
+    AC_DC_DW.lastSin_g = AC_DC_DW.lastSin_g * AC_DC_P.sinwt_HCos_o + AC_DC_DW.lastCos_n * AC_DC_P.sinwt_Hsin_m;
+    AC_DC_DW.lastCos_n = AC_DC_DW.lastCos_n * AC_DC_P.sinwt_HCos_o - Sum1_tmp * AC_DC_P.sinwt_Hsin_m;
+    /* {S!d1114}Update for DiscreteIntegrator: '<S283>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_a = 0U;
+    AC_DC_DW.Integ4_DSTATE_n = AC_DC_P.Integ4_gainval_cn * rtb_Product_o4 + AC_DC_B.Integ4_m;
+%if !WHITE_SPACE(tlcUpdateFcnOfS36B1)
+    /* {S!d1116}Update for S-Function (sfun_discreteVariableDelay): '<S284>/S-Function' */
+%<tlcUpdateFcnOfS36B1>\
+%endif
+} else if (AC_DC_DW.RMS_MODE_j) {
+    /* {S!d1118}Disable for DiscreteIntegrator: '<S281>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_mg = AC_DC_B.Integ4_bc;
+    /* {S!d1120}Disable for DiscreteIntegrator: '<S283>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_n = AC_DC_B.Integ4_m;
+    AC_DC_DW.RMS_MODE_j = false;
+}
+/* {E!d1122}End of Logic: '<S32>/Logical Operator' */
+/* {E!d481}End of Outputs for SubSystem: '<S32>/RMS ' */
+
+/* {S!d483}Outputs for Enabled SubSystem: '<S32>/TrueRMS ' incorporates:
+ *  EnablePort: '<S277>/Enable'
+ */
+/* {S!d1142}DataTypeConversion: '<S32>/Data Type Conversion' incorporates:
+ *  Constant: '<S286>/K1'
+ *  Constant: '<S32>/Constant'
+ */
+if (AC_DC_P.RMS6_TrueRMS != 0.0) {
+    if (!AC_DC_DW.TrueRMS_MODE_p) {
+        /* {S!d1124}Enable for DiscreteIntegrator: '<S286>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_f = 1U;
+        AC_DC_DW.TrueRMS_MODE_p = true;
+    }
+    /* {S!d1126}Product: '<S277>/Product' */
+    rtb_Product_e = AC_DC_B.donotdeletethisgain_i * AC_DC_B.donotdeletethisgain_i;
+    /* {S!d1132}DiscreteIntegrator: '<S286>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_f != 0) {
+        /* {S!d1128}DiscreteIntegrator: '<S286>/Integ4' */
+        AC_DC_B.Integ4_pk = AC_DC_DW.Integ4_DSTATE_jd;
+    } else {
+        /* {S!d1130}DiscreteIntegrator: '<S286>/Integ4' */
+        AC_DC_B.Integ4_pk = AC_DC_P.Integ4_gainval_ez * rtb_Product_e + AC_DC_DW.Integ4_DSTATE_jd;
+    }
+    /* {E!d1132}End of DiscreteIntegrator: '<S286>/Integ4' */
+    AC_DC_B.K1_ig = AC_DC_P.K1_Value_i5;
+%if !WHITE_SPACE(tlcOutputsFcnOfS37B0)
+    /* {S!d1134}S-Function (sfun_discreteVariableDelay): '<S287>/S-Function' incorporates:
+ *  Constant: '<S286>/K1'
+ */
+%<tlcOutputsFcnOfS37B0>\
+%endif
+    /* {S!d1136}Update for DiscreteIntegrator: '<S286>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_f = 0U;
+    AC_DC_DW.Integ4_DSTATE_jd = AC_DC_P.Integ4_gainval_ez * rtb_Product_e + AC_DC_B.Integ4_pk;
+%if !WHITE_SPACE(tlcUpdateFcnOfS37B0)
+    /* {S!d1138}Update for S-Function (sfun_discreteVariableDelay): '<S287>/S-Function' */
+%<tlcUpdateFcnOfS37B0>\
+%endif
+} else if (AC_DC_DW.TrueRMS_MODE_p) {
+    /* {S!d1140}Disable for DiscreteIntegrator: '<S286>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_jd = AC_DC_B.Integ4_pk;
+    AC_DC_DW.TrueRMS_MODE_p = false;
+}
+/* {E!d483}End of Outputs for SubSystem: '<S32>/TrueRMS ' */
+
+/* {S!d1144}Gain: '<S1>/do not delete this gain' */
+AC_DC_B.donotdeletethisgain_d = AC_DC_P.donotdeletethisgain_Gain_c * AC_DC_B.StateSpace_o1[16];
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B131)
+/* {S!d1146}Scope: '<Root>/Scope1' */
+%<tlcOutputsFcnOfS43B131>\
+%endif
+/* {S!d1158}ZeroOrderHold: '<Root>/Zero-Order Hold2' */
+if (%<(SLibCGIRIsSampleHit(2, 43))>) {
+    /* {S!d1148}ZeroOrderHold: '<Root>/Zero-Order Hold2' */
+    AC_DC_B.ZeroOrderHold2 = AC_DC_B.donotdeletethisgain_d;
+    /* {S!d1150}Sum: '<Root>/Add2' incorporates:
+ *  Constant: '<Root>/Constant1'
+ */
+    rtb_Sum = AC_DC_P.Constant1_Value - AC_DC_B.ZeroOrderHold2;
+    /* {S!d1152}DiscreteIntegrator: '<S139>/Integrator' */
+    rtb_Integrator_f = AC_DC_DW.Integrator_DSTATE_a;
+    /* {S!d1154}Sum: '<S148>/Sum' incorporates:
+ *  Gain: '<S144>/Proportional Gain'
+ */
+    AC_DC_B.Sum = AC_DC_P.PIDController2_P * rtb_Sum + rtb_Integrator_f;
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B133)
+    /* {S!d1156}Scope: '<Root>/Scope11' */
+%<tlcOutputsFcnOfS43B133>\
+%endif
+}
+/* {E!d1158}End of ZeroOrderHold: '<Root>/Zero-Order Hold2' */
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B134)
+
+/* {S!d1160}Scope: '<Root>/Scope2' */
+%<tlcOutputsFcnOfS43B134>\
+%endif
+/* {S!d1164}UnitDelay: '<Root>/Unit Delay2' */
+if (%<(SLibCGIRIsSampleHit(2, 43))>) {
+    /* {S!d1162}UnitDelay: '<Root>/Unit Delay2' */
+    AC_DC_B.UnitDelay2 = AC_DC_DW.UnitDelay2_DSTATE;
+}
+/* {E!d1164}End of UnitDelay: '<Root>/Unit Delay2' */
+
+/* {S!d1166}RelationalOperator: '<Root>/Relational Operator2' incorporates:
+ *  Constant: '<S35>/Constant'
+ *  Lookup_n-D: '<S35>/Look-Up Table1'
+ *  Math: '<S35>/Math Function'
+ */
+AC_DC_B.RelationalOperator2 = (AC_DC_B.UnitDelay2 >= look1_binlxpw(%<(SLibCGCallSubFcn("rt_remd_snf", ["rtb_Add_nh", "AC_DC_P.Constant_Value_c"], 0, 4, 0))>, AC_DC_P.LookUpTable1_bp01Data_b, AC_DC_P.RepeatingSequence5_rep_seq_y, 2U));
+/* {S!d1168}Logic: '<Root>/NOT2' */
+AC_DC_B.NOT2 = !AC_DC_B.RelationalOperator2;
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B137)
+/* {S!d1170}Scope: '<Root>/Scope37' */
+%<tlcOutputsFcnOfS43B137>\
+%endif
+/* {S!d1172}DataTypeConversion: '<S71>/Data Type Conversion' */
+AC_DC_B.DataTypeConversion_i = AC_DC_B.RelationalOperator2;
+/* {S!d1174}DataTypeConversion: '<S78>/Data Type Conversion' */
+AC_DC_B.DataTypeConversion_c = AC_DC_B.NOT2;
+if (%<(SLibCGIRIsSampleHit(2, 43))>) {
+    /* {S!d1176}Gain: '<S136>/Integral Gain' */
+    rtb_IntegralGain_p = AC_DC_P.PIDController2_I * rtb_Sum;
+}
+/* {S!d485}Outputs for Enabled SubSystem: '<S27>/RMS ' incorporates:
+ *  EnablePort: '<S216>/Enable'
+ */
+/* {S!d1226}Logic: '<S27>/Logical Operator' incorporates:
+ *  Constant: '<S221>/K1'
+ *  Constant: '<S223>/K1'
+ *  Constant: '<S27>/Constant'
+ *  DataTypeConversion: '<S27>/Data Type Conversion'
+ */
+if (!(AC_DC_P.RMS1_TrueRMS != 0.0)) {
+    if (!AC_DC_DW.RMS_MODE_d) {
+        /* {S!d1178}Enable for Sin: '<S218>/cos(wt)' */
+        AC_DC_DW.systemEnable_fy = 1;
+        /* {S!d1180}Enable for DiscreteIntegrator: '<S221>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_bf = 1U;
+        /* {S!d1182}Enable for Sin: '<S218>/sin(wt)' */
+        AC_DC_DW.systemEnable_a = 1;
+        /* {S!d1184}Enable for DiscreteIntegrator: '<S223>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_lw = 1U;
+        AC_DC_DW.RMS_MODE_d = true;
+    }
+    /* {S!d1186}Sin: '<S218>/cos(wt)' */
+    if (AC_DC_DW.systemEnable_fy != 0) {
+        rtb_Sum = 6.2831853071795862 * AC_DC_P.Fourier1_Freq_d * %<(SLibCG_SE(LibGetTaskTime(1)))>;
+        AC_DC_DW.lastSin_nx = sin(rtb_Sum);
+        AC_DC_DW.lastCos_ez = cos(rtb_Sum);
+        AC_DC_DW.systemEnable_fy = 0;
+    }
+    rtb_Add_i = ((AC_DC_DW.lastSin_nx * AC_DC_P.coswt_PCos_o + AC_DC_DW.lastCos_ez * AC_DC_P.coswt_PSin_f) * AC_DC_P.coswt_HCos_b + (AC_DC_DW.lastCos_ez * AC_DC_P.coswt_PCos_o - AC_DC_DW.lastSin_nx * AC_DC_P.coswt_PSin_f) * AC_DC_P.coswt_Hsin_o) * AC_DC_P.coswt_Amp_d + AC_DC_P.coswt_Bias_a;
+    /* {E!d1186}End of Sin: '<S218>/cos(wt)' */
+
+    /* {S!d1188}Product: '<S218>/Product1' */
+    rtb_Product1_lg = AC_DC_B.donotdeletethisgain_d * rtb_Add_i;
+    /* {S!d1194}DiscreteIntegrator: '<S221>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_bf != 0) {
+        /* {S!d1190}DiscreteIntegrator: '<S221>/Integ4' */
+        AC_DC_B.Integ4_e4 = AC_DC_DW.Integ4_DSTATE_co;
+    } else {
+        /* {S!d1192}DiscreteIntegrator: '<S221>/Integ4' */
+        AC_DC_B.Integ4_e4 = AC_DC_P.Integ4_gainval_i * rtb_Product1_lg + AC_DC_DW.Integ4_DSTATE_co;
+    }
+    /* {E!d1194}End of DiscreteIntegrator: '<S221>/Integ4' */
+    AC_DC_B.K1_oe = AC_DC_P.K1_Value_i;
+%if !WHITE_SPACE(tlcOutputsFcnOfS26B0)
+    /* {S!d1196}S-Function (sfun_discreteVariableDelay): '<S222>/S-Function' incorporates:
+ *  Constant: '<S221>/K1'
+ */
+%<tlcOutputsFcnOfS26B0>\
+%endif
+    /* {S!d1198}Sin: '<S218>/sin(wt)' */
+    if (AC_DC_DW.systemEnable_a != 0) {
+        AC_DC_DW.lastSin_ng = sin(6.2831853071795862 * AC_DC_P.Fourier1_Freq_d * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+        AC_DC_DW.lastCos_l = cos(6.2831853071795862 * AC_DC_P.Fourier1_Freq_d * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+        AC_DC_DW.systemEnable_a = 0;
+    }
+    rtb_Add_i = ((AC_DC_DW.lastSin_ng * AC_DC_P.sinwt_PCos_b + AC_DC_DW.lastCos_l * AC_DC_P.sinwt_PSin_p) * AC_DC_P.sinwt_HCos_m + (AC_DC_DW.lastCos_l * AC_DC_P.sinwt_PCos_b - AC_DC_DW.lastSin_ng * AC_DC_P.sinwt_PSin_p) * AC_DC_P.sinwt_Hsin_k) * AC_DC_P.sinwt_Amp_e + AC_DC_P.sinwt_Bias_b;
+    /* {E!d1198}End of Sin: '<S218>/sin(wt)' */
+
+    /* {S!d1200}Product: '<S218>/Product' */
+    rtb_Product_l = AC_DC_B.donotdeletethisgain_d * rtb_Add_i;
+    /* {S!d1206}DiscreteIntegrator: '<S223>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_lw != 0) {
+        /* {S!d1202}DiscreteIntegrator: '<S223>/Integ4' */
+        AC_DC_B.Integ4_gc = AC_DC_DW.Integ4_DSTATE_a2;
+    } else {
+        /* {S!d1204}DiscreteIntegrator: '<S223>/Integ4' */
+        AC_DC_B.Integ4_gc = AC_DC_P.Integ4_gainval_fz * rtb_Product_l + AC_DC_DW.Integ4_DSTATE_a2;
+    }
+    /* {E!d1206}End of DiscreteIntegrator: '<S223>/Integ4' */
+    AC_DC_B.K1_on = AC_DC_P.K1_Value_n;
+%if !WHITE_SPACE(tlcOutputsFcnOfS26B1)
+    /* {S!d1208}S-Function (sfun_discreteVariableDelay): '<S224>/S-Function' incorporates:
+ *  Constant: '<S223>/K1'
+ */
+%<tlcOutputsFcnOfS26B1>\
+%endif
+    /* {S!d1210}Update for Sin: '<S218>/cos(wt)' */
+    Sum1_tmp = AC_DC_DW.lastSin_nx;
+    AC_DC_DW.lastSin_nx = AC_DC_DW.lastSin_nx * AC_DC_P.coswt_HCos_b + AC_DC_DW.lastCos_ez * AC_DC_P.coswt_Hsin_o;
+    AC_DC_DW.lastCos_ez = AC_DC_DW.lastCos_ez * AC_DC_P.coswt_HCos_b - Sum1_tmp * AC_DC_P.coswt_Hsin_o;
+    /* {S!d1212}Update for DiscreteIntegrator: '<S221>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_bf = 0U;
+    AC_DC_DW.Integ4_DSTATE_co = AC_DC_P.Integ4_gainval_i * rtb_Product1_lg + AC_DC_B.Integ4_e4;
+%if !WHITE_SPACE(tlcUpdateFcnOfS26B0)
+    /* {S!d1214}Update for S-Function (sfun_discreteVariableDelay): '<S222>/S-Function' */
+%<tlcUpdateFcnOfS26B0>\
+%endif
+    /* {S!d1216}Update for Sin: '<S218>/sin(wt)' */
+    Sum1_tmp = AC_DC_DW.lastSin_ng;
+    AC_DC_DW.lastSin_ng = AC_DC_DW.lastSin_ng * AC_DC_P.sinwt_HCos_m + AC_DC_DW.lastCos_l * AC_DC_P.sinwt_Hsin_k;
+    AC_DC_DW.lastCos_l = AC_DC_DW.lastCos_l * AC_DC_P.sinwt_HCos_m - Sum1_tmp * AC_DC_P.sinwt_Hsin_k;
+    /* {S!d1218}Update for DiscreteIntegrator: '<S223>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_lw = 0U;
+    AC_DC_DW.Integ4_DSTATE_a2 = AC_DC_P.Integ4_gainval_fz * rtb_Product_l + AC_DC_B.Integ4_gc;
+%if !WHITE_SPACE(tlcUpdateFcnOfS26B1)
+    /* {S!d1220}Update for S-Function (sfun_discreteVariableDelay): '<S224>/S-Function' */
+%<tlcUpdateFcnOfS26B1>\
+%endif
+} else if (AC_DC_DW.RMS_MODE_d) {
+    /* {S!d1222}Disable for DiscreteIntegrator: '<S221>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_co = AC_DC_B.Integ4_e4;
+    /* {S!d1224}Disable for DiscreteIntegrator: '<S223>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_a2 = AC_DC_B.Integ4_gc;
+    AC_DC_DW.RMS_MODE_d = false;
+}
+/* {E!d1226}End of Logic: '<S27>/Logical Operator' */
+/* {E!d485}End of Outputs for SubSystem: '<S27>/RMS ' */
+
+/* {S!d487}Outputs for Enabled SubSystem: '<S27>/TrueRMS ' incorporates:
+ *  EnablePort: '<S217>/Enable'
+ */
+/* {S!d1246}DataTypeConversion: '<S27>/Data Type Conversion' incorporates:
+ *  Constant: '<S226>/K1'
+ *  Constant: '<S27>/Constant'
+ */
+if (AC_DC_P.RMS1_TrueRMS != 0.0) {
+    if (!AC_DC_DW.TrueRMS_MODE_g) {
+        /* {S!d1228}Enable for DiscreteIntegrator: '<S226>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_cp = 1U;
+        AC_DC_DW.TrueRMS_MODE_g = true;
+    }
+    /* {S!d1230}Product: '<S217>/Product' */
+    rtb_Product_ea = AC_DC_B.donotdeletethisgain_d * AC_DC_B.donotdeletethisgain_d;
+    /* {S!d1236}DiscreteIntegrator: '<S226>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_cp != 0) {
+        /* {S!d1232}DiscreteIntegrator: '<S226>/Integ4' */
+        AC_DC_B.Integ4_m4 = AC_DC_DW.Integ4_DSTATE_no;
+    } else {
+        /* {S!d1234}DiscreteIntegrator: '<S226>/Integ4' */
+        AC_DC_B.Integ4_m4 = AC_DC_P.Integ4_gainval_l * rtb_Product_ea + AC_DC_DW.Integ4_DSTATE_no;
+    }
+    /* {E!d1236}End of DiscreteIntegrator: '<S226>/Integ4' */
+    AC_DC_B.K1_o = AC_DC_P.K1_Value_b;
+%if !WHITE_SPACE(tlcOutputsFcnOfS27B0)
+    /* {S!d1238}S-Function (sfun_discreteVariableDelay): '<S227>/S-Function' incorporates:
+ *  Constant: '<S226>/K1'
+ */
+%<tlcOutputsFcnOfS27B0>\
+%endif
+    /* {S!d1240}Update for DiscreteIntegrator: '<S226>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_cp = 0U;
+    AC_DC_DW.Integ4_DSTATE_no = AC_DC_P.Integ4_gainval_l * rtb_Product_ea + AC_DC_B.Integ4_m4;
+%if !WHITE_SPACE(tlcUpdateFcnOfS27B0)
+    /* {S!d1242}Update for S-Function (sfun_discreteVariableDelay): '<S227>/S-Function' */
+%<tlcUpdateFcnOfS27B0>\
+%endif
+} else if (AC_DC_DW.TrueRMS_MODE_g) {
+    /* {S!d1244}Disable for DiscreteIntegrator: '<S226>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_no = AC_DC_B.Integ4_m4;
+    AC_DC_DW.TrueRMS_MODE_g = false;
+}
+/* {E!d487}End of Outputs for SubSystem: '<S27>/TrueRMS ' */
+
+/* {S!d489}Outputs for Enabled SubSystem: '<S34>/RMS ' incorporates:
+ *  EnablePort: '<S300>/Enable'
+ */
+/* {S!d1296}Logic: '<S34>/Logical Operator' incorporates:
+ *  Constant: '<S305>/K1'
+ *  Constant: '<S307>/K1'
+ *  Constant: '<S34>/Constant'
+ *  DataTypeConversion: '<S34>/Data Type Conversion'
+ */
+if (!(AC_DC_P.RMS8_TrueRMS != 0.0)) {
+    if (!AC_DC_DW.RMS_MODE) {
+        /* {S!d1248}Enable for Sin: '<S302>/cos(wt)' */
+        AC_DC_DW.systemEnable_o = 1;
+        /* {S!d1250}Enable for DiscreteIntegrator: '<S305>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_c = 1U;
+        /* {S!d1252}Enable for Sin: '<S302>/sin(wt)' */
+        AC_DC_DW.systemEnable_p = 1;
+        /* {S!d1254}Enable for DiscreteIntegrator: '<S307>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_h = 1U;
+        AC_DC_DW.RMS_MODE = true;
+    }
+    /* {S!d1256}Sin: '<S302>/cos(wt)' */
+    if (AC_DC_DW.systemEnable_o != 0) {
+        rtb_Sum = 6.2831853071795862 * AC_DC_P.Fourier1_Freq_n * %<(SLibCG_SE(LibGetTaskTime(1)))>;
+        AC_DC_DW.lastSin_n = sin(rtb_Sum);
+        AC_DC_DW.lastCos_a = cos(rtb_Sum);
+        AC_DC_DW.systemEnable_o = 0;
+    }
+    rtb_Add_i = ((AC_DC_DW.lastSin_n * AC_DC_P.coswt_PCos_b + AC_DC_DW.lastCos_a * AC_DC_P.coswt_PSin_ft) * AC_DC_P.coswt_HCos_ko + (AC_DC_DW.lastCos_a * AC_DC_P.coswt_PCos_b - AC_DC_DW.lastSin_n * AC_DC_P.coswt_PSin_ft) * AC_DC_P.coswt_Hsin_c) * AC_DC_P.coswt_Amp_i + AC_DC_P.coswt_Bias_n;
+    /* {E!d1256}End of Sin: '<S302>/cos(wt)' */
+
+    /* {S!d1258}Product: '<S302>/Product1' */
+    rtb_Product1_k = AC_DC_B.donotdeletethisgain_d * rtb_Add_i;
+    /* {S!d1264}DiscreteIntegrator: '<S305>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_c != 0) {
+        /* {S!d1260}DiscreteIntegrator: '<S305>/Integ4' */
+        AC_DC_B.Integ4_p = AC_DC_DW.Integ4_DSTATE_d;
+    } else {
+        /* {S!d1262}DiscreteIntegrator: '<S305>/Integ4' */
+        AC_DC_B.Integ4_p = AC_DC_P.Integ4_gainval_f1 * rtb_Product1_k + AC_DC_DW.Integ4_DSTATE_d;
+    }
+    /* {E!d1264}End of DiscreteIntegrator: '<S305>/Integ4' */
+    AC_DC_B.K1_d4 = AC_DC_P.K1_Value_lx;
+%if !WHITE_SPACE(tlcOutputsFcnOfS40B0)
+    /* {S!d1266}S-Function (sfun_discreteVariableDelay): '<S306>/S-Function' incorporates:
+ *  Constant: '<S305>/K1'
+ */
+%<tlcOutputsFcnOfS40B0>\
+%endif
+    /* {S!d1268}Sin: '<S302>/sin(wt)' */
+    if (AC_DC_DW.systemEnable_p != 0) {
+        AC_DC_DW.lastSin_b = sin(6.2831853071795862 * AC_DC_P.Fourier1_Freq_n * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+        AC_DC_DW.lastCos_id = cos(6.2831853071795862 * AC_DC_P.Fourier1_Freq_n * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+        AC_DC_DW.systemEnable_p = 0;
+    }
+    rtb_Add_i = ((AC_DC_DW.lastSin_b * AC_DC_P.sinwt_PCos_c + AC_DC_DW.lastCos_id * AC_DC_P.sinwt_PSin_az) * AC_DC_P.sinwt_HCos_c + (AC_DC_DW.lastCos_id * AC_DC_P.sinwt_PCos_c - AC_DC_DW.lastSin_b * AC_DC_P.sinwt_PSin_az) * AC_DC_P.sinwt_Hsin_m3) * AC_DC_P.sinwt_Amp_a + AC_DC_P.sinwt_Bias_cs;
+    /* {E!d1268}End of Sin: '<S302>/sin(wt)' */
+
+    /* {S!d1270}Product: '<S302>/Product' */
+    rtb_Product_d = AC_DC_B.donotdeletethisgain_d * rtb_Add_i;
+    /* {S!d1276}DiscreteIntegrator: '<S307>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_h != 0) {
+        /* {S!d1272}DiscreteIntegrator: '<S307>/Integ4' */
+        AC_DC_B.Integ4_ps = AC_DC_DW.Integ4_DSTATE_e;
+    } else {
+        /* {S!d1274}DiscreteIntegrator: '<S307>/Integ4' */
+        AC_DC_B.Integ4_ps = AC_DC_P.Integ4_gainval_n * rtb_Product_d + AC_DC_DW.Integ4_DSTATE_e;
+    }
+    /* {E!d1276}End of DiscreteIntegrator: '<S307>/Integ4' */
+    AC_DC_B.K1_j = AC_DC_P.K1_Value_g3;
+%if !WHITE_SPACE(tlcOutputsFcnOfS40B1)
+    /* {S!d1278}S-Function (sfun_discreteVariableDelay): '<S308>/S-Function' incorporates:
+ *  Constant: '<S307>/K1'
+ */
+%<tlcOutputsFcnOfS40B1>\
+%endif
+    /* {S!d1280}Update for Sin: '<S302>/cos(wt)' */
+    Sum1_tmp = AC_DC_DW.lastSin_n;
+    AC_DC_DW.lastSin_n = AC_DC_DW.lastSin_n * AC_DC_P.coswt_HCos_ko + AC_DC_DW.lastCos_a * AC_DC_P.coswt_Hsin_c;
+    AC_DC_DW.lastCos_a = AC_DC_DW.lastCos_a * AC_DC_P.coswt_HCos_ko - Sum1_tmp * AC_DC_P.coswt_Hsin_c;
+    /* {S!d1282}Update for DiscreteIntegrator: '<S305>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_c = 0U;
+    AC_DC_DW.Integ4_DSTATE_d = AC_DC_P.Integ4_gainval_f1 * rtb_Product1_k + AC_DC_B.Integ4_p;
+%if !WHITE_SPACE(tlcUpdateFcnOfS40B0)
+    /* {S!d1284}Update for S-Function (sfun_discreteVariableDelay): '<S306>/S-Function' */
+%<tlcUpdateFcnOfS40B0>\
+%endif
+    /* {S!d1286}Update for Sin: '<S302>/sin(wt)' */
+    Sum1_tmp = AC_DC_DW.lastSin_b;
+    AC_DC_DW.lastSin_b = AC_DC_DW.lastSin_b * AC_DC_P.sinwt_HCos_c + AC_DC_DW.lastCos_id * AC_DC_P.sinwt_Hsin_m3;
+    AC_DC_DW.lastCos_id = AC_DC_DW.lastCos_id * AC_DC_P.sinwt_HCos_c - Sum1_tmp * AC_DC_P.sinwt_Hsin_m3;
+    /* {S!d1288}Update for DiscreteIntegrator: '<S307>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_h = 0U;
+    AC_DC_DW.Integ4_DSTATE_e = AC_DC_P.Integ4_gainval_n * rtb_Product_d + AC_DC_B.Integ4_ps;
+%if !WHITE_SPACE(tlcUpdateFcnOfS40B1)
+    /* {S!d1290}Update for S-Function (sfun_discreteVariableDelay): '<S308>/S-Function' */
+%<tlcUpdateFcnOfS40B1>\
+%endif
+} else if (AC_DC_DW.RMS_MODE) {
+    /* {S!d1292}Disable for DiscreteIntegrator: '<S305>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_d = AC_DC_B.Integ4_p;
+    /* {S!d1294}Disable for DiscreteIntegrator: '<S307>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_e = AC_DC_B.Integ4_ps;
+    AC_DC_DW.RMS_MODE = false;
+}
+/* {E!d1296}End of Logic: '<S34>/Logical Operator' */
+/* {E!d489}End of Outputs for SubSystem: '<S34>/RMS ' */
+
+/* {S!d491}Outputs for Enabled SubSystem: '<S34>/TrueRMS ' incorporates:
+ *  EnablePort: '<S301>/Enable'
+ */
+/* {S!d1316}DataTypeConversion: '<S34>/Data Type Conversion' incorporates:
+ *  Constant: '<S310>/K1'
+ *  Constant: '<S34>/Constant'
+ */
+if (AC_DC_P.RMS8_TrueRMS != 0.0) {
+    if (!AC_DC_DW.TrueRMS_MODE) {
+        /* {S!d1298}Enable for DiscreteIntegrator: '<S310>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_mo = 1U;
+        AC_DC_DW.TrueRMS_MODE = true;
+    }
+    /* {S!d1300}Product: '<S301>/Product' */
+    rtb_Product_jv = AC_DC_B.donotdeletethisgain_d * AC_DC_B.donotdeletethisgain_d;
+    /* {S!d1306}DiscreteIntegrator: '<S310>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_mo != 0) {
+        /* {S!d1302}DiscreteIntegrator: '<S310>/Integ4' */
+        AC_DC_B.Integ4_ej = AC_DC_DW.Integ4_DSTATE_i;
+    } else {
+        /* {S!d1304}DiscreteIntegrator: '<S310>/Integ4' */
+        AC_DC_B.Integ4_ej = AC_DC_P.Integ4_gainval_g * rtb_Product_jv + AC_DC_DW.Integ4_DSTATE_i;
+    }
+    /* {E!d1306}End of DiscreteIntegrator: '<S310>/Integ4' */
+    AC_DC_B.K1_a = AC_DC_P.K1_Value_p0;
+%if !WHITE_SPACE(tlcOutputsFcnOfS41B0)
+    /* {S!d1308}S-Function (sfun_discreteVariableDelay): '<S311>/S-Function' incorporates:
+ *  Constant: '<S310>/K1'
+ */
+%<tlcOutputsFcnOfS41B0>\
+%endif
+    /* {S!d1310}Update for DiscreteIntegrator: '<S310>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_mo = 0U;
+    AC_DC_DW.Integ4_DSTATE_i = AC_DC_P.Integ4_gainval_g * rtb_Product_jv + AC_DC_B.Integ4_ej;
+%if !WHITE_SPACE(tlcUpdateFcnOfS41B0)
+    /* {S!d1312}Update for S-Function (sfun_discreteVariableDelay): '<S311>/S-Function' */
+%<tlcUpdateFcnOfS41B0>\
+%endif
+} else if (AC_DC_DW.TrueRMS_MODE) {
+    /* {S!d1314}Disable for DiscreteIntegrator: '<S310>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_i = AC_DC_B.Integ4_ej;
+    AC_DC_DW.TrueRMS_MODE = false;
+}
+/* {E!d491}End of Outputs for SubSystem: '<S34>/TrueRMS ' */
+
+/* {S!d1318}Gain: '<S2>/do not delete this gain' */
+rtb_Add_i = AC_DC_P.donotdeletethisgain_Gain_c5 * AC_DC_B.StateSpace_o1[17];
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B165)
+/* {S!d1320}Scope: '<Root>/i3' */
+%<tlcOutputsFcnOfS43B165>\
+%endif
+/* {S!d1322}Gain: '<S5>/do not delete this gain' */
+rtb_Add_i = AC_DC_P.donotdeletethisgain_Gain_o * AC_DC_B.StateSpace_o1[20];
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B169)
+/* {S!d1324}Scope: '<Root>/Scope6' */
+%<tlcOutputsFcnOfS43B169>\
+%endif
+/* {S!d1326}Gain: '<S38>/do not delete this gain' */
+rtb_Integrator_f = AC_DC_P.donotdeletethisgain_Gain_k1 * AC_DC_B.StateSpace_o1[13];
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B173)
+/* {S!d1328}Scope: '<Root>/Scope5' */
+%<tlcOutputsFcnOfS43B173>\
+%endif
+/* {S!d493}Outputs for Enabled SubSystem: '<S28>/RMS ' incorporates:
+ *  EnablePort: '<S228>/Enable'
+ */
+/* {S!d1378}Logic: '<S28>/Logical Operator' incorporates:
+ *  Constant: '<S233>/K1'
+ *  Constant: '<S235>/K1'
+ *  Constant: '<S28>/Constant'
+ *  DataTypeConversion: '<S28>/Data Type Conversion'
+ */
+if (!(AC_DC_P.RMS2_TrueRMS != 0.0)) {
+    if (!AC_DC_DW.RMS_MODE_an) {
+        /* {S!d1330}Enable for Sin: '<S230>/cos(wt)' */
+        AC_DC_DW.systemEnable_ou = 1;
+        /* {S!d1332}Enable for DiscreteIntegrator: '<S233>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_mb = 1U;
+        /* {S!d1334}Enable for Sin: '<S230>/sin(wt)' */
+        AC_DC_DW.systemEnable_e = 1;
+        /* {S!d1336}Enable for DiscreteIntegrator: '<S235>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_nx = 1U;
+        AC_DC_DW.RMS_MODE_an = true;
+    }
+    /* {S!d1338}Sin: '<S230>/cos(wt)' */
+    if (AC_DC_DW.systemEnable_ou != 0) {
+        rtb_Sum = 6.2831853071795862 * AC_DC_P.Fourier1_Freq_k * %<(SLibCG_SE(LibGetTaskTime(1)))>;
+        AC_DC_DW.lastSin_jv = sin(rtb_Sum);
+        AC_DC_DW.lastCos_ff = cos(rtb_Sum);
+        AC_DC_DW.systemEnable_ou = 0;
+    }
+    rtb_Add_i = ((AC_DC_DW.lastSin_jv * AC_DC_P.coswt_PCos_j + AC_DC_DW.lastCos_ff * AC_DC_P.coswt_PSin_l) * AC_DC_P.coswt_HCos_m + (AC_DC_DW.lastCos_ff * AC_DC_P.coswt_PCos_j - AC_DC_DW.lastSin_jv * AC_DC_P.coswt_PSin_l) * AC_DC_P.coswt_Hsin_b) * AC_DC_P.coswt_Amp_n + AC_DC_P.coswt_Bias_h;
+    /* {E!d1338}End of Sin: '<S230>/cos(wt)' */
+
+    /* {S!d1340}Product: '<S230>/Product1' */
+    rtb_Product1_p = rtb_Integrator_f * rtb_Add_i;
+    /* {S!d1346}DiscreteIntegrator: '<S233>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_mb != 0) {
+        /* {S!d1342}DiscreteIntegrator: '<S233>/Integ4' */
+        AC_DC_B.Integ4_c = AC_DC_DW.Integ4_DSTATE_ht;
+    } else {
+        /* {S!d1344}DiscreteIntegrator: '<S233>/Integ4' */
+        AC_DC_B.Integ4_c = AC_DC_P.Integ4_gainval_f4 * rtb_Product1_p + AC_DC_DW.Integ4_DSTATE_ht;
+    }
+    /* {E!d1346}End of DiscreteIntegrator: '<S233>/Integ4' */
+    AC_DC_B.K1_i0 = AC_DC_P.K1_Value_l;
+%if !WHITE_SPACE(tlcOutputsFcnOfS28B0)
+    /* {S!d1348}S-Function (sfun_discreteVariableDelay): '<S234>/S-Function' incorporates:
+ *  Constant: '<S233>/K1'
+ */
+%<tlcOutputsFcnOfS28B0>\
+%endif
+    /* {S!d1350}Sin: '<S230>/sin(wt)' */
+    if (AC_DC_DW.systemEnable_e != 0) {
+        AC_DC_DW.lastSin_l = sin(6.2831853071795862 * AC_DC_P.Fourier1_Freq_k * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+        AC_DC_DW.lastCos_e = cos(6.2831853071795862 * AC_DC_P.Fourier1_Freq_k * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+        AC_DC_DW.systemEnable_e = 0;
+    }
+    rtb_Add_i = ((AC_DC_DW.lastSin_l * AC_DC_P.sinwt_PCos_d + AC_DC_DW.lastCos_e * AC_DC_P.sinwt_PSin_m) * AC_DC_P.sinwt_HCos_l + (AC_DC_DW.lastCos_e * AC_DC_P.sinwt_PCos_d - AC_DC_DW.lastSin_l * AC_DC_P.sinwt_PSin_m) * AC_DC_P.sinwt_Hsin_b) * AC_DC_P.sinwt_Amp_h + AC_DC_P.sinwt_Bias_l;
+    /* {E!d1350}End of Sin: '<S230>/sin(wt)' */
+
+    /* {S!d1352}Product: '<S230>/Product' */
+    rtb_Product_ds = rtb_Integrator_f * rtb_Add_i;
+    /* {S!d1358}DiscreteIntegrator: '<S235>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_nx != 0) {
+        /* {S!d1354}DiscreteIntegrator: '<S235>/Integ4' */
+        AC_DC_B.Integ4_h = AC_DC_DW.Integ4_DSTATE_a;
+    } else {
+        /* {S!d1356}DiscreteIntegrator: '<S235>/Integ4' */
+        AC_DC_B.Integ4_h = AC_DC_P.Integ4_gainval_e0 * rtb_Product_ds + AC_DC_DW.Integ4_DSTATE_a;
+    }
+    /* {E!d1358}End of DiscreteIntegrator: '<S235>/Integ4' */
+    AC_DC_B.K1_pb = AC_DC_P.K1_Value_o;
+%if !WHITE_SPACE(tlcOutputsFcnOfS28B1)
+    /* {S!d1360}S-Function (sfun_discreteVariableDelay): '<S236>/S-Function' incorporates:
+ *  Constant: '<S235>/K1'
+ */
+%<tlcOutputsFcnOfS28B1>\
+%endif
+    /* {S!d1362}Update for Sin: '<S230>/cos(wt)' */
+    Sum1_tmp = AC_DC_DW.lastSin_jv;
+    AC_DC_DW.lastSin_jv = AC_DC_DW.lastSin_jv * AC_DC_P.coswt_HCos_m + AC_DC_DW.lastCos_ff * AC_DC_P.coswt_Hsin_b;
+    AC_DC_DW.lastCos_ff = AC_DC_DW.lastCos_ff * AC_DC_P.coswt_HCos_m - Sum1_tmp * AC_DC_P.coswt_Hsin_b;
+    /* {S!d1364}Update for DiscreteIntegrator: '<S233>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_mb = 0U;
+    AC_DC_DW.Integ4_DSTATE_ht = AC_DC_P.Integ4_gainval_f4 * rtb_Product1_p + AC_DC_B.Integ4_c;
+%if !WHITE_SPACE(tlcUpdateFcnOfS28B0)
+    /* {S!d1366}Update for S-Function (sfun_discreteVariableDelay): '<S234>/S-Function' */
+%<tlcUpdateFcnOfS28B0>\
+%endif
+    /* {S!d1368}Update for Sin: '<S230>/sin(wt)' */
+    Sum1_tmp = AC_DC_DW.lastSin_l;
+    AC_DC_DW.lastSin_l = AC_DC_DW.lastSin_l * AC_DC_P.sinwt_HCos_l + AC_DC_DW.lastCos_e * AC_DC_P.sinwt_Hsin_b;
+    AC_DC_DW.lastCos_e = AC_DC_DW.lastCos_e * AC_DC_P.sinwt_HCos_l - Sum1_tmp * AC_DC_P.sinwt_Hsin_b;
+    /* {S!d1370}Update for DiscreteIntegrator: '<S235>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_nx = 0U;
+    AC_DC_DW.Integ4_DSTATE_a = AC_DC_P.Integ4_gainval_e0 * rtb_Product_ds + AC_DC_B.Integ4_h;
+%if !WHITE_SPACE(tlcUpdateFcnOfS28B1)
+    /* {S!d1372}Update for S-Function (sfun_discreteVariableDelay): '<S236>/S-Function' */
+%<tlcUpdateFcnOfS28B1>\
+%endif
+} else if (AC_DC_DW.RMS_MODE_an) {
+    /* {S!d1374}Disable for DiscreteIntegrator: '<S233>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_ht = AC_DC_B.Integ4_c;
+    /* {S!d1376}Disable for DiscreteIntegrator: '<S235>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_a = AC_DC_B.Integ4_h;
+    AC_DC_DW.RMS_MODE_an = false;
+}
+/* {E!d1378}End of Logic: '<S28>/Logical Operator' */
+/* {E!d493}End of Outputs for SubSystem: '<S28>/RMS ' */
+
+/* {S!d495}Outputs for Enabled SubSystem: '<S28>/TrueRMS ' incorporates:
+ *  EnablePort: '<S229>/Enable'
+ */
+/* {S!d1398}DataTypeConversion: '<S28>/Data Type Conversion' incorporates:
+ *  Constant: '<S238>/K1'
+ *  Constant: '<S28>/Constant'
+ */
+if (AC_DC_P.RMS2_TrueRMS != 0.0) {
+    if (!AC_DC_DW.TrueRMS_MODE_pf) {
+        /* {S!d1380}Enable for DiscreteIntegrator: '<S238>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_c2 = 1U;
+        AC_DC_DW.TrueRMS_MODE_pf = true;
+    }
+    /* {S!d1382}Product: '<S229>/Product' */
+    rtb_Product_ac = rtb_Integrator_f * rtb_Integrator_f;
+    /* {S!d1388}DiscreteIntegrator: '<S238>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_c2 != 0) {
+        /* {S!d1384}DiscreteIntegrator: '<S238>/Integ4' */
+        AC_DC_B.Integ4_fc = AC_DC_DW.Integ4_DSTATE_gg;
+    } else {
+        /* {S!d1386}DiscreteIntegrator: '<S238>/Integ4' */
+        AC_DC_B.Integ4_fc = AC_DC_P.Integ4_gainval_a * rtb_Product_ac + AC_DC_DW.Integ4_DSTATE_gg;
+    }
+    /* {E!d1388}End of DiscreteIntegrator: '<S238>/Integ4' */
+    AC_DC_B.K1_g = AC_DC_P.K1_Value_p;
+%if !WHITE_SPACE(tlcOutputsFcnOfS29B0)
+    /* {S!d1390}S-Function (sfun_discreteVariableDelay): '<S239>/S-Function' incorporates:
+ *  Constant: '<S238>/K1'
+ */
+%<tlcOutputsFcnOfS29B0>\
+%endif
+    /* {S!d1392}Update for DiscreteIntegrator: '<S238>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_c2 = 0U;
+    AC_DC_DW.Integ4_DSTATE_gg = AC_DC_P.Integ4_gainval_a * rtb_Product_ac + AC_DC_B.Integ4_fc;
+%if !WHITE_SPACE(tlcUpdateFcnOfS29B0)
+    /* {S!d1394}Update for S-Function (sfun_discreteVariableDelay): '<S239>/S-Function' */
+%<tlcUpdateFcnOfS29B0>\
+%endif
+} else if (AC_DC_DW.TrueRMS_MODE_pf) {
+    /* {S!d1396}Disable for DiscreteIntegrator: '<S238>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_gg = AC_DC_B.Integ4_fc;
+    AC_DC_DW.TrueRMS_MODE_pf = false;
+}
+/* {E!d495}End of Outputs for SubSystem: '<S28>/TrueRMS ' */
+
+/* {S!d497}Outputs for Enabled SubSystem: '<S33>/RMS ' incorporates:
+ *  EnablePort: '<S288>/Enable'
+ */
+/* {S!d1448}Logic: '<S33>/Logical Operator' incorporates:
+ *  Constant: '<S293>/K1'
+ *  Constant: '<S295>/K1'
+ *  Constant: '<S33>/Constant'
+ *  DataTypeConversion: '<S33>/Data Type Conversion'
+ */
+if (!(AC_DC_P.RMS7_TrueRMS != 0.0)) {
+    if (!AC_DC_DW.RMS_MODE_k) {
+        /* {S!d1400}Enable for Sin: '<S290>/cos(wt)' */
+        AC_DC_DW.systemEnable_f = 1;
+        /* {S!d1402}Enable for DiscreteIntegrator: '<S293>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_i = 1U;
+        /* {S!d1404}Enable for Sin: '<S290>/sin(wt)' */
+        AC_DC_DW.systemEnable_gq = 1;
+        /* {S!d1406}Enable for DiscreteIntegrator: '<S295>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_b = 1U;
+        AC_DC_DW.RMS_MODE_k = true;
+    }
+    /* {S!d1408}Sin: '<S290>/cos(wt)' */
+    if (AC_DC_DW.systemEnable_f != 0) {
+        rtb_Sum = 6.2831853071795862 * AC_DC_P.Fourier1_Freq_l * %<(SLibCG_SE(LibGetTaskTime(1)))>;
+        AC_DC_DW.lastSin_j0 = sin(rtb_Sum);
+        AC_DC_DW.lastCos_f3 = cos(rtb_Sum);
+        AC_DC_DW.systemEnable_f = 0;
+    }
+    rtb_Add_i = ((AC_DC_DW.lastSin_j0 * AC_DC_P.coswt_PCos_l + AC_DC_DW.lastCos_f3 * AC_DC_P.coswt_PSin_m) * AC_DC_P.coswt_HCos_e + (AC_DC_DW.lastCos_f3 * AC_DC_P.coswt_PCos_l - AC_DC_DW.lastSin_j0 * AC_DC_P.coswt_PSin_m) * AC_DC_P.coswt_Hsin_l) * AC_DC_P.coswt_Amp_a + AC_DC_P.coswt_Bias_e;
+    /* {E!d1408}End of Sin: '<S290>/cos(wt)' */
+
+    /* {S!d1410}Product: '<S290>/Product1' */
+    rtb_Product1_a = rtb_Integrator_f * rtb_Add_i;
+    /* {S!d1416}DiscreteIntegrator: '<S293>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_i != 0) {
+        /* {S!d1412}DiscreteIntegrator: '<S293>/Integ4' */
+        AC_DC_B.Integ4_f = AC_DC_DW.Integ4_DSTATE_jq;
+    } else {
+        /* {S!d1414}DiscreteIntegrator: '<S293>/Integ4' */
+        AC_DC_B.Integ4_f = AC_DC_P.Integ4_gainval_h * rtb_Product1_a + AC_DC_DW.Integ4_DSTATE_jq;
+    }
+    /* {E!d1416}End of DiscreteIntegrator: '<S293>/Integ4' */
+    AC_DC_B.K1_n = AC_DC_P.K1_Value_be;
+%if !WHITE_SPACE(tlcOutputsFcnOfS38B0)
+    /* {S!d1418}S-Function (sfun_discreteVariableDelay): '<S294>/S-Function' incorporates:
+ *  Constant: '<S293>/K1'
+ */
+%<tlcOutputsFcnOfS38B0>\
+%endif
+    /* {S!d1420}Sin: '<S290>/sin(wt)' */
+    if (AC_DC_DW.systemEnable_gq != 0) {
+        AC_DC_DW.lastSin_aq = sin(6.2831853071795862 * AC_DC_P.Fourier1_Freq_l * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+        AC_DC_DW.lastCos_il = cos(6.2831853071795862 * AC_DC_P.Fourier1_Freq_l * %<(SLibCG_SE(LibGetTaskTime(1)))>);
+        AC_DC_DW.systemEnable_gq = 0;
+    }
+    rtb_Add_i = ((AC_DC_DW.lastSin_aq * AC_DC_P.sinwt_PCos_k + AC_DC_DW.lastCos_il * AC_DC_P.sinwt_PSin_e) * AC_DC_P.sinwt_HCos_oo + (AC_DC_DW.lastCos_il * AC_DC_P.sinwt_PCos_k - AC_DC_DW.lastSin_aq * AC_DC_P.sinwt_PSin_e) * AC_DC_P.sinwt_Hsin_ee) * AC_DC_P.sinwt_Amp_n + AC_DC_P.sinwt_Bias_a;
+    /* {E!d1420}End of Sin: '<S290>/sin(wt)' */
+
+    /* {S!d1422}Product: '<S290>/Product' */
+    rtb_Product_o = rtb_Integrator_f * rtb_Add_i;
+    /* {S!d1428}DiscreteIntegrator: '<S295>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_b != 0) {
+        /* {S!d1424}DiscreteIntegrator: '<S295>/Integ4' */
+        AC_DC_B.Integ4_k = AC_DC_DW.Integ4_DSTATE_iv;
+    } else {
+        /* {S!d1426}DiscreteIntegrator: '<S295>/Integ4' */
+        AC_DC_B.Integ4_k = AC_DC_P.Integ4_gainval_kj * rtb_Product_o + AC_DC_DW.Integ4_DSTATE_iv;
+    }
+    /* {E!d1428}End of DiscreteIntegrator: '<S295>/Integ4' */
+    AC_DC_B.K1_b2 = AC_DC_P.K1_Value_fh;
+%if !WHITE_SPACE(tlcOutputsFcnOfS38B1)
+    /* {S!d1430}S-Function (sfun_discreteVariableDelay): '<S296>/S-Function' incorporates:
+ *  Constant: '<S295>/K1'
+ */
+%<tlcOutputsFcnOfS38B1>\
+%endif
+    /* {S!d1432}Update for Sin: '<S290>/cos(wt)' */
+    Sum1_tmp = AC_DC_DW.lastSin_j0;
+    AC_DC_DW.lastSin_j0 = AC_DC_DW.lastSin_j0 * AC_DC_P.coswt_HCos_e + AC_DC_DW.lastCos_f3 * AC_DC_P.coswt_Hsin_l;
+    AC_DC_DW.lastCos_f3 = AC_DC_DW.lastCos_f3 * AC_DC_P.coswt_HCos_e - Sum1_tmp * AC_DC_P.coswt_Hsin_l;
+    /* {S!d1434}Update for DiscreteIntegrator: '<S293>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_i = 0U;
+    AC_DC_DW.Integ4_DSTATE_jq = AC_DC_P.Integ4_gainval_h * rtb_Product1_a + AC_DC_B.Integ4_f;
+%if !WHITE_SPACE(tlcUpdateFcnOfS38B0)
+    /* {S!d1436}Update for S-Function (sfun_discreteVariableDelay): '<S294>/S-Function' */
+%<tlcUpdateFcnOfS38B0>\
+%endif
+    /* {S!d1438}Update for Sin: '<S290>/sin(wt)' */
+    Sum1_tmp = AC_DC_DW.lastSin_aq;
+    AC_DC_DW.lastSin_aq = AC_DC_DW.lastSin_aq * AC_DC_P.sinwt_HCos_oo + AC_DC_DW.lastCos_il * AC_DC_P.sinwt_Hsin_ee;
+    AC_DC_DW.lastCos_il = AC_DC_DW.lastCos_il * AC_DC_P.sinwt_HCos_oo - Sum1_tmp * AC_DC_P.sinwt_Hsin_ee;
+    /* {S!d1440}Update for DiscreteIntegrator: '<S295>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_b = 0U;
+    AC_DC_DW.Integ4_DSTATE_iv = AC_DC_P.Integ4_gainval_kj * rtb_Product_o + AC_DC_B.Integ4_k;
+%if !WHITE_SPACE(tlcUpdateFcnOfS38B1)
+    /* {S!d1442}Update for S-Function (sfun_discreteVariableDelay): '<S296>/S-Function' */
+%<tlcUpdateFcnOfS38B1>\
+%endif
+} else if (AC_DC_DW.RMS_MODE_k) {
+    /* {S!d1444}Disable for DiscreteIntegrator: '<S293>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_jq = AC_DC_B.Integ4_f;
+    /* {S!d1446}Disable for DiscreteIntegrator: '<S295>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_iv = AC_DC_B.Integ4_k;
+    AC_DC_DW.RMS_MODE_k = false;
+}
+/* {E!d1448}End of Logic: '<S33>/Logical Operator' */
+/* {E!d497}End of Outputs for SubSystem: '<S33>/RMS ' */
+
+/* {S!d499}Outputs for Enabled SubSystem: '<S33>/TrueRMS ' incorporates:
+ *  EnablePort: '<S289>/Enable'
+ */
+/* {S!d1468}DataTypeConversion: '<S33>/Data Type Conversion' incorporates:
+ *  Constant: '<S298>/K1'
+ *  Constant: '<S33>/Constant'
+ */
+if (AC_DC_P.RMS7_TrueRMS != 0.0) {
+    if (!AC_DC_DW.TrueRMS_MODE_j) {
+        /* {S!d1450}Enable for DiscreteIntegrator: '<S298>/Integ4' */
+        AC_DC_DW.Integ4_SYSTEM_ENABLE_o = 1U;
+        AC_DC_DW.TrueRMS_MODE_j = true;
+    }
+    /* {S!d1452}Product: '<S289>/Product' */
+    rtb_Product_h = rtb_Integrator_f * rtb_Integrator_f;
+    /* {S!d1458}DiscreteIntegrator: '<S298>/Integ4' */
+    if (AC_DC_DW.Integ4_SYSTEM_ENABLE_o != 0) {
+        /* {S!d1454}DiscreteIntegrator: '<S298>/Integ4' */
+        AC_DC_B.Integ4_b = AC_DC_DW.Integ4_DSTATE_f;
+    } else {
+        /* {S!d1456}DiscreteIntegrator: '<S298>/Integ4' */
+        AC_DC_B.Integ4_b = AC_DC_P.Integ4_gainval_o * rtb_Product_h + AC_DC_DW.Integ4_DSTATE_f;
+    }
+    /* {E!d1458}End of DiscreteIntegrator: '<S298>/Integ4' */
+    AC_DC_B.K1_i = AC_DC_P.K1_Value_bd;
+%if !WHITE_SPACE(tlcOutputsFcnOfS39B0)
+    /* {S!d1460}S-Function (sfun_discreteVariableDelay): '<S299>/S-Function' incorporates:
+ *  Constant: '<S298>/K1'
+ */
+%<tlcOutputsFcnOfS39B0>\
+%endif
+    /* {S!d1462}Update for DiscreteIntegrator: '<S298>/Integ4' */
+    AC_DC_DW.Integ4_SYSTEM_ENABLE_o = 0U;
+    AC_DC_DW.Integ4_DSTATE_f = AC_DC_P.Integ4_gainval_o * rtb_Product_h + AC_DC_B.Integ4_b;
+%if !WHITE_SPACE(tlcUpdateFcnOfS39B0)
+    /* {S!d1464}Update for S-Function (sfun_discreteVariableDelay): '<S299>/S-Function' */
+%<tlcUpdateFcnOfS39B0>\
+%endif
+} else if (AC_DC_DW.TrueRMS_MODE_j) {
+    /* {S!d1466}Disable for DiscreteIntegrator: '<S298>/Integ4' */
+    AC_DC_DW.Integ4_DSTATE_f = AC_DC_B.Integ4_b;
+    AC_DC_DW.TrueRMS_MODE_j = false;
+}
+/* {E!d499}End of Outputs for SubSystem: '<S33>/TrueRMS ' */
+%if !WHITE_SPACE(tlcOutputsFcnOfS43B183)
+
+/* {S!d1470}Scope: '<Root>/Scope41' */
+%<tlcOutputsFcnOfS43B183>\
+%endif
+%<SLibInsertSolverResetCode()>\
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedOutputLocalVars", localVarDecl)>
+%endfunction
+%function OutputsFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Outputs(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 4, fcnProtoType)>
+%endfunction

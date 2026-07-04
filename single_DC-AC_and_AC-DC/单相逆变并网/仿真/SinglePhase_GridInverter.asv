@@ -1,0 +1,146 @@
+% OpenLoop_Bode_Lg0_PaperBased_v2.m
+% 单相LCL并网逆变器开环伯德图（复现论文Lg=0mH稳定状态）
+clear; clc; close all;
+
+%% ===================== 1. 固定参数（Lg=0，匹配论文） =====================
+Vdc = 36;          % 直流电压 (V)
+Vtri = 1;          % 载波幅值
+L1 = 1.2e-3;       % 逆变器侧电感 (H)
+L2 = 1.2e-3;       % 网侧电感 (H)
+Lg = 0;            % 电网电感 (H)
+LT = L2 + Lg;      % 等效网侧电感 (H)
+C  = 22e-6;        % 电容 (F)
+fs = 10e3;         % 采样频率 (Hz)
+Ts = 1/fs;         % 采样周期 (s)
+w0 = 100*pi;       % 基波角频率 (rad/s)
+wc = 6;            % 多谐振带宽 (rad/s)
+wi = pi;           % PR谐振带宽 (rad/s)
+
+%% ===================== 2. 可调参数（复现Lg=0mH稳定状态） =====================
+Kp = 0.2;         % 核心：降低开环增益，让0dB穿越点移到谐振峰之前
+Kr = 5;           % 平衡基波跟踪精度
+kh = 3;            % 多谐振统一系数（论文值）
+K1 = 0.02;         % 阻尼适中：保留谐振峰，保证相位正穿越
+K2 = K1 / 1.5e-4;  % 自动保持K1/K2=1.5Ts（≈133.3）
+
+%% ===================== 3. 中间量计算（严格匹配论文公式） =====================
+s = tf('s');       % 统一用tf对象，避免代数环
+Kpwm = Vdc / Vtri; % 逆变器等效增益
+wr = sqrt((L1 + LT) / (L1 * LT * C));  % LCL谐振角频率
+fs_6 = fs/6;       % 论文关键频率点：1666.7Hz
+
+% 数字控制延时 Gd(s) (三阶Pade近似，1.5Ts延时)
+num_d = [ -1/32*Ts^3,  0.1875*Ts^2, -0.75*Ts, 1 ];
+den_d = [  1/32*Ts^3,  0.1875*Ts^2,  0.75*Ts, 1 ];
+Gd = tf(num_d, den_d);
+
+% 比例谐振控制器 Gi(s) (基波PR)
+Gi = Kp + (2*Kr*wi*s) / (s^2 + 2*wi*s + w0^2);
+
+% 多谐振控制器 GMR(s) (3/5/7次，kh=3)
+G3 = (2*kh*wc*s) / (s^2 + 2*wc*s + (3*w0)^2);
+G5 = (2*kh*wc*s) / (s^2 + 2*wc*s + (5*w0)^2);
+G7 = (2*kh*wc*s) / (s^2 + 2*wc*s + (7*w0)^2);
+GMR = G3 + G5 + G7;
+
+% 控制器总增益
+G_ctrl = Gi + GMR;
+
+% 分母特征多项式 D(s)（严格匹配论文公式）
+term1 = L1 * s^3;                  
+term2 = K1 * Kpwm * Gd * s;        
+term3 = wr^2 * L1 * s;             
+term4 = K2 * Kpwm * Gd;            
+D = term1 + term2 + term3 + term4; 
+
+% 开环传递函数 T2(s)
+T2 = (G_ctrl / (LT * C)) * (Kpwm * Gd) / D;
+
+%% ===================== 4. 绘制伯德图（增强论文关键频率标注） =====================
+figure('Color','white','Position',[100,100,1400,900]);
+% 频率范围：10Hz~20kHz（覆盖谐振频率和fs/6）
+freq_range = logspace(log10(2*pi*10), log10(2*pi*2e4), 1000);
+[mag, phase, w] = bode(T2, freq_range);
+mag_dB = 20*log10(squeeze(mag));
+phase_deg = squeeze(phase);
+phase_deg = mod(phase_deg + 180, 360) - 180; % 相位归一化
+
+% 子图1：幅值（重点标注论文关键频率）
+ax1 = subplot(2,1,1);
+semilogx(w, mag_dB, 'b', 'LineWidth',1.2);
+grid on; grid minor;
+xlabel('角频率 (rad/s)');
+ylabel('幅值 (dB)');
+title('LCL并网逆变器开环幅值特性（复现论文Lg=0mH稳定状态）');
+ylim([-40, 80]);
+hold on;
+plot(w, 0*ones(size(w)), 'k--', 'LineWidth',0.8); % 0dB线
+% 标注fs/6（1666Hz）- 修复plot参数格式
+w_fs6 = 2*pi*fs_6;
+plot(ax1, [w_fs6, w_fs6], [-40, 80], '--', 'Color', [1 0.6 0], 'LineWidth',0.8);
+text(ax1, w_fs6, -35, [' fs/6 (',num2str(fs_6),'Hz)'], 'Color',[1 0.6 0]);
+hold off;
+
+% 子图2：相位（重点标注-180°和论文关键频率）
+ax2 = subplot(2,1,2);
+semilogx(w, phase_deg, 'r', 'LineWidth',1.2);
+hold on;
+plot(w, -180*ones(size(w)), 'k--', 'LineWidth',0.8); % -180°线
+% 标注fs/6（1666Hz）- 修复plot参数格式
+plot(ax2, [w_fs6, w_fs6], [-200, 20], '--', 'Color', [1 0.6 0], 'LineWidth',0.8);
+text(ax2, w_fs6, -190, [' fs/6 (',num2str(fs_6),'Hz)'], 'Color',[1 0.6 0]);
+xlabel('角频率 (rad/s)');
+ylabel('相位 (°)');
+title('LCL并网逆变器开环相位特性（归一化到±180°）');
+ylim([-200, 20]);
+grid on; grid minor;
+hold off;
+
+%% ===================== 5. 计算并输出关键参数（适配论文判据） =====================
+[Gm, Pm, Wcg, Wcp] = margin(T2);
+Gm_dB = 20*log10(Gm);
+f_res = wr/(2*pi);       % LCL谐振频率
+f_cross = Wcp/(2*pi);    % 幅值穿越频率
+% 计算fs/6处的相位值（论文稳定判据核心）
+[mag_fs6, phase_fs6] = bode(T2, w_fs6);
+phase_fs6_deg = mod(phase_fs6 + 180, 360) - 180;
+
+fprintf('===== 系统关键参数（匹配论文判据） =====\n');
+fprintf('LCL谐振频率：%.1f Hz\n', f_res);
+fprintf('fs/6 频率点：%.1f Hz\n', fs_6);
+fprintf('幅值穿越频率：%.1f Hz\n', f_cross);
+fprintf('fs/6 处相位：%.1f °（要求> -180°）\n', phase_fs6_deg);
+fprintf('增益裕度：%.2f dB （对应频率：%.1f Hz）\n', Gm_dB, Wcg/(2*pi));
+fprintf('相位裕度：%.2f ° （对应频率：%.1f Hz）\n', Pm, f_cross);
+
+%% ===================== 6. 标注关键频率（谐振峰+穿越点+fs/6） =====================
+% 基波50Hz
+w_50 = 100*pi;
+hold(ax1, 'on'); plot(ax1, [w_50, w_50], [-40, 80], 'm--', 'LineWidth',0.8);
+text(ax1, w_50, -30, ' 50Hz(基波)', 'Color','m'); hold(ax1, 'off');
+hold(ax2, 'on'); plot(ax2, [w_50, w_50], [-200, 20], 'm--', 'LineWidth',0.8); hold(ax2, 'off');
+
+% LCL谐振频率
+hold(ax1, 'on'); plot(ax1, [wr, wr], [-40, 80], 'g--', 'LineWidth',0.8);
+text(ax1, wr, -30, [' LCL谐振(',num2str(round(f_res)),'Hz)'], 'Color','g'); hold(ax1, 'off');
+hold(ax2, 'on'); plot(ax2, [wr, wr], [-200, 20], 'g--', 'LineWidth',0.8); hold(ax2, 'off');
+
+% 幅值穿越频率
+if ~isinf(Pm) && ~isnan(Wcp)
+    hold(ax1, 'on'); plot(ax1, [Wcp, Wcp], [-40, 80], 'r--', 'LineWidth',0.8);
+    text(ax1, Wcp, -30, [' 穿越频率(',num2str(round(f_cross)),'Hz)'], 'Color','r'); hold(ax1, 'off');
+    hold(ax2, 'on'); plot(ax2, [Wcp, Wcp], [-200, 20], 'r--', 'LineWidth',0.8); hold(ax2, 'off');
+end
+
+%% ===================== 7. 论文稳定判据验证提示 =====================
+fprintf('\n===== 论文稳定判据验证 =====\n');
+if f_cross < f_res
+    fprintf('✓ 幅值穿越频率在谐振频率之前（符合Lg=0mH稳定状态）\n');
+else
+    fprintf('✗ 幅值穿越频率在谐振频率之后，需减小Kp（当前Kp=%.3f）\n', Kp);
+end
+if phase_fs6_deg > -180
+    fprintf('✓ fs/6处相位> -180°（负穿越失效，符合论文稳定判据）\n');
+else
+    fprintf('✗ fs/6处相位≤ -180°（负穿越有效，系统不稳定，需增大K1）\n');
+end

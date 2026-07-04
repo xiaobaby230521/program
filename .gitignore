@@ -1,0 +1,55 @@
+# 非代码文件（通过 GitHub Releases 附件管理）
+*.pdf
+*.docx
+
+# Simulink 构建产物
+slprj/
+*.slxc
+*.autosave
+
+# OS 垃圾文件
+Thumbs.db
+Desktop.ini
+.DS_Store
+*~
+
+# =========================================
+# Keil & VS Code 编译垃圾与缓存 (全局拦截)
+# =========================================
+Listings/
+Objects/
+ipch/
+DebugConfig/
+*.lst
+*.o
+*.d
+*.crf
+*.lnp
+*.axf
+*.htm
+*.build_log.htm
+*.dep
+*.iex
+*.i
+*_2i
+*.l2p
+*.fed
+*.map
+*.hex
+*.bin
+*.Bak
+.browse.c_cpp.db*
+compile_commands.json
+JLinkLog.txt
+*.dbgconf
+*.scvd
+
+# =========================================
+# 跨电脑同步必备（显式放行，发免死金牌）
+# =========================================
+!.vscode/
+!*.code-workspace
+!*.uvprojx
+!*.uvoptx
+!*.uvguix.*
+!*.uvgui.*

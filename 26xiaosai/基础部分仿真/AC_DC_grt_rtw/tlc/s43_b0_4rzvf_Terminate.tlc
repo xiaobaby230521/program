@@ -1,0 +1,1037 @@
+%implements s43_b0_4rzvf_Terminate "C"
+
+%function Terminate(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcTerminateFcnOfS43B1 = OpaqueTLCBlockFcn("Terminate", 43, 1, 0, 7, 0)
+%assign tlcTerminateFcnOfS43B64 = OpaqueTLCBlockFcn("Terminate", 43, 64, 0, 7, 1)
+%assign tlcTerminateFcnOfS43B65 = OpaqueTLCBlockFcn("Terminate", 43, 65, 0, 7, 2)
+%assign tlcTerminateFcnOfS43B66 = OpaqueTLCBlockFcn("Terminate", 43, 66, 0, 7, 3)
+%assign tlcTerminateFcnOfS43B67 = OpaqueTLCBlockFcn("Terminate", 43, 67, 0, 7, 4)
+%assign tlcTerminateFcnOfS43B69 = OpaqueTLCBlockFcn("Terminate", 43, 69, 0, 7, 5)
+%assign tlcTerminateFcnOfS43B70 = OpaqueTLCBlockFcn("Terminate", 43, 70, 0, 7, 6)
+%assign tlcTerminateFcnOfS24B0 = OpaqueTLCBlockFcn("Terminate", 24, 0, 0, 7, 7)
+%assign tlcTerminateFcnOfS24B1 = OpaqueTLCBlockFcn("Terminate", 24, 1, 0, 7, 8)
+%assign tlcTerminateFcnOfS25B0 = OpaqueTLCBlockFcn("Terminate", 25, 0, 0, 7, 9)
+%assign tlcTerminateFcnOfS30B0 = OpaqueTLCBlockFcn("Terminate", 30, 0, 0, 7, 10)
+%assign tlcTerminateFcnOfS30B1 = OpaqueTLCBlockFcn("Terminate", 30, 1, 0, 7, 11)
+%assign tlcTerminateFcnOfS31B0 = OpaqueTLCBlockFcn("Terminate", 31, 0, 0, 7, 12)
+%assign tlcTerminateFcnOfS32B0 = OpaqueTLCBlockFcn("Terminate", 32, 0, 0, 7, 13)
+%assign tlcTerminateFcnOfS32B1 = OpaqueTLCBlockFcn("Terminate", 32, 1, 0, 7, 14)
+%assign tlcTerminateFcnOfS33B0 = OpaqueTLCBlockFcn("Terminate", 33, 0, 0, 7, 15)
+%assign tlcTerminateFcnOfS34B0 = OpaqueTLCBlockFcn("Terminate", 34, 0, 0, 7, 16)
+%assign tlcTerminateFcnOfS34B1 = OpaqueTLCBlockFcn("Terminate", 34, 1, 0, 7, 17)
+%assign tlcTerminateFcnOfS35B0 = OpaqueTLCBlockFcn("Terminate", 35, 0, 0, 7, 18)
+%assign tlcTerminateFcnOfS36B0 = OpaqueTLCBlockFcn("Terminate", 36, 0, 0, 7, 19)
+%assign tlcTerminateFcnOfS36B1 = OpaqueTLCBlockFcn("Terminate", 36, 1, 0, 7, 20)
+%assign tlcTerminateFcnOfS37B0 = OpaqueTLCBlockFcn("Terminate", 37, 0, 0, 7, 21)
+%assign tlcTerminateFcnOfS26B0 = OpaqueTLCBlockFcn("Terminate", 26, 0, 0, 7, 22)
+%assign tlcTerminateFcnOfS26B1 = OpaqueTLCBlockFcn("Terminate", 26, 1, 0, 7, 23)
+%assign tlcTerminateFcnOfS27B0 = OpaqueTLCBlockFcn("Terminate", 27, 0, 0, 7, 24)
+%assign tlcTerminateFcnOfS40B0 = OpaqueTLCBlockFcn("Terminate", 40, 0, 0, 7, 25)
+%assign tlcTerminateFcnOfS40B1 = OpaqueTLCBlockFcn("Terminate", 40, 1, 0, 7, 26)
+%assign tlcTerminateFcnOfS41B0 = OpaqueTLCBlockFcn("Terminate", 41, 0, 0, 7, 27)
+%assign tlcTerminateFcnOfS28B0 = OpaqueTLCBlockFcn("Terminate", 28, 0, 0, 7, 28)
+%assign tlcTerminateFcnOfS28B1 = OpaqueTLCBlockFcn("Terminate", 28, 1, 0, 7, 29)
+%assign tlcTerminateFcnOfS29B0 = OpaqueTLCBlockFcn("Terminate", 29, 0, 0, 7, 30)
+%assign tlcTerminateFcnOfS38B0 = OpaqueTLCBlockFcn("Terminate", 38, 0, 0, 7, 31)
+%assign tlcTerminateFcnOfS38B1 = OpaqueTLCBlockFcn("Terminate", 38, 1, 0, 7, 32)
+%assign tlcTerminateFcnOfS39B0 = OpaqueTLCBlockFcn("Terminate", 39, 0, 0, 7, 33)
+%assign tlcCleanupRuntimeResourcesFcnOfS43B64 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 43, 64, 0, 7, 34)
+%assign tlcCleanupRuntimeResourcesFcnOfS43B65 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 43, 65, 0, 7, 35)
+%assign tlcCleanupRuntimeResourcesFcnOfS43B66 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 43, 66, 0, 7, 36)
+%assign tlcCleanupRuntimeResourcesFcnOfS43B67 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 43, 67, 0, 7, 37)
+%assign tlcCleanupRuntimeResourcesFcnOfS43B69 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 43, 69, 0, 7, 38)
+%assign tlcCleanupRuntimeResourcesFcnOfS43B70 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 43, 70, 0, 7, 39)
+%assign tlcCleanupRuntimeResourcesFcnOfS24B0 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 24, 0, 0, 7, 40)
+%assign tlcCleanupRuntimeResourcesFcnOfS24B1 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 24, 1, 0, 7, 41)
+%assign tlcCleanupRuntimeResourcesFcnOfS25B0 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 25, 0, 0, 7, 42)
+%assign tlcCleanupRuntimeResourcesFcnOfS30B0 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 30, 0, 0, 7, 43)
+%assign tlcCleanupRuntimeResourcesFcnOfS30B1 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 30, 1, 0, 7, 44)
+%assign tlcCleanupRuntimeResourcesFcnOfS31B0 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 31, 0, 0, 7, 45)
+%assign tlcCleanupRuntimeResourcesFcnOfS32B0 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 32, 0, 0, 7, 46)
+%assign tlcCleanupRuntimeResourcesFcnOfS32B1 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 32, 1, 0, 7, 47)
+%assign tlcCleanupRuntimeResourcesFcnOfS33B0 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 33, 0, 0, 7, 48)
+%assign tlcCleanupRuntimeResourcesFcnOfS34B0 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 34, 0, 0, 7, 49)
+%assign tlcCleanupRuntimeResourcesFcnOfS34B1 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 34, 1, 0, 7, 50)
+%assign tlcCleanupRuntimeResourcesFcnOfS35B0 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 35, 0, 0, 7, 51)
+%assign tlcCleanupRuntimeResourcesFcnOfS36B0 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 36, 0, 0, 7, 52)
+%assign tlcCleanupRuntimeResourcesFcnOfS36B1 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 36, 1, 0, 7, 53)
+%assign tlcCleanupRuntimeResourcesFcnOfS37B0 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 37, 0, 0, 7, 54)
+%assign tlcCleanupRuntimeResourcesFcnOfS26B0 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 26, 0, 0, 7, 55)
+%assign tlcCleanupRuntimeResourcesFcnOfS26B1 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 26, 1, 0, 7, 56)
+%assign tlcCleanupRuntimeResourcesFcnOfS27B0 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 27, 0, 0, 7, 57)
+%assign tlcCleanupRuntimeResourcesFcnOfS40B0 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 40, 0, 0, 7, 58)
+%assign tlcCleanupRuntimeResourcesFcnOfS40B1 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 40, 1, 0, 7, 59)
+%assign tlcCleanupRuntimeResourcesFcnOfS41B0 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 41, 0, 0, 7, 60)
+%assign tlcCleanupRuntimeResourcesFcnOfS28B0 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 28, 0, 0, 7, 61)
+%assign tlcCleanupRuntimeResourcesFcnOfS28B1 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 28, 1, 0, 7, 62)
+%assign tlcCleanupRuntimeResourcesFcnOfS29B0 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 29, 0, 0, 7, 63)
+%assign tlcCleanupRuntimeResourcesFcnOfS38B0 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 38, 0, 0, 7, 64)
+%assign tlcCleanupRuntimeResourcesFcnOfS38B1 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 38, 1, 0, 7, 65)
+%assign tlcCleanupRuntimeResourcesFcnOfS39B0 = OpaqueTLCBlockFcn("CleanupRuntimeResources", 39, 0, 0, 7, 66)
+%if !WHITE_SPACE(tlcTerminateFcnOfS43B1)
+/* Terminate for S-Function (sfun_spssw_discc): '<S316>/State-Space' incorporates:
+ *  Constant: '<S319>/SwitchCurrents'
+ */
+%<tlcTerminateFcnOfS43B1>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS43B64)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S53>/S-Function' */
+%<tlcTerminateFcnOfS43B64>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS43B65)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S55>/S-Function' */
+%<tlcTerminateFcnOfS43B65>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS43B66)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S59>/S-Function' */
+%<tlcTerminateFcnOfS43B66>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS43B67)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S61>/S-Function' */
+%<tlcTerminateFcnOfS43B67>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS43B69)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S63>/S-Function' */
+%<tlcTerminateFcnOfS43B69>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS43B70)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S65>/S-Function' */
+%<tlcTerminateFcnOfS43B70>\
+%endif
+%assign   Terminate_open_RMS_43_197 = ""
+%openfile Terminate_open_RMS_43_197
+
+/* Terminate for Enabled SubSystem: '<S26>/RMS ' */
+%closefile Terminate_open_RMS_43_197
+
+%assign    Terminate_body_RMS_43_197 = ""
+%openfile  Terminate_body_RMS_43_197
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS24B0)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S210>/S-Function' */
+%<tlcTerminateFcnOfS24B0>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS24B1)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S212>/S-Function' */
+%<tlcTerminateFcnOfS24B1>\
+%endif
+%closefile Terminate_body_RMS_43_197
+
+%assign    Terminate_close_RMS_43_197 = ""
+%openfile  Terminate_close_RMS_43_197
+
+/* End of Terminate for SubSystem: '<S26>/RMS ' */
+%closefile Terminate_close_RMS_43_197
+%<SLibCG_DumpSSCode(Terminate_open_RMS_43_197, Terminate_body_RMS_43_197, Terminate_close_RMS_43_197)>
+
+
+%assign   Terminate_open_TrueRMS_43_198 = ""
+%openfile Terminate_open_TrueRMS_43_198
+
+/* Terminate for Enabled SubSystem: '<S26>/TrueRMS ' */
+%closefile Terminate_open_TrueRMS_43_198
+
+%assign    Terminate_body_TrueRMS_43_198 = ""
+%openfile  Terminate_body_TrueRMS_43_198
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS25B0)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S215>/S-Function' */
+%<tlcTerminateFcnOfS25B0>\
+%endif
+%closefile Terminate_body_TrueRMS_43_198
+
+%assign    Terminate_close_TrueRMS_43_198 = ""
+%openfile  Terminate_close_TrueRMS_43_198
+
+/* End of Terminate for SubSystem: '<S26>/TrueRMS ' */
+%closefile Terminate_close_TrueRMS_43_198
+%<SLibCG_DumpSSCode(Terminate_open_TrueRMS_43_198, Terminate_body_TrueRMS_43_198, Terminate_close_TrueRMS_43_198)>
+
+
+%assign   Terminate_open_RMS_j3_43_202 = ""
+%openfile Terminate_open_RMS_j3_43_202
+
+/* Terminate for Enabled SubSystem: '<S29>/RMS ' */
+%closefile Terminate_open_RMS_j3_43_202
+
+%assign    Terminate_body_RMS_j3_43_202 = ""
+%openfile  Terminate_body_RMS_j3_43_202
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS30B0)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S246>/S-Function' */
+%<tlcTerminateFcnOfS30B0>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS30B1)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S248>/S-Function' */
+%<tlcTerminateFcnOfS30B1>\
+%endif
+%closefile Terminate_body_RMS_j3_43_202
+
+%assign    Terminate_close_RMS_j3_43_202 = ""
+%openfile  Terminate_close_RMS_j3_43_202
+
+/* End of Terminate for SubSystem: '<S29>/RMS ' */
+%closefile Terminate_close_RMS_j3_43_202
+%<SLibCG_DumpSSCode(Terminate_open_RMS_j3_43_202, Terminate_body_RMS_j3_43_202, Terminate_close_RMS_j3_43_202)>
+
+
+%assign   Terminate_open_TrueRMS_g_43_203 = ""
+%openfile Terminate_open_TrueRMS_g_43_203
+
+/* Terminate for Enabled SubSystem: '<S29>/TrueRMS ' */
+%closefile Terminate_open_TrueRMS_g_43_203
+
+%assign    Terminate_body_TrueRMS_g_43_203 = ""
+%openfile  Terminate_body_TrueRMS_g_43_203
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS31B0)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S251>/S-Function' */
+%<tlcTerminateFcnOfS31B0>\
+%endif
+%closefile Terminate_body_TrueRMS_g_43_203
+
+%assign    Terminate_close_TrueRMS_g_43_203 = ""
+%openfile  Terminate_close_TrueRMS_g_43_203
+
+/* End of Terminate for SubSystem: '<S29>/TrueRMS ' */
+%closefile Terminate_close_TrueRMS_g_43_203
+%<SLibCG_DumpSSCode(Terminate_open_TrueRMS_g_43_203, Terminate_body_TrueRMS_g_43_203, Terminate_close_TrueRMS_g_43_203)>
+
+
+%assign   Terminate_open_RMS_h_43_207 = ""
+%openfile Terminate_open_RMS_h_43_207
+
+/* Terminate for Enabled SubSystem: '<S30>/RMS ' */
+%closefile Terminate_open_RMS_h_43_207
+
+%assign    Terminate_body_RMS_h_43_207 = ""
+%openfile  Terminate_body_RMS_h_43_207
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS32B0)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S258>/S-Function' */
+%<tlcTerminateFcnOfS32B0>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS32B1)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S260>/S-Function' */
+%<tlcTerminateFcnOfS32B1>\
+%endif
+%closefile Terminate_body_RMS_h_43_207
+
+%assign    Terminate_close_RMS_h_43_207 = ""
+%openfile  Terminate_close_RMS_h_43_207
+
+/* End of Terminate for SubSystem: '<S30>/RMS ' */
+%closefile Terminate_close_RMS_h_43_207
+%<SLibCG_DumpSSCode(Terminate_open_RMS_h_43_207, Terminate_body_RMS_h_43_207, Terminate_close_RMS_h_43_207)>
+
+
+%assign   Terminate_open_TrueRMS_c_43_208 = ""
+%openfile Terminate_open_TrueRMS_c_43_208
+
+/* Terminate for Enabled SubSystem: '<S30>/TrueRMS ' */
+%closefile Terminate_open_TrueRMS_c_43_208
+
+%assign    Terminate_body_TrueRMS_c_43_208 = ""
+%openfile  Terminate_body_TrueRMS_c_43_208
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS33B0)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S263>/S-Function' */
+%<tlcTerminateFcnOfS33B0>\
+%endif
+%closefile Terminate_body_TrueRMS_c_43_208
+
+%assign    Terminate_close_TrueRMS_c_43_208 = ""
+%openfile  Terminate_close_TrueRMS_c_43_208
+
+/* End of Terminate for SubSystem: '<S30>/TrueRMS ' */
+%closefile Terminate_close_TrueRMS_c_43_208
+%<SLibCG_DumpSSCode(Terminate_open_TrueRMS_c_43_208, Terminate_body_TrueRMS_c_43_208, Terminate_close_TrueRMS_c_43_208)>
+
+
+%assign   Terminate_open_RMS_g_43_212 = ""
+%openfile Terminate_open_RMS_g_43_212
+
+/* Terminate for Enabled SubSystem: '<S31>/RMS ' */
+%closefile Terminate_open_RMS_g_43_212
+
+%assign    Terminate_body_RMS_g_43_212 = ""
+%openfile  Terminate_body_RMS_g_43_212
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS34B0)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S270>/S-Function' */
+%<tlcTerminateFcnOfS34B0>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS34B1)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S272>/S-Function' */
+%<tlcTerminateFcnOfS34B1>\
+%endif
+%closefile Terminate_body_RMS_g_43_212
+
+%assign    Terminate_close_RMS_g_43_212 = ""
+%openfile  Terminate_close_RMS_g_43_212
+
+/* End of Terminate for SubSystem: '<S31>/RMS ' */
+%closefile Terminate_close_RMS_g_43_212
+%<SLibCG_DumpSSCode(Terminate_open_RMS_g_43_212, Terminate_body_RMS_g_43_212, Terminate_close_RMS_g_43_212)>
+
+
+%assign   Terminate_open_TrueRMS_gq_43_213 = ""
+%openfile Terminate_open_TrueRMS_gq_43_213
+
+/* Terminate for Enabled SubSystem: '<S31>/TrueRMS ' */
+%closefile Terminate_open_TrueRMS_gq_43_213
+
+%assign    Terminate_body_TrueRMS_gq_43_213 = ""
+%openfile  Terminate_body_TrueRMS_gq_43_213
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS35B0)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S275>/S-Function' */
+%<tlcTerminateFcnOfS35B0>\
+%endif
+%closefile Terminate_body_TrueRMS_gq_43_213
+
+%assign    Terminate_close_TrueRMS_gq_43_213 = ""
+%openfile  Terminate_close_TrueRMS_gq_43_213
+
+/* End of Terminate for SubSystem: '<S31>/TrueRMS ' */
+%closefile Terminate_close_TrueRMS_gq_43_213
+%<SLibCG_DumpSSCode(Terminate_open_TrueRMS_gq_43_213, Terminate_body_TrueRMS_gq_43_213, Terminate_close_TrueRMS_gq_43_213)>
+
+
+%assign   Terminate_open_RMS_d_43_217 = ""
+%openfile Terminate_open_RMS_d_43_217
+
+/* Terminate for Enabled SubSystem: '<S32>/RMS ' */
+%closefile Terminate_open_RMS_d_43_217
+
+%assign    Terminate_body_RMS_d_43_217 = ""
+%openfile  Terminate_body_RMS_d_43_217
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS36B0)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S282>/S-Function' */
+%<tlcTerminateFcnOfS36B0>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS36B1)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S284>/S-Function' */
+%<tlcTerminateFcnOfS36B1>\
+%endif
+%closefile Terminate_body_RMS_d_43_217
+
+%assign    Terminate_close_RMS_d_43_217 = ""
+%openfile  Terminate_close_RMS_d_43_217
+
+/* End of Terminate for SubSystem: '<S32>/RMS ' */
+%closefile Terminate_close_RMS_d_43_217
+%<SLibCG_DumpSSCode(Terminate_open_RMS_d_43_217, Terminate_body_RMS_d_43_217, Terminate_close_RMS_d_43_217)>
+
+
+%assign   Terminate_open_TrueRMS_fm_43_218 = ""
+%openfile Terminate_open_TrueRMS_fm_43_218
+
+/* Terminate for Enabled SubSystem: '<S32>/TrueRMS ' */
+%closefile Terminate_open_TrueRMS_fm_43_218
+
+%assign    Terminate_body_TrueRMS_fm_43_218 = ""
+%openfile  Terminate_body_TrueRMS_fm_43_218
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS37B0)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S287>/S-Function' */
+%<tlcTerminateFcnOfS37B0>\
+%endif
+%closefile Terminate_body_TrueRMS_fm_43_218
+
+%assign    Terminate_close_TrueRMS_fm_43_218 = ""
+%openfile  Terminate_close_TrueRMS_fm_43_218
+
+/* End of Terminate for SubSystem: '<S32>/TrueRMS ' */
+%closefile Terminate_close_TrueRMS_fm_43_218
+%<SLibCG_DumpSSCode(Terminate_open_TrueRMS_fm_43_218, Terminate_body_TrueRMS_fm_43_218, Terminate_close_TrueRMS_fm_43_218)>
+
+
+%assign   Terminate_open_RMS_f_43_275 = ""
+%openfile Terminate_open_RMS_f_43_275
+
+/* Terminate for Enabled SubSystem: '<S27>/RMS ' */
+%closefile Terminate_open_RMS_f_43_275
+
+%assign    Terminate_body_RMS_f_43_275 = ""
+%openfile  Terminate_body_RMS_f_43_275
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS26B0)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S222>/S-Function' */
+%<tlcTerminateFcnOfS26B0>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS26B1)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S224>/S-Function' */
+%<tlcTerminateFcnOfS26B1>\
+%endif
+%closefile Terminate_body_RMS_f_43_275
+
+%assign    Terminate_close_RMS_f_43_275 = ""
+%openfile  Terminate_close_RMS_f_43_275
+
+/* End of Terminate for SubSystem: '<S27>/RMS ' */
+%closefile Terminate_close_RMS_f_43_275
+%<SLibCG_DumpSSCode(Terminate_open_RMS_f_43_275, Terminate_body_RMS_f_43_275, Terminate_close_RMS_f_43_275)>
+
+
+%assign   Terminate_open_TrueRMS_f_43_276 = ""
+%openfile Terminate_open_TrueRMS_f_43_276
+
+/* Terminate for Enabled SubSystem: '<S27>/TrueRMS ' */
+%closefile Terminate_open_TrueRMS_f_43_276
+
+%assign    Terminate_body_TrueRMS_f_43_276 = ""
+%openfile  Terminate_body_TrueRMS_f_43_276
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS27B0)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S227>/S-Function' */
+%<tlcTerminateFcnOfS27B0>\
+%endif
+%closefile Terminate_body_TrueRMS_f_43_276
+
+%assign    Terminate_close_TrueRMS_f_43_276 = ""
+%openfile  Terminate_close_TrueRMS_f_43_276
+
+/* End of Terminate for SubSystem: '<S27>/TrueRMS ' */
+%closefile Terminate_close_TrueRMS_f_43_276
+%<SLibCG_DumpSSCode(Terminate_open_TrueRMS_f_43_276, Terminate_body_TrueRMS_f_43_276, Terminate_close_TrueRMS_f_43_276)>
+
+
+%assign   Terminate_open_RMS_e_43_280 = ""
+%openfile Terminate_open_RMS_e_43_280
+
+/* Terminate for Enabled SubSystem: '<S34>/RMS ' */
+%closefile Terminate_open_RMS_e_43_280
+
+%assign    Terminate_body_RMS_e_43_280 = ""
+%openfile  Terminate_body_RMS_e_43_280
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS40B0)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S306>/S-Function' */
+%<tlcTerminateFcnOfS40B0>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS40B1)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S308>/S-Function' */
+%<tlcTerminateFcnOfS40B1>\
+%endif
+%closefile Terminate_body_RMS_e_43_280
+
+%assign    Terminate_close_RMS_e_43_280 = ""
+%openfile  Terminate_close_RMS_e_43_280
+
+/* End of Terminate for SubSystem: '<S34>/RMS ' */
+%closefile Terminate_close_RMS_e_43_280
+%<SLibCG_DumpSSCode(Terminate_open_RMS_e_43_280, Terminate_body_RMS_e_43_280, Terminate_close_RMS_e_43_280)>
+
+
+%assign   Terminate_open_TrueRMS_c4_43_281 = ""
+%openfile Terminate_open_TrueRMS_c4_43_281
+
+/* Terminate for Enabled SubSystem: '<S34>/TrueRMS ' */
+%closefile Terminate_open_TrueRMS_c4_43_281
+
+%assign    Terminate_body_TrueRMS_c4_43_281 = ""
+%openfile  Terminate_body_TrueRMS_c4_43_281
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS41B0)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S311>/S-Function' */
+%<tlcTerminateFcnOfS41B0>\
+%endif
+%closefile Terminate_body_TrueRMS_c4_43_281
+
+%assign    Terminate_close_TrueRMS_c4_43_281 = ""
+%openfile  Terminate_close_TrueRMS_c4_43_281
+
+/* End of Terminate for SubSystem: '<S34>/TrueRMS ' */
+%closefile Terminate_close_TrueRMS_c4_43_281
+%<SLibCG_DumpSSCode(Terminate_open_TrueRMS_c4_43_281, Terminate_body_TrueRMS_c4_43_281, Terminate_close_TrueRMS_c4_43_281)>
+
+
+%assign   Terminate_open_RMS_j_43_297 = ""
+%openfile Terminate_open_RMS_j_43_297
+
+/* Terminate for Enabled SubSystem: '<S28>/RMS ' */
+%closefile Terminate_open_RMS_j_43_297
+
+%assign    Terminate_body_RMS_j_43_297 = ""
+%openfile  Terminate_body_RMS_j_43_297
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS28B0)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S234>/S-Function' */
+%<tlcTerminateFcnOfS28B0>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS28B1)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S236>/S-Function' */
+%<tlcTerminateFcnOfS28B1>\
+%endif
+%closefile Terminate_body_RMS_j_43_297
+
+%assign    Terminate_close_RMS_j_43_297 = ""
+%openfile  Terminate_close_RMS_j_43_297
+
+/* End of Terminate for SubSystem: '<S28>/RMS ' */
+%closefile Terminate_close_RMS_j_43_297
+%<SLibCG_DumpSSCode(Terminate_open_RMS_j_43_297, Terminate_body_RMS_j_43_297, Terminate_close_RMS_j_43_297)>
+
+
+%assign   Terminate_open_TrueRMS_n_43_298 = ""
+%openfile Terminate_open_TrueRMS_n_43_298
+
+/* Terminate for Enabled SubSystem: '<S28>/TrueRMS ' */
+%closefile Terminate_open_TrueRMS_n_43_298
+
+%assign    Terminate_body_TrueRMS_n_43_298 = ""
+%openfile  Terminate_body_TrueRMS_n_43_298
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS29B0)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S239>/S-Function' */
+%<tlcTerminateFcnOfS29B0>\
+%endif
+%closefile Terminate_body_TrueRMS_n_43_298
+
+%assign    Terminate_close_TrueRMS_n_43_298 = ""
+%openfile  Terminate_close_TrueRMS_n_43_298
+
+/* End of Terminate for SubSystem: '<S28>/TrueRMS ' */
+%closefile Terminate_close_TrueRMS_n_43_298
+%<SLibCG_DumpSSCode(Terminate_open_TrueRMS_n_43_298, Terminate_body_TrueRMS_n_43_298, Terminate_close_TrueRMS_n_43_298)>
+
+
+%assign   Terminate_open_RMS_dh_43_302 = ""
+%openfile Terminate_open_RMS_dh_43_302
+
+/* Terminate for Enabled SubSystem: '<S33>/RMS ' */
+%closefile Terminate_open_RMS_dh_43_302
+
+%assign    Terminate_body_RMS_dh_43_302 = ""
+%openfile  Terminate_body_RMS_dh_43_302
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS38B0)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S294>/S-Function' */
+%<tlcTerminateFcnOfS38B0>\
+%endif
+%if !WHITE_SPACE(tlcTerminateFcnOfS38B1)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S296>/S-Function' */
+%<tlcTerminateFcnOfS38B1>\
+%endif
+%closefile Terminate_body_RMS_dh_43_302
+
+%assign    Terminate_close_RMS_dh_43_302 = ""
+%openfile  Terminate_close_RMS_dh_43_302
+
+/* End of Terminate for SubSystem: '<S33>/RMS ' */
+%closefile Terminate_close_RMS_dh_43_302
+%<SLibCG_DumpSSCode(Terminate_open_RMS_dh_43_302, Terminate_body_RMS_dh_43_302, Terminate_close_RMS_dh_43_302)>
+
+
+%assign   Terminate_open_TrueRMS_m_43_303 = ""
+%openfile Terminate_open_TrueRMS_m_43_303
+
+/* Terminate for Enabled SubSystem: '<S33>/TrueRMS ' */
+%closefile Terminate_open_TrueRMS_m_43_303
+
+%assign    Terminate_body_TrueRMS_m_43_303 = ""
+%openfile  Terminate_body_TrueRMS_m_43_303
+
+%if !WHITE_SPACE(tlcTerminateFcnOfS39B0)
+/* Terminate for S-Function (sfun_discreteVariableDelay): '<S299>/S-Function' */
+%<tlcTerminateFcnOfS39B0>\
+%endif
+%closefile Terminate_body_TrueRMS_m_43_303
+
+%assign    Terminate_close_TrueRMS_m_43_303 = ""
+%openfile  Terminate_close_TrueRMS_m_43_303
+
+/* End of Terminate for SubSystem: '<S33>/TrueRMS ' */
+%closefile Terminate_close_TrueRMS_m_43_303
+%<SLibCG_DumpSSCode(Terminate_open_TrueRMS_m_43_303, Terminate_body_TrueRMS_m_43_303, Terminate_close_TrueRMS_m_43_303)>
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS43B64)
+
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S53>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS43B64>\
+%endif
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS43B65)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S55>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS43B65>\
+%endif
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS43B66)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S59>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS43B66>\
+%endif
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS43B67)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S61>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS43B67>\
+%endif
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS43B69)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S63>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS43B69>\
+%endif
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS43B70)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S65>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS43B70>\
+%endif
+%assign   CleanupRuntimeResources_open_RMS_43_197 = ""
+%openfile CleanupRuntimeResources_open_RMS_43_197
+
+/* CleanupRuntimeResources for Enabled SubSystem: '<S26>/RMS ' */
+%closefile CleanupRuntimeResources_open_RMS_43_197
+
+%assign    CleanupRuntimeResources_body_RMS_43_197 = ""
+%openfile  CleanupRuntimeResources_body_RMS_43_197
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS24B0)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S210>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS24B0>\
+%endif
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS24B1)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S212>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS24B1>\
+%endif
+%closefile CleanupRuntimeResources_body_RMS_43_197
+
+%assign    CleanupRuntimeResources_close_RMS_43_197 = ""
+%openfile  CleanupRuntimeResources_close_RMS_43_197
+
+/* End of CleanupRuntimeResources for SubSystem: '<S26>/RMS ' */
+%closefile CleanupRuntimeResources_close_RMS_43_197
+%<SLibCG_DumpSSCode(CleanupRuntimeResources_open_RMS_43_197, CleanupRuntimeResources_body_RMS_43_197, CleanupRuntimeResources_close_RMS_43_197)>
+
+
+%assign   CleanupRuntimeResources_open_TrueRMS_43_198 = ""
+%openfile CleanupRuntimeResources_open_TrueRMS_43_198
+
+/* CleanupRuntimeResources for Enabled SubSystem: '<S26>/TrueRMS ' */
+%closefile CleanupRuntimeResources_open_TrueRMS_43_198
+
+%assign    CleanupRuntimeResources_body_TrueRMS_43_198 = ""
+%openfile  CleanupRuntimeResources_body_TrueRMS_43_198
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS25B0)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S215>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS25B0>\
+%endif
+%closefile CleanupRuntimeResources_body_TrueRMS_43_198
+
+%assign    CleanupRuntimeResources_close_TrueRMS_43_198 = ""
+%openfile  CleanupRuntimeResources_close_TrueRMS_43_198
+
+/* End of CleanupRuntimeResources for SubSystem: '<S26>/TrueRMS ' */
+%closefile CleanupRuntimeResources_close_TrueRMS_43_198
+%<SLibCG_DumpSSCode(CleanupRuntimeResources_open_TrueRMS_43_198, CleanupRuntimeResources_body_TrueRMS_43_198, CleanupRuntimeResources_close_TrueRMS_43_198)>
+
+
+%assign   CleanupRuntimeResources_open_RMS_j3_43_202 = ""
+%openfile CleanupRuntimeResources_open_RMS_j3_43_202
+
+/* CleanupRuntimeResources for Enabled SubSystem: '<S29>/RMS ' */
+%closefile CleanupRuntimeResources_open_RMS_j3_43_202
+
+%assign    CleanupRuntimeResources_body_RMS_j3_43_202 = ""
+%openfile  CleanupRuntimeResources_body_RMS_j3_43_202
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS30B0)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S246>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS30B0>\
+%endif
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS30B1)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S248>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS30B1>\
+%endif
+%closefile CleanupRuntimeResources_body_RMS_j3_43_202
+
+%assign    CleanupRuntimeResources_close_RMS_j3_43_202 = ""
+%openfile  CleanupRuntimeResources_close_RMS_j3_43_202
+
+/* End of CleanupRuntimeResources for SubSystem: '<S29>/RMS ' */
+%closefile CleanupRuntimeResources_close_RMS_j3_43_202
+%<SLibCG_DumpSSCode(CleanupRuntimeResources_open_RMS_j3_43_202, CleanupRuntimeResources_body_RMS_j3_43_202, CleanupRuntimeResources_close_RMS_j3_43_202)>
+
+
+%assign   CleanupRuntimeResources_open_TrueRMS_g_43_203 = ""
+%openfile CleanupRuntimeResources_open_TrueRMS_g_43_203
+
+/* CleanupRuntimeResources for Enabled SubSystem: '<S29>/TrueRMS ' */
+%closefile CleanupRuntimeResources_open_TrueRMS_g_43_203
+
+%assign    CleanupRuntimeResources_body_TrueRMS_g_43_203 = ""
+%openfile  CleanupRuntimeResources_body_TrueRMS_g_43_203
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS31B0)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S251>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS31B0>\
+%endif
+%closefile CleanupRuntimeResources_body_TrueRMS_g_43_203
+
+%assign    CleanupRuntimeResources_close_TrueRMS_g_43_203 = ""
+%openfile  CleanupRuntimeResources_close_TrueRMS_g_43_203
+
+/* End of CleanupRuntimeResources for SubSystem: '<S29>/TrueRMS ' */
+%closefile CleanupRuntimeResources_close_TrueRMS_g_43_203
+%<SLibCG_DumpSSCode(CleanupRuntimeResources_open_TrueRMS_g_43_203, CleanupRuntimeResources_body_TrueRMS_g_43_203, CleanupRuntimeResources_close_TrueRMS_g_43_203)>
+
+
+%assign   CleanupRuntimeResources_open_RMS_h_43_207 = ""
+%openfile CleanupRuntimeResources_open_RMS_h_43_207
+
+/* CleanupRuntimeResources for Enabled SubSystem: '<S30>/RMS ' */
+%closefile CleanupRuntimeResources_open_RMS_h_43_207
+
+%assign    CleanupRuntimeResources_body_RMS_h_43_207 = ""
+%openfile  CleanupRuntimeResources_body_RMS_h_43_207
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS32B0)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S258>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS32B0>\
+%endif
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS32B1)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S260>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS32B1>\
+%endif
+%closefile CleanupRuntimeResources_body_RMS_h_43_207
+
+%assign    CleanupRuntimeResources_close_RMS_h_43_207 = ""
+%openfile  CleanupRuntimeResources_close_RMS_h_43_207
+
+/* End of CleanupRuntimeResources for SubSystem: '<S30>/RMS ' */
+%closefile CleanupRuntimeResources_close_RMS_h_43_207
+%<SLibCG_DumpSSCode(CleanupRuntimeResources_open_RMS_h_43_207, CleanupRuntimeResources_body_RMS_h_43_207, CleanupRuntimeResources_close_RMS_h_43_207)>
+
+
+%assign   CleanupRuntimeResources_open_TrueRMS_c_43_208 = ""
+%openfile CleanupRuntimeResources_open_TrueRMS_c_43_208
+
+/* CleanupRuntimeResources for Enabled SubSystem: '<S30>/TrueRMS ' */
+%closefile CleanupRuntimeResources_open_TrueRMS_c_43_208
+
+%assign    CleanupRuntimeResources_body_TrueRMS_c_43_208 = ""
+%openfile  CleanupRuntimeResources_body_TrueRMS_c_43_208
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS33B0)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S263>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS33B0>\
+%endif
+%closefile CleanupRuntimeResources_body_TrueRMS_c_43_208
+
+%assign    CleanupRuntimeResources_close_TrueRMS_c_43_208 = ""
+%openfile  CleanupRuntimeResources_close_TrueRMS_c_43_208
+
+/* End of CleanupRuntimeResources for SubSystem: '<S30>/TrueRMS ' */
+%closefile CleanupRuntimeResources_close_TrueRMS_c_43_208
+%<SLibCG_DumpSSCode(CleanupRuntimeResources_open_TrueRMS_c_43_208, CleanupRuntimeResources_body_TrueRMS_c_43_208, CleanupRuntimeResources_close_TrueRMS_c_43_208)>
+
+
+%assign   CleanupRuntimeResources_open_RMS_g_43_212 = ""
+%openfile CleanupRuntimeResources_open_RMS_g_43_212
+
+/* CleanupRuntimeResources for Enabled SubSystem: '<S31>/RMS ' */
+%closefile CleanupRuntimeResources_open_RMS_g_43_212
+
+%assign    CleanupRuntimeResources_body_RMS_g_43_212 = ""
+%openfile  CleanupRuntimeResources_body_RMS_g_43_212
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS34B0)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S270>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS34B0>\
+%endif
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS34B1)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S272>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS34B1>\
+%endif
+%closefile CleanupRuntimeResources_body_RMS_g_43_212
+
+%assign    CleanupRuntimeResources_close_RMS_g_43_212 = ""
+%openfile  CleanupRuntimeResources_close_RMS_g_43_212
+
+/* End of CleanupRuntimeResources for SubSystem: '<S31>/RMS ' */
+%closefile CleanupRuntimeResources_close_RMS_g_43_212
+%<SLibCG_DumpSSCode(CleanupRuntimeResources_open_RMS_g_43_212, CleanupRuntimeResources_body_RMS_g_43_212, CleanupRuntimeResources_close_RMS_g_43_212)>
+
+
+%assign   CleanupRuntimeResources_open_TrueRMS_gq_43_213 = ""
+%openfile CleanupRuntimeResources_open_TrueRMS_gq_43_213
+
+/* CleanupRuntimeResources for Enabled SubSystem: '<S31>/TrueRMS ' */
+%closefile CleanupRuntimeResources_open_TrueRMS_gq_43_213
+
+%assign    CleanupRuntimeResources_body_TrueRMS_gq_43_213 = ""
+%openfile  CleanupRuntimeResources_body_TrueRMS_gq_43_213
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS35B0)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S275>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS35B0>\
+%endif
+%closefile CleanupRuntimeResources_body_TrueRMS_gq_43_213
+
+%assign    CleanupRuntimeResources_close_TrueRMS_gq_43_213 = ""
+%openfile  CleanupRuntimeResources_close_TrueRMS_gq_43_213
+
+/* End of CleanupRuntimeResources for SubSystem: '<S31>/TrueRMS ' */
+%closefile CleanupRuntimeResources_close_TrueRMS_gq_43_213
+%<SLibCG_DumpSSCode(CleanupRuntimeResources_open_TrueRMS_gq_43_213, CleanupRuntimeResources_body_TrueRMS_gq_43_213, CleanupRuntimeResources_close_TrueRMS_gq_43_213)>
+
+
+%assign   CleanupRuntimeResources_open_RMS_d_43_217 = ""
+%openfile CleanupRuntimeResources_open_RMS_d_43_217
+
+/* CleanupRuntimeResources for Enabled SubSystem: '<S32>/RMS ' */
+%closefile CleanupRuntimeResources_open_RMS_d_43_217
+
+%assign    CleanupRuntimeResources_body_RMS_d_43_217 = ""
+%openfile  CleanupRuntimeResources_body_RMS_d_43_217
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS36B0)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S282>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS36B0>\
+%endif
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS36B1)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S284>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS36B1>\
+%endif
+%closefile CleanupRuntimeResources_body_RMS_d_43_217
+
+%assign    CleanupRuntimeResources_close_RMS_d_43_217 = ""
+%openfile  CleanupRuntimeResources_close_RMS_d_43_217
+
+/* End of CleanupRuntimeResources for SubSystem: '<S32>/RMS ' */
+%closefile CleanupRuntimeResources_close_RMS_d_43_217
+%<SLibCG_DumpSSCode(CleanupRuntimeResources_open_RMS_d_43_217, CleanupRuntimeResources_body_RMS_d_43_217, CleanupRuntimeResources_close_RMS_d_43_217)>
+
+
+%assign   CleanupRuntimeResources_open_TrueRMS_fm_43_218 = ""
+%openfile CleanupRuntimeResources_open_TrueRMS_fm_43_218
+
+/* CleanupRuntimeResources for Enabled SubSystem: '<S32>/TrueRMS ' */
+%closefile CleanupRuntimeResources_open_TrueRMS_fm_43_218
+
+%assign    CleanupRuntimeResources_body_TrueRMS_fm_43_218 = ""
+%openfile  CleanupRuntimeResources_body_TrueRMS_fm_43_218
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS37B0)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S287>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS37B0>\
+%endif
+%closefile CleanupRuntimeResources_body_TrueRMS_fm_43_218
+
+%assign    CleanupRuntimeResources_close_TrueRMS_fm_43_218 = ""
+%openfile  CleanupRuntimeResources_close_TrueRMS_fm_43_218
+
+/* End of CleanupRuntimeResources for SubSystem: '<S32>/TrueRMS ' */
+%closefile CleanupRuntimeResources_close_TrueRMS_fm_43_218
+%<SLibCG_DumpSSCode(CleanupRuntimeResources_open_TrueRMS_fm_43_218, CleanupRuntimeResources_body_TrueRMS_fm_43_218, CleanupRuntimeResources_close_TrueRMS_fm_43_218)>
+
+
+%assign   CleanupRuntimeResources_open_RMS_f_43_275 = ""
+%openfile CleanupRuntimeResources_open_RMS_f_43_275
+
+/* CleanupRuntimeResources for Enabled SubSystem: '<S27>/RMS ' */
+%closefile CleanupRuntimeResources_open_RMS_f_43_275
+
+%assign    CleanupRuntimeResources_body_RMS_f_43_275 = ""
+%openfile  CleanupRuntimeResources_body_RMS_f_43_275
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS26B0)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S222>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS26B0>\
+%endif
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS26B1)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S224>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS26B1>\
+%endif
+%closefile CleanupRuntimeResources_body_RMS_f_43_275
+
+%assign    CleanupRuntimeResources_close_RMS_f_43_275 = ""
+%openfile  CleanupRuntimeResources_close_RMS_f_43_275
+
+/* End of CleanupRuntimeResources for SubSystem: '<S27>/RMS ' */
+%closefile CleanupRuntimeResources_close_RMS_f_43_275
+%<SLibCG_DumpSSCode(CleanupRuntimeResources_open_RMS_f_43_275, CleanupRuntimeResources_body_RMS_f_43_275, CleanupRuntimeResources_close_RMS_f_43_275)>
+
+
+%assign   CleanupRuntimeResources_open_TrueRMS_f_43_276 = ""
+%openfile CleanupRuntimeResources_open_TrueRMS_f_43_276
+
+/* CleanupRuntimeResources for Enabled SubSystem: '<S27>/TrueRMS ' */
+%closefile CleanupRuntimeResources_open_TrueRMS_f_43_276
+
+%assign    CleanupRuntimeResources_body_TrueRMS_f_43_276 = ""
+%openfile  CleanupRuntimeResources_body_TrueRMS_f_43_276
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS27B0)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S227>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS27B0>\
+%endif
+%closefile CleanupRuntimeResources_body_TrueRMS_f_43_276
+
+%assign    CleanupRuntimeResources_close_TrueRMS_f_43_276 = ""
+%openfile  CleanupRuntimeResources_close_TrueRMS_f_43_276
+
+/* End of CleanupRuntimeResources for SubSystem: '<S27>/TrueRMS ' */
+%closefile CleanupRuntimeResources_close_TrueRMS_f_43_276
+%<SLibCG_DumpSSCode(CleanupRuntimeResources_open_TrueRMS_f_43_276, CleanupRuntimeResources_body_TrueRMS_f_43_276, CleanupRuntimeResources_close_TrueRMS_f_43_276)>
+
+
+%assign   CleanupRuntimeResources_open_RMS_e_43_280 = ""
+%openfile CleanupRuntimeResources_open_RMS_e_43_280
+
+/* CleanupRuntimeResources for Enabled SubSystem: '<S34>/RMS ' */
+%closefile CleanupRuntimeResources_open_RMS_e_43_280
+
+%assign    CleanupRuntimeResources_body_RMS_e_43_280 = ""
+%openfile  CleanupRuntimeResources_body_RMS_e_43_280
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS40B0)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S306>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS40B0>\
+%endif
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS40B1)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S308>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS40B1>\
+%endif
+%closefile CleanupRuntimeResources_body_RMS_e_43_280
+
+%assign    CleanupRuntimeResources_close_RMS_e_43_280 = ""
+%openfile  CleanupRuntimeResources_close_RMS_e_43_280
+
+/* End of CleanupRuntimeResources for SubSystem: '<S34>/RMS ' */
+%closefile CleanupRuntimeResources_close_RMS_e_43_280
+%<SLibCG_DumpSSCode(CleanupRuntimeResources_open_RMS_e_43_280, CleanupRuntimeResources_body_RMS_e_43_280, CleanupRuntimeResources_close_RMS_e_43_280)>
+
+
+%assign   CleanupRuntimeResources_open_TrueRMS_c4_43_281 = ""
+%openfile CleanupRuntimeResources_open_TrueRMS_c4_43_281
+
+/* CleanupRuntimeResources for Enabled SubSystem: '<S34>/TrueRMS ' */
+%closefile CleanupRuntimeResources_open_TrueRMS_c4_43_281
+
+%assign    CleanupRuntimeResources_body_TrueRMS_c4_43_281 = ""
+%openfile  CleanupRuntimeResources_body_TrueRMS_c4_43_281
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS41B0)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S311>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS41B0>\
+%endif
+%closefile CleanupRuntimeResources_body_TrueRMS_c4_43_281
+
+%assign    CleanupRuntimeResources_close_TrueRMS_c4_43_281 = ""
+%openfile  CleanupRuntimeResources_close_TrueRMS_c4_43_281
+
+/* End of CleanupRuntimeResources for SubSystem: '<S34>/TrueRMS ' */
+%closefile CleanupRuntimeResources_close_TrueRMS_c4_43_281
+%<SLibCG_DumpSSCode(CleanupRuntimeResources_open_TrueRMS_c4_43_281, CleanupRuntimeResources_body_TrueRMS_c4_43_281, CleanupRuntimeResources_close_TrueRMS_c4_43_281)>
+
+
+%assign   CleanupRuntimeResources_open_RMS_j_43_297 = ""
+%openfile CleanupRuntimeResources_open_RMS_j_43_297
+
+/* CleanupRuntimeResources for Enabled SubSystem: '<S28>/RMS ' */
+%closefile CleanupRuntimeResources_open_RMS_j_43_297
+
+%assign    CleanupRuntimeResources_body_RMS_j_43_297 = ""
+%openfile  CleanupRuntimeResources_body_RMS_j_43_297
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS28B0)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S234>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS28B0>\
+%endif
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS28B1)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S236>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS28B1>\
+%endif
+%closefile CleanupRuntimeResources_body_RMS_j_43_297
+
+%assign    CleanupRuntimeResources_close_RMS_j_43_297 = ""
+%openfile  CleanupRuntimeResources_close_RMS_j_43_297
+
+/* End of CleanupRuntimeResources for SubSystem: '<S28>/RMS ' */
+%closefile CleanupRuntimeResources_close_RMS_j_43_297
+%<SLibCG_DumpSSCode(CleanupRuntimeResources_open_RMS_j_43_297, CleanupRuntimeResources_body_RMS_j_43_297, CleanupRuntimeResources_close_RMS_j_43_297)>
+
+
+%assign   CleanupRuntimeResources_open_TrueRMS_n_43_298 = ""
+%openfile CleanupRuntimeResources_open_TrueRMS_n_43_298
+
+/* CleanupRuntimeResources for Enabled SubSystem: '<S28>/TrueRMS ' */
+%closefile CleanupRuntimeResources_open_TrueRMS_n_43_298
+
+%assign    CleanupRuntimeResources_body_TrueRMS_n_43_298 = ""
+%openfile  CleanupRuntimeResources_body_TrueRMS_n_43_298
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS29B0)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S239>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS29B0>\
+%endif
+%closefile CleanupRuntimeResources_body_TrueRMS_n_43_298
+
+%assign    CleanupRuntimeResources_close_TrueRMS_n_43_298 = ""
+%openfile  CleanupRuntimeResources_close_TrueRMS_n_43_298
+
+/* End of CleanupRuntimeResources for SubSystem: '<S28>/TrueRMS ' */
+%closefile CleanupRuntimeResources_close_TrueRMS_n_43_298
+%<SLibCG_DumpSSCode(CleanupRuntimeResources_open_TrueRMS_n_43_298, CleanupRuntimeResources_body_TrueRMS_n_43_298, CleanupRuntimeResources_close_TrueRMS_n_43_298)>
+
+
+%assign   CleanupRuntimeResources_open_RMS_dh_43_302 = ""
+%openfile CleanupRuntimeResources_open_RMS_dh_43_302
+
+/* CleanupRuntimeResources for Enabled SubSystem: '<S33>/RMS ' */
+%closefile CleanupRuntimeResources_open_RMS_dh_43_302
+
+%assign    CleanupRuntimeResources_body_RMS_dh_43_302 = ""
+%openfile  CleanupRuntimeResources_body_RMS_dh_43_302
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS38B0)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S294>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS38B0>\
+%endif
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS38B1)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S296>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS38B1>\
+%endif
+%closefile CleanupRuntimeResources_body_RMS_dh_43_302
+
+%assign    CleanupRuntimeResources_close_RMS_dh_43_302 = ""
+%openfile  CleanupRuntimeResources_close_RMS_dh_43_302
+
+/* End of CleanupRuntimeResources for SubSystem: '<S33>/RMS ' */
+%closefile CleanupRuntimeResources_close_RMS_dh_43_302
+%<SLibCG_DumpSSCode(CleanupRuntimeResources_open_RMS_dh_43_302, CleanupRuntimeResources_body_RMS_dh_43_302, CleanupRuntimeResources_close_RMS_dh_43_302)>
+
+
+%assign   CleanupRuntimeResources_open_TrueRMS_m_43_303 = ""
+%openfile CleanupRuntimeResources_open_TrueRMS_m_43_303
+
+/* CleanupRuntimeResources for Enabled SubSystem: '<S33>/TrueRMS ' */
+%closefile CleanupRuntimeResources_open_TrueRMS_m_43_303
+
+%assign    CleanupRuntimeResources_body_TrueRMS_m_43_303 = ""
+%openfile  CleanupRuntimeResources_body_TrueRMS_m_43_303
+
+%if !WHITE_SPACE(tlcCleanupRuntimeResourcesFcnOfS39B0)
+/* CleanupRuntimeResources for S-Function (sfun_discreteVariableDelay): '<S299>/S-Function' */
+%<tlcCleanupRuntimeResourcesFcnOfS39B0>\
+%endif
+%closefile CleanupRuntimeResources_body_TrueRMS_m_43_303
+
+%assign    CleanupRuntimeResources_close_TrueRMS_m_43_303 = ""
+%openfile  CleanupRuntimeResources_close_TrueRMS_m_43_303
+
+/* End of CleanupRuntimeResources for SubSystem: '<S33>/TrueRMS ' */
+%closefile CleanupRuntimeResources_close_TrueRMS_m_43_303
+%<SLibCG_DumpSSCode(CleanupRuntimeResources_open_TrueRMS_m_43_303, CleanupRuntimeResources_body_TrueRMS_m_43_303, CleanupRuntimeResources_close_TrueRMS_m_43_303)>
+
+%closefile cfgTxt
+%<cfgTxt>
+%endfunction
+%function TerminateFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Terminate(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 7, fcnProtoType)>
+%endfunction

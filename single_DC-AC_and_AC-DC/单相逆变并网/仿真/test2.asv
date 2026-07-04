@@ -1,0 +1,163 @@
+% SOGI_FLL_PLL_20kHz_50Hz_SINGLE_Q.m
+% 只保留Q轴收敛对比图
+clear; clc; close all;
+
+%% ===================== 1. 仿真参数配置 =====================
+dt = 5e-5;                % 20kHz步长
+t_end = 10;              % 仿真时间
+t = 0:dt:t_end;
+N = length(t);
+
+% 输入信号：5V直流偏置 + 24V有效值 恒定50Hz正弦波
+U_dc = 5;
+U_rms = 24;
+A = U_rms * sqrt(2);
+f_grid = 50;             % 恒定50Hz
+omega_grid = 2*pi*f_grid;
+
+% 生成恒定50Hz输入电压
+U = zeros(N, 1);
+for k = 1:N
+    t_now = t(k);
+    U(k) = U_dc + A * sin(omega_grid * t_now);
+end
+% 电网真实相位（恒定50Hz）
+theta_true = omega_grid * t';    
+
+% SOGI-FLL参数（20kHz双线性版）
+K = 1.414;
+K1 = 0.25;
+gamma_p = 15;
+gamma_i = 15;
+
+% PLL参数（与你原PLL控制器完全一致）
+Kp_pll = 5;
+Ki_pll = 35;
+omega0_pll = 2*pi*50;    % PLL额定频率
+
+%% ===================== 2. 状态初始化 =====================
+% SOGI-FLL状态
+x1 = zeros(N, 1);
+x2 = zeros(N, 1);
+x3 = zeros(N, 1);
+omega0 = zeros(N, 1);
+omega0(1) = 2*pi*50;
+U_prev = U(1);
+integral_f = 0;
+theta_sogi = zeros(N,1);   % SOGI开环相位
+
+% PLL状态（严格仿照原代码）
+theta_prev = 0;
+omega_prev = omega0_pll;
+integral_sum = 0;
+theta_pll = zeros(N, 1);  % PLL闭环相位
+omega_pll = zeros(N, 1);  % PLL闭环角频率
+
+%% ===================== 3. 主循环：SOGI-FLL + PLL =====================
+for k = 2:N
+    % ---------------------- 3.1 20kHz双线性SOGI-FLL计算 ----------------------
+    x_prev = [x1(k-1); x2(k-1); x3(k-1)];
+    omega0_prev = omega0(k-1);
+    U_curr = U(k);
+    
+    % 频率预畸变
+    omega_pre = (2/dt) * tan(omega0_prev * dt / 2);
+    
+    % 状态矩阵
+    A_mat = [
+        -K1*omega_pre, -K1*omega_pre, 0;
+        -K*omega_pre,  -K*omega_pre,  -omega_pre^2;
+        0,              1,              0
+    ];
+    B_mat = [K1*omega_pre; K*omega_pre; 0];
+    
+    % 双线性变换更新状态
+    I_mat = eye(3);
+    M1 = I_mat - (dt/2)*A_mat;
+    M2 = I_mat + (dt/2)*A_mat;
+    U_avg = U_curr + U_prev;
+    x_curr = M1 \ (M2 * x_prev + (dt/2)*B_mat * U_avg);
+    
+    x1(k) = x_curr(1);
+    x2(k) = x_curr(2);
+    x3(k) = x_curr(3);
+    U_prev = U_curr;
+    
+    % PI-FLL频率更新
+    deltaU = U_curr - x1(k) - x2(k);
+    deltaU_prime = omega0_prev * x3(k);
+    epsilon_f = deltaU * deltaU_prime;
+    
+    integral_f = integral_f + epsilon_f * dt;
+    domega0dt = -gamma_p * epsilon_f - gamma_i * integral_f;
+    omega0(k) = omega0_prev + dt * domega0dt;
+    omega0(k) = max(min(omega0(k), 2*pi*60), 2*pi*40);
+    
+    % SOGI开环相位积分
+    theta_sogi(k) = theta_sogi(k-1) + (omega0(k) + omega0_prev) * dt / 2;
+
+    % ---------------------- 3.2 闭环PLL锁相（完全复刻你的逻辑） ----------------------
+    alpha = x2(k);         % SOGI α轴输出
+    beta = deltaU_prime;   % SOGI β轴输出
+    
+    % Park变换计算q轴误差
+    cos_theta = cos(theta_prev);
+    sin_theta = sin(theta_prev);
+    q_error = -alpha * sin_theta + beta * cos_theta;
+    
+    % PI控制器
+    proportional = Kp_pll * q_error;
+    integral_sum = integral_sum + Ki_pll * q_error * dt;
+    delta_omega = proportional + integral_sum;
+    
+    % 角频率与相位更新
+    omega_curr = omega0_pll + delta_omega;
+    theta_curr = theta_prev + (omega_curr + omega_prev) * dt / 2;
+    theta_curr = mod(theta_curr + pi, 2*pi) - pi;
+    
+    % 更新PLL状态
+    theta_prev = theta_curr;
+    omega_prev = omega_curr;
+    
+    theta_pll(k) = theta_curr;
+    omega_pll(k) = omega_curr;
+end
+
+%% ===================== 4. 标准Park/反Park变换 =====================
+alpha_sogi = x2;
+beta_sogi = omega0 .* x3;
+
+% SOGI开环相位变换
+d_sogi = alpha_sogi .* cos(theta_sogi) + beta_sogi .* sin(theta_sogi);
+q_sogi = -alpha_sogi .* sin(theta_sogi) + beta_sogi .* cos(theta_sogi);
+
+% PLL闭环相位变换（完美锁定）
+d_pll = alpha_sogi .* cos(theta_pll) + beta_sogi .* sin(theta_pll);
+q_pll = -alpha_sogi .* sin(theta_pll) + beta_sogi .* cos(theta_pll);
+
+% 反Park变换
+alpha_from_sogi = d_sogi .* cos(theta_sogi) - q_sogi .* sin(theta_sogi);
+alpha_from_pll = d_pll .* cos(theta_pll) - q_pll .* sin(theta_pll);
+
+%% ===================== 5. 绘图（🔥 只保留Q轴 🔥） =====================
+figure('Color','white','Position',[100,100,800,600]);
+
+% 3. q轴分量（唯一保留）
+subplot(1,1,1); % 改为单图
+plot(t, q_sogi, 'b', 'LineWidth',1.2, 'DisplayName','q（SOGIθ）'); hold on;
+plot(t, q_pll, 'r', 'LineWidth',1.2, 'DisplayName','q（PLLθ）');
+plot(t, zeros(1,N), 'k:', 'LineWidth',1, 'DisplayName','理想q=0');
+title('q轴分量对比（20kHz SOGI+PLL | 恒定50Hz）');
+xlabel('t (s)'); ylabel('q (V)');
+legend; grid on; axis tight; ylim([-5,5]);
+
+%% ===================== 6. 稳态指标打印 =====================
+idx_steady = find(t >= 0.1 & t <= 0.4);   % 全段稳态
+
+fprintf('=======================================\n');
+fprintf('20kHz SOGI+PLL 锁定结果（恒定50Hz）\n');
+fprintf('=======================================\n');
+
+fprintf('稳态区间 (0.1~0.4s):\n');
+fprintf('PLL q轴RMS波动：%.4f V\n', rms(q_pll(idx_steady)));
+fprintf('=======================================\n');

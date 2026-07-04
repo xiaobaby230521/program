@@ -1,0 +1,86 @@
+%implements s43_b0_4rzvf_Functions "C"
+
+%function AC_DC_calc_coeff_Fcn0(block) void
+%assign fcnBuff = ""
+%openfile fcnBuff
+%assign cfgTxt = ""
+%openfile cfgTxt
+real_T A0;
+real_T A0_tmp;
+real_T num_b2_tmp;
+num_b2_tmp = wn * wn;
+A0_tmp = 2.0 * wc * k;
+A0 = (A0_tmp + k2) + num_b2_tmp;
+*b0 = ((0.0 * k + k2) + num_b2_tmp) / A0;
+*b1 = (2.0 * num_b2_tmp - 2.0 * k2) / A0;
+*b2 = ((k2 - 0.0 * k) + num_b2_tmp) / A0;
+*a1 = *b1;
+*a2 = ((k2 - A0_tmp) + num_b2_tmp) / A0;
+%closefile cfgTxt
+%<cfgTxt>
+%closefile fcnBuff
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void AC_DC_calc_coeff(\
+%assign comma = ""
+%<comma>real_T wn\
+%assign comma = ", "
+%<comma>real_T wc\
+%assign comma = ", "
+%<comma>real_T k\
+%assign comma = ", "
+%<comma>real_T k2\
+%assign comma = ", "
+%<comma>real_T *b0\
+%assign comma = ", "
+%<comma>real_T *b1\
+%assign comma = ", "
+%<comma>real_T *b2\
+%assign comma = ", "
+%<comma>real_T *a1\
+%assign comma = ", "
+%<comma>real_T *a2\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 0, fcnProtoType)>
+%return fcnBuff
+%endfunction
+
+%function rt_remd_snf_Fcn1(block) void
+%assign fcnBuff = ""
+%openfile fcnBuff
+%assign cfgTxt = ""
+%openfile cfgTxt
+real_T y;
+if (rtIsNaN(u0) || rtIsNaN(u1) || rtIsInf(u0)) {
+    y = %<LibGetMathConstant(LibRealNonFinite("nan"), FcnGetDataTypeIdFromName("double"))>;
+} else if (rtIsInf(u1)) {
+    y = u0;
+} else if ((u1 != 0.0) && (u1 != trunc(u1))) {
+    real_T q;
+    q = fabs(u0 / u1);
+    if (!(fabs(q - floor(q + 0.5)) > DBL_EPSILON * q)) {
+        y = 0.0 * u0;
+    } else {
+        y = fmod(u0, u1);
+    }
+} else {
+    y = fmod(u0, u1);
+}
+return y;
+%closefile cfgTxt
+%<cfgTxt>
+%closefile fcnBuff
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+extern real_T rt_remd_snf(\
+%assign comma = ""
+%<comma>real_T u0\
+%assign comma = ", "
+%<comma>real_T u1\
+%assign comma = ", "
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 1, fcnProtoType)>
+%return fcnBuff
+%endfunction
+

@@ -1,0 +1,37 @@
+!.gitignore
+
+# 追踪所有子目录和项目文件
+/*/
+!26xiaosai/
+!DC-DC/
+!LLC资料/
+!single_DC-AC_and_AC-DC/
+!stm32g474zbt6主控/
+!Three_phase_DCAC_and_ACDC/
+!UCC mos管驱动/
+!辅助电源/
+!工科赛—电机电压电流采样/
+!光伏发电/
+!光耦隔离继电器/
+!交流电压检测/
+!交直流电流检测/
+!直流电压检测/
+!重复控制器论文/
+
+# 超过100MB的大文件不上传git，改用 GitHub Releases 附件
+LLC资料/参考书籍/开关电源控制环路设计【ISBN号】9787111637233-14812141.pdf
+LLC资料/参考书籍/磁性元件理论（[美]Colonel We.T.Mclyman 卡罗尼尔．麦克莱曼编著 周京华等译 中国电力出版社2014年1月第4版）.pdf
+
+# 追踪根目录散落文件
+!*.pdf
+!*.docx
+!*.zip
+
+# 排除大文件（必须在 !*.pdf 之后，优先级更高）
+LLC资料/参考书籍/开关电源控制环路设计【ISBN号】9787111637233-14812141.pdf
+LLC资料/参考书籍/磁性元件理论（[美]Colonel We.T.Mclyman 卡罗尼尔．麦克莱曼编著 周京华等译 中国电力出版社2014年1月第4版）.pdf
+
+# Simulink 构建产物
+slprj/
+*.slxc
+*.autosave

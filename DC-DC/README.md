@@ -15,7 +15,11 @@ G1 双向 DC-DC 变换器
 | `Gerber_PCB_双向DC-DC_大电感_2024-05-11_2025-10-31.zip` | PCB Gerber 文件 |
 | `ir2104_mos管驱动芯片.pdf` | IR2104 驱动芯片 datasheet |
 | `仿真文件/` | 仿真模型 |
-| `相关论文/` | 参考资料 |
+| `相关论文/` | 参考资料（已移至 GitHub Release） |
+
+## 论文附件
+相关论文已打包上传至 [GitHub Releases](https://github.com/xiaobaby230521/program/releases/tag/%E8%AE%BA%E6%96%87%E9%99%84%E4%BB%B6_20260703)：
+- `papers_dcdc.zip` — DC-DC 相关论文（6 篇，42 MB）
 
 ## 备注
 - 本文件夹通过 git 备份至 `xiaobaby230521/program` 仓库

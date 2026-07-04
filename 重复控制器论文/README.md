@@ -16,5 +16,9 @@
 | `一种快速重复控制策略在APF中的实现和分析_宫金武.pdf` | APF快速重复控制 |
 | `重复控制及其在单相桥式逆变器上的验证研究_李大鹏.pdf` | 重复控制验证 |
 
+## 论文附件
+本目录下的 9 篇论文已打包上传至 [GitHub Releases](https://github.com/xiaobaby230521/program/releases/tag/%E8%AE%BA%E6%96%87%E9%99%84%E4%BB%B6_20260703)：
+- `papers_repetitive_control.zip` — 重复控制论文合集（9 篇，34 MB）
+
 ## 备注
 - 本文件夹通过 git 备份至 `xiaobaby230521/program` 仓库

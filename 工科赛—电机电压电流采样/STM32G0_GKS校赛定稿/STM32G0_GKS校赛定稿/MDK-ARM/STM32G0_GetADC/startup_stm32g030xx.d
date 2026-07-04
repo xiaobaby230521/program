@@ -1,0 +1,1 @@
+stm32g0_getadc\startup_stm32g030xx.o: startup_stm32g030xx.s

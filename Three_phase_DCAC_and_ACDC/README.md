@@ -12,16 +12,16 @@
 | `两电平三步法.../Ttype3Level_NPC_Inverter_svpwm_v3.slxc` | NPC逆变器SVPWM模型 |
 | `两电平三步法.../svpwm_calc.m` | SVPWM计算MATLAB脚本 |
 | `两电平三步法.../test.m` | 仿真测试脚本 |
-| `两电平三步法.../相关论文/` | SVPWM调制论文（2篇PDF） |
+| `两电平三步法.../相关论文/` | SVPWM调制论文（2篇PDF）— [下载](https://github.com/xiaobaby230521/program/releases/download/%E8%AE%BA%E6%96%87%E9%99%84%E4%BB%B6_20260703/papers_3ph_2level_related.zip) |
 | `三电平T型离网逆变/` | T型三电平离网逆变仿真 |
 | `三电平T型离网逆变/ThreeLevel_Ttype_OffGrid_Inverter_Sim.slx` | T型三电平离网逆变Simulink模型 |
-| `三电平T型离网逆变/论文/` | T型三电平逆变论文（4篇PDF） |
+| `三电平T型离网逆变/论文/` | T型三电平逆变论文（4篇PDF）— [下载](https://github.com/xiaobaby230521/program/releases/download/%E8%AE%BA%E6%96%87%E9%99%84%E4%BB%B6_20260703/papers_3ph_ttype_offgrid.zip) |
 | `三电平五步法、七步法、三次谐波注入法仿真/` | 三电平SVPWM仿真 |
 | `三电平五步法.../TType_OffGrid_Inverter_5Step_7Step_SVPWM_THIPWM_Sim.slx` | 五步法/七步法/三次谐波注入仿真 |
-| `三电平五步法.../论文/` | 三电平DPWM论文（2篇PDF） |
+| `三电平五步法.../论文/` | 三电平DPWM论文（2篇PDF）— [下载](https://github.com/xiaobaby230521/program/releases/download/%E8%AE%BA%E6%96%87%E9%99%84%E4%BB%B6_20260703/papers_3ph_5step_7step.zip) |
 | `锁相环/` | PLL仿真与论文 |
 | `锁相环/DSOGI_PLL_ThreePhase.slx` | 三相DSOGI-PLL Simulink仿真 |
-| `锁相环/*.pdf` | PLL相关论文（5篇PDF） |
+| `锁相环/*.pdf` | PLL相关论文（5篇PDF）— [下载](https://github.com/xiaobaby230521/program/releases/download/%E8%AE%BA%E6%96%87%E9%99%84%E4%BB%B6_20260703/papers_pll.zip) |
 
 ## 备注
 - 本文件夹通过 git 备份至 `xiaobaby230521/program` 仓库

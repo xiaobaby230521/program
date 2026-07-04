@@ -14,7 +14,7 @@
 | `奇次谐波重复控制及并网逆变器控制系统研究_马华国.pdf` | 奇次谐波控制 |
 | `一种高性能的单相逆变器多环控制方案_熊健.pdf` | 多环控制方案 |
 | `一种快速重复控制策略在APF中的实现和分析_宫金武.pdf` | APF快速重复控制 |
-| `重复控制及其在单相桥式逆变器上的验证研究_李大鹏.pdf` | 重复控制验证 |
+| `重复控制及其在单相桥式逆变器上的验证研究_李大鹏.pdf` | 重复控制验证 — [下载](https://github.com/xiaobaby230521/program/releases/download/%E8%AE%BA%E6%96%87%E9%99%84%E4%BB%B6_20260703/papers_repetitive_control.zip) |
 
 ## 备注
 - 本文件夹通过 git 备份至 `xiaobaby230521/program` 仓库

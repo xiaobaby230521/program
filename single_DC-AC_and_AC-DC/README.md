@@ -17,13 +17,13 @@
 | `单相逆变离并网和整流拓扑/*.epro` | 立创EDA 工程配置 |
 | `单相逆变并网/` | 单相并网逆变仿真与论文 |
 | `单相逆变并网/仿真/` | Simulink模型与MATLAB脚本 |
-| `单相逆变并网/论文/` | 并网逆变论文（13篇PDF） |
+| `单相逆变并网/论文/` | 并网逆变论文（13篇PDF）— [下载](https://github.com/xiaobaby230521/program/releases/download/%E8%AE%BA%E6%96%87%E9%99%84%E4%BB%B6_20260703/papers_single_gridtie.zip) |
 | `单相逆变离网/` | 单相离网逆变仿真与论文 |
 | `单相逆变离网/仿真文件/` | Simulink模型与MATLAB脚本 |
-| `单相逆变离网/论文/` | 离网逆变论文（14篇PDF） |
+| `单相逆变离网/论文/` | 离网逆变论文（14篇PDF）— [下载](https://github.com/xiaobaby230521/program/releases/download/%E8%AE%BA%E6%96%87%E9%99%84%E4%BB%B6_20260703/papers_single_offgrid.zip) |
 | `单相整流/` | 单相PWM整流仿真与论文 |
 | `单相整流/仿真/` | Simulink模型 |
-| `单相整流/论文/` | 整流论文（25篇PDF） |
+| `单相整流/论文/` | 整流论文（25篇PDF）— [下载](https://github.com/xiaobaby230521/program/releases/download/%E8%AE%BA%E6%96%87%E9%99%84%E4%BB%B6_20260703/papers_single_rectifier.zip) |
 
 ## 备注
 - 本文件夹通过 git 备份至 `xiaobaby230521/program` 仓库
